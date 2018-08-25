@@ -1,0 +1,39 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Greenbook.WPF.ContentItems"
+             xmlns:Entities="clr-namespace:Greenbook.Entities;assembly=Greenbook.Entities"
+             x:Class="Greenbook.WPF.ContentItems.ContentItemView"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <Binding Source="{StaticResource ViewModelLocator}"
+                 Path="ContentItemViewModel" />
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               Content="Name:" />
+        <TextBox x:Name="nameTextBox"
+                 Text="{Binding ContentItem.Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                 Grid.Row="0"
+                 Grid.Column="1" />
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               Content="Description:" />
+        <TextBox x:Name="descriptionTextBox"
+                 Text="{Binding ContentItem.Description, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True" />
+    </Grid>
+</UserControl>

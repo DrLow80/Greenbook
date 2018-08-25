@@ -1,0 +1,36 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Greenbook.WPF.ContentItems"
+             xmlns:entities="clr-namespace:Greenbook.Entities;assembly=Greenbook.Entities"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             x:Class="Greenbook.WPF.ContentItems.ContentItemListView"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <Binding Path="ContentItemListViewModel"
+                 Source="{StaticResource ViewModelLocator}" />
+    </UserControl.DataContext>
+    <ListBox ItemsSource="{Binding DataViewModel.ContentItems, Source={StaticResource ViewModelLocator}}"
+             SelectedItem="{Binding ContentItemViewModel.ContentItem, Source={StaticResource ViewModelLocator}}">
+        <ListBox.ItemTemplate>
+            <DataTemplate DataType="{x:Type entities:ContentItem}">
+                <DockPanel>
+                    <Image Height="50"
+                           Width="50"
+                           DockPanel.Dock="Left" />
+                    <TextBlock DockPanel.Dock="Top"
+                               Text="{Binding Name}" />
+                    <TextBlock Text="{Binding Description}" />
+                </DockPanel>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseDoubleClick">
+                <i:InvokeCommandAction
+                    Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
+                    CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel}" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+    </ListBox>
+</UserControl>
