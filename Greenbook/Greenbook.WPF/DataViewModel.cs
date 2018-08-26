@@ -15,7 +15,7 @@ namespace Greenbook.WPF
 
         public ObservableCollection<ContentItem> ContentItems { get; } = new ObservableCollection<ContentItem>();
 
-        public override void Load()
+        public void Load()
         {
             var result = _playloadService.Load();
 

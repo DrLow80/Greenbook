@@ -1,5 +1,6 @@
 ﻿using Greenbook.Services;
 using Greenbook.WPF.ContentItems;
+using Greenbook.WPF.Services;
 using Spring.Context.Attributes;
 
 namespace Greenbook.WPF
@@ -34,7 +35,13 @@ namespace Greenbook.WPF
         [Definition]
         public virtual ContentItemViewModel ContentItemViewModel()
         {
-            return new ContentItemViewModel();
+            return new ContentItemViewModel(DialogService());
+        }
+
+        [Definition]
+        public virtual IDialogService DialogService()
+        {
+            return new DialogService();
         }
     }
 }

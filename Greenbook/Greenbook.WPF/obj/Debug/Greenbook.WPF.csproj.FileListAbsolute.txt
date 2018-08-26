@@ -56,3 +56,5 @@ E:\repo\Greenbook\Greenbook\Greenbook.WPF\bin\Debug\zh-Hans\System.Windows.Inter
 E:\repo\Greenbook\Greenbook\Greenbook.WPF\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 E:\repo\Greenbook\Greenbook\Greenbook.WPF\obj\Debug\ContentItems\ContentItemView.g.cs
 E:\repo\Greenbook\Greenbook\Greenbook.WPF\obj\Debug\ContentItems\ContentItemView.baml
+E:\repo\Greenbook\Greenbook\Greenbook.WPF\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\repo\Greenbook\Greenbook\Greenbook.WPF\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml

@@ -5,23 +5,12 @@ namespace Greenbook.WPF
 {
     public abstract class HostBaseViewModel : BaseViewModel
     {
-        private BaseViewModel _baseViewModel;
-
         protected HostBaseViewModel()
         {
             NavigateCommand = new RelayCommand<BaseViewModel>(OnNavigate);
         }
 
-        public BaseViewModel CurrentViewModel
-        {
-            get => _baseViewModel;
-            set
-            {
-                _baseViewModel?.Unload();
-                _baseViewModel = value;
-                _baseViewModel?.Load();
-            }
-        }
+        public BaseViewModel CurrentViewModel { get; set; }
 
         public ICommand NavigateCommand { get; }
 

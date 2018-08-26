@@ -54,6 +54,7 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="ContentItem.cs" />
     <Compile Include="DataPayload.cs" />
+    <Compile Include="Encounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomUtilities.cs" />
   </ItemGroup>

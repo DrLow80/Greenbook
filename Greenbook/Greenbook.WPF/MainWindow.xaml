@@ -9,8 +9,9 @@
         x:Class="Greenbook.WPF.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="450"
-        Width="800">
+        Height="700"
+        Width="700"
+        WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <Binding Path="ApplicationViewModel"
                  Source="{StaticResource ViewModelLocator}" />

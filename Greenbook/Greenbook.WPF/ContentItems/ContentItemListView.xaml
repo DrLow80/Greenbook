@@ -12,7 +12,8 @@
                  Source="{StaticResource ViewModelLocator}" />
     </UserControl.DataContext>
     <ListBox ItemsSource="{Binding DataViewModel.ContentItems, Source={StaticResource ViewModelLocator}}"
-             SelectedItem="{Binding ContentItemViewModel.ContentItem, Source={StaticResource ViewModelLocator}}">
+             SelectedItem="{Binding ContentItemViewModel.ContentItem, Source={StaticResource ViewModelLocator}}"
+             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
         <ListBox.ItemTemplate>
             <DataTemplate DataType="{x:Type entities:ContentItem}">
                 <DockPanel>
@@ -21,7 +22,8 @@
                            DockPanel.Dock="Left" />
                     <TextBlock DockPanel.Dock="Top"
                                Text="{Binding Name}" />
-                    <TextBlock Text="{Binding Description}" />
+                    <TextBlock Text="{Binding Description}"
+                               TextWrapping="Wrap" />
                 </DockPanel>
             </DataTemplate>
         </ListBox.ItemTemplate>

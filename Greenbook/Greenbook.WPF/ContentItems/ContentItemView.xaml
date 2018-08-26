@@ -4,36 +4,105 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Greenbook.WPF.ContentItems"
              xmlns:Entities="clr-namespace:Greenbook.Entities;assembly=Greenbook.Entities"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              x:Class="Greenbook.WPF.ContentItems.ContentItemView"
              mc:Ignorable="d">
     <UserControl.DataContext>
         <Binding Source="{StaticResource ViewModelLocator}"
                  Path="ContentItemViewModel" />
     </UserControl.DataContext>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <ei:CallMethodAction MethodName="Load"
+                                 TargetObject="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-        <Label Grid.Row="0"
-               Grid.Column="0"
-               Content="Name:" />
-        <TextBox x:Name="nameTextBox"
-                 Text="{Binding ContentItem.Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
-                 Grid.Row="0"
-                 Grid.Column="1" />
-        <Label Grid.Row="1"
-               Grid.Column="0"
-               Content="Description:" />
-        <TextBox x:Name="descriptionTextBox"
-                 Text="{Binding ContentItem.Description, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
-                 Grid.Row="1"
-                 Grid.Column="1"
-                 TextWrapping="Wrap"
-                 AcceptsReturn="True" />
+        <GroupBox Header="Content">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button VerticalAlignment="Top"
+                        Command="{Binding SelectImageCommand}">
+                    <Image Height="100"
+                           Width="100"
+                           Source="{Binding ContentItem.ImageSource}" />
+                </Button>
+                <StackPanel Grid.Column="1"
+                            Grid.IsSharedSizeScope="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="Label" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Name:" />
+                        <TextBox Grid.Column="1"
+                                 Text="{Binding ContentItem.Name}" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="Label" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Description:" />
+                        <TextBox Grid.Column="1"
+                                 Text="{Binding ContentItem.Description}"
+                                 TextWrapping="Wrap"
+                                 AcceptsReturn="True"
+                                 AcceptsTab="True" />
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1"
+                  Header="Encounters">
+            <DockPanel Grid.Row="1">
+                <Menu DockPanel.Dock="Top">
+                    <MenuItem Header="Add"
+                              Command="{Binding AddCommand}" />
+                </Menu>
+                <ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding Encounters}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type Entities:Encounter}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0"
+                                           Grid.Column="0"
+                                           Content="Name:" />
+                                    <TextBox x:Name="nameTextBox"
+                                             Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                                             Grid.Row="0"
+                                             Grid.Column="1" />
+                                    <Label Grid.Row="1"
+                                           Grid.Column="0"
+                                           Content="Description:" />
+                                    <TextBox x:Name="descriptionTextBox"
+                                             Text="{Binding Description, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                                             Grid.Row="1"
+                                             Grid.Column="1"
+                                             TextWrapping="Wrap"
+                                             AcceptsReturn="True" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </DockPanel>
+        </GroupBox>
     </Grid>
 </UserControl>

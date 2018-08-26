@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDialogService.cs" />
     <Compile Include="PayloadService.cs" />
     <Compile Include="IPayloadService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

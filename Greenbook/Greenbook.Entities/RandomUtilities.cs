@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Greenbook.Entities
 {
@@ -223,7 +224,8 @@ namespace Greenbook.Entities
             {
                 Description = RandomDescription(),
                 Id = Guid.NewGuid(),
-                Name = RandomName()
+                Name = RandomName(),
+                Encounters = RandomList(1, 5, RandomEncounter).ToList()
             };
         }
 
@@ -242,6 +244,16 @@ namespace Greenbook.Entities
         private static string RandomName()
         {
             return string.Join(" ", RandomList(1, 5, RandomLipsum));
+        }
+
+        public static Encounter RandomEncounter()
+        {
+            return new Encounter
+            {
+                Id = Guid.NewGuid(),
+                Name = RandomName(),
+                Description = RandomDescription()
+            };
         }
     }
 }
