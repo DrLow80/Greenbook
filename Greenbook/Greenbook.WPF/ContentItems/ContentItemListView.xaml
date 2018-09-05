@@ -11,28 +11,75 @@
         <Binding Path="ContentItemListViewModel"
                  Source="{StaticResource ViewModelLocator}" />
     </UserControl.DataContext>
-    <ListBox ItemsSource="{Binding DataViewModel.ContentItems, Source={StaticResource ViewModelLocator}}"
-             SelectedItem="{Binding ContentItemViewModel.ContentItem, Source={StaticResource ViewModelLocator}}"
-             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-        <ListBox.ItemTemplate>
-            <DataTemplate DataType="{x:Type entities:ContentItem}">
-                <DockPanel>
-                    <Image Height="50"
-                           Width="50"
-                           DockPanel.Dock="Left" />
-                    <TextBlock DockPanel.Dock="Top"
-                               Text="{Binding Name}" />
-                    <TextBlock Text="{Binding Description}"
-                               TextWrapping="Wrap" />
-                </DockPanel>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-        <i:Interaction.Triggers>
-            <i:EventTrigger EventName="MouseDoubleClick">
-                <i:InvokeCommandAction
-                    Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
-                    CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel}" />
-            </i:EventTrigger>
-        </i:Interaction.Triggers>
-    </ListBox>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Add"
+                      Margin="5">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel.CreateCommand}"></i:InvokeCommandAction>
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=DataViewModel.AddContentItemCommand}"
+                                               CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel.ContentItem}"></i:InvokeCommandAction>
+                        <i:InvokeCommandAction Command="{Binding ApplicationViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
+                                               CommandParameter="{Binding ContentItemViewModel, Source={StaticResource ViewModelLocator}}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </MenuItem>
+        </Menu>
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  BorderThickness="0">
+            <ListView.Resources>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="HorizontalContentAlignment"
+                            Value="Stretch" />
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemsSource>
+                <Binding Path="DataViewModel.ContentItems"
+                         Source="{StaticResource ViewModelLocator}" />
+            </ListView.ItemsSource>
+            <ListView.SelectedItem>
+                <Binding Path="ContentItemViewModel.ContentItem"
+                         Source="{StaticResource ViewModelLocator}" />
+            </ListView.SelectedItem>
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="{x:Type entities:ContentItem}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Width="50"
+                               Height="50"
+                               Margin="5" />
+                        <Grid Grid.Column="1"
+                              Width="Auto"
+                              Margin="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Name}"
+                                       Grid.Column="0"
+                                       MinWidth="50"
+                                       Margin="5,0,5,5" />
+                            <TextBlock Text="{Binding Description}"
+                                       TextWrapping="Wrap"
+                                       Grid.Column="0"
+                                       Grid.Row="1"
+                                       MinWidth="50"
+                                       Margin="5" />
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding ApplicationViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
+                                           CommandParameter="{Binding ContentItemViewModel, Source={StaticResource ViewModelLocator}}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListView>
+    </DockPanel>
 </UserControl>

@@ -18,91 +18,113 @@
                                  TargetObject="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
+    <Grid Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <GroupBox Header="Content">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Button VerticalAlignment="Top"
-                        Command="{Binding SelectImageCommand}">
-                    <Image Height="100"
-                           Width="100"
-                           Source="{Binding ContentItem.ImageSource}" />
-                </Button>
-                <StackPanel Grid.Column="1"
-                            Grid.IsSharedSizeScope="True">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition SharedSizeGroup="Label" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="Name:" />
-                        <TextBox Grid.Column="1"
-                                 Text="{Binding ContentItem.Name}" />
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition SharedSizeGroup="Label" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="Description:" />
-                        <TextBox Grid.Column="1"
-                                 Text="{Binding ContentItem.Description}"
-                                 TextWrapping="Wrap"
-                                 AcceptsReturn="True"
-                                 AcceptsTab="True" />
-                    </Grid>
-                </StackPanel>
-            </Grid>
-        </GroupBox>
-        <GroupBox Grid.Row="1"
-                  Header="Encounters">
-            <DockPanel Grid.Row="1">
-                <Menu DockPanel.Dock="Top">
-                    <MenuItem Header="Add"
-                              Command="{Binding AddCommand}" />
-                </Menu>
-                <ScrollViewer>
-                    <ItemsControl ItemsSource="{Binding Encounters}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate DataType="{x:Type Entities:Encounter}">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition />
-                                        <RowDefinition />
-                                    </Grid.RowDefinitions>
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button VerticalAlignment="Top"
+                    Command="{Binding SelectImageCommand}"
+                    Margin="5"
+                    Width="150"
+                    Height="150">
+                <Image Source="{Binding ContentItem.ImageSource}" />
+            </Button>
+            <StackPanel Grid.Column="1"
+                        Grid.IsSharedSizeScope="True">
+                <TextBlock Text="Name:"
+                           Margin="5,0" />
+                <TextBox Text="{Binding ContentItem.Name}"
+                         Margin="5,0,5,5" />
+                <TextBlock Text="Type:"
+                           Margin="5,5,5,0"></TextBlock>
+                <ComboBox Margin="5,0,5,5"
+                          SelectedItem="{Binding ContentItem.ContentType}"
+                          ItemsSource="{Binding Source={StaticResource ViewModelLocator}, Path=DataViewModel.ContentItemTypes}"></ComboBox>
+                <TextBlock Text="Description:"
+                           Margin="5,5,5,0" />
+                <TextBox Text="{Binding ContentItem.Description}"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         AcceptsTab="True"
+                         Margin="5,0,5,5" />
+            </StackPanel>
+        </Grid>
+        <DockPanel Grid.Row="1"
+                   Margin="0">
+            <Menu DockPanel.Dock="Top"
+                  Margin="0,5,0,0">
+                <MenuItem Header="Add"
+                          Command="{Binding AddCommand}"
+                          Margin="5">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <ei:CallMethodAction MethodName="ScrollToBottom"
+                                                 TargetObject="{Binding ElementName=EncountersScrollViewer}"></ei:CallMethodAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+            </Menu>
+            <ScrollViewer x:Name="EncountersScrollViewer"
+                          Margin="0">
+                <ItemsControl ItemsSource="{Binding Encounters}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type Entities:Encounter}">
+                            <Grid Margin="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid Margin="5,0">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition />
+                                        <ColumnDefinition Width="50" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Row="0"
-                                           Grid.Column="0"
-                                           Content="Name:" />
-                                    <TextBox x:Name="nameTextBox"
-                                             Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
-                                             Grid.Row="0"
-                                             Grid.Column="1" />
-                                    <Label Grid.Row="1"
-                                           Grid.Column="0"
-                                           Content="Description:" />
+                                    <StackPanel Grid.ColumnSpan="1"
+                                                Margin="0">
+                                        <Label Content="Name:"
+                                               Margin="0,0,0,5" />
+                                        <TextBox x:Name="nameTextBox"
+                                                 Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                                                 Margin="5,0,5,5" />
+                                    </StackPanel>
+                                    <Button Content="Remove"
+                                            Grid.Column="1"
+                                            Margin="5"
+                                            Command="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel.RemoveCommand}"
+                                            CommandParameter="{Binding}" />
+                                </Grid>
+                                <StackPanel Orientation="Vertical"
+                                            Grid.Row="1"
+                                            Margin="5,0">
+                                    <Label Content="Description:"
+                                           Height="Auto"
+                                           Margin="0,5"
+                                           Width="Auto" />
                                     <TextBox x:Name="descriptionTextBox"
                                              Text="{Binding Description, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
-                                             Grid.Row="1"
-                                             Grid.Column="1"
                                              TextWrapping="Wrap"
-                                             AcceptsReturn="True" />
-                                </Grid>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
-            </DockPanel>
-        </GroupBox>
+                                             AcceptsReturn="True"
+                                             Height="Auto"
+                                             Margin="5,0,5,5" />
+                                </StackPanel>
+                                <Border BorderBrush="Black"
+                                        BorderThickness="0,0,0,1"
+                                        Height="Auto"
+                                        Width="Auto"
+                                        Grid.Row="2"
+                                        Margin="0,5" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </DockPanel>
     </Grid>
 </UserControl>

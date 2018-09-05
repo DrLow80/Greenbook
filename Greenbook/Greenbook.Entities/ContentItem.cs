@@ -7,5 +7,7 @@ namespace Greenbook.Entities
         public List<Encounter> Encounters { get; set; } = new List<Encounter>();
 
         public string ImageSource { get; set; } = @"E:\Imports\Images\larry-wilson-impish-imp-final.jpg";
+
+        public string ContentType { get; set; } = "Test";
     }
 }

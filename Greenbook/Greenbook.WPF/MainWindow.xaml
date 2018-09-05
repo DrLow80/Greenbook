@@ -26,7 +26,8 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Content"
                       Command="{Binding ApplicationViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
-                      CommandParameter="{Binding ContentItemListViewModel, Source={StaticResource ViewModelLocator}}" />
+                      CommandParameter="{Binding ContentItemListViewModel, Source={StaticResource ViewModelLocator}}"
+                      Margin="5" />
         </Menu>
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>

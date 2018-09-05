@@ -1,8 +1,8 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
-using Greenbook.Entities;
+﻿using Greenbook.Entities;
 using Greenbook.Services;
 using Greenbook.WPF.View.ViewModel;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace Greenbook.WPF.ContentItems
 {
@@ -13,17 +13,32 @@ namespace Greenbook.WPF.ContentItems
         public ContentItemViewModel(IDialogService dialogService)
         {
             _dialogService = dialogService;
-            AddCommand = new RelayCommand(OnAdd);
-            SelectImageCommand = new RelayCommand(OnSelectImage);
         }
 
-        public ICommand AddCommand { get; }
+        private void OnCreate(object obj)
+        {
+            ContentItem = new ContentItem();
+        }
+
+        public ICommand AddCommand => new RelayCommand(OnAdd);
 
         public ContentItem ContentItem { get; set; }
 
         public ObservableCollection<Encounter> Encounters { get; } = new ObservableCollection<Encounter>();
 
-        public ICommand SelectImageCommand { get; }
+        public ICommand SelectImageCommand => new RelayCommand(OnSelectImage);
+
+        public ICommand CreateCommand => new RelayCommand(OnCreate);
+
+        public ICommand RemoveCommand => new RelayCommand<Encounter>(OnRemove);
+
+        private void OnRemove(Encounter obj)
+        {
+            if (Encounters.Contains(obj))
+            {
+                Encounters.Remove(obj);
+            }
+        }
 
         public void Load()
         {

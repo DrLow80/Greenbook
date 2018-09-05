@@ -8,3 +8,13 @@ E:\repo\Greenbook\Greenbook\Greenbook.Services\obj\Debug\Greenbook.Services.cspr
 E:\repo\Greenbook\Greenbook\Greenbook.Services\obj\Debug\Greenbook.Services.csproj.CopyComplete
 E:\repo\Greenbook\Greenbook\Greenbook.Services\obj\Debug\Greenbook.Services.dll
 E:\repo\Greenbook\Greenbook\Greenbook.Services\obj\Debug\Greenbook.Services.pdb
+C:\source\repo\Greenbook\Greenbook\Greenbook.Services\bin\Debug\Greenbook.Services.dll
+C:\source\repo\Greenbook\Greenbook\Greenbook.Services\bin\Debug\Greenbook.Services.pdb
+C:\source\repo\Greenbook\Greenbook\Greenbook.Services\bin\Debug\CSharpFunctionalExtensions.dll
+C:\source\repo\Greenbook\Greenbook\Greenbook.Services\bin\Debug\Greenbook.Entities.dll
+C:\source\repo\Greenbook\Greenbook\Greenbook.Services\bin\Debug\Greenbook.Entities.pdb
+C:\source\repo\Greenbook\Greenbook\Greenbook.Services\obj\Debug\Greenbook.Services.csprojAssemblyReference.cache
+C:\source\repo\Greenbook\Greenbook\Greenbook.Services\obj\Debug\Greenbook.Services.csproj.CoreCompileInputs.cache
+C:\source\repo\Greenbook\Greenbook\Greenbook.Services\obj\Debug\Greenbook.Services.csproj.CopyComplete
+C:\source\repo\Greenbook\Greenbook\Greenbook.Services\obj\Debug\Greenbook.Services.dll
+C:\source\repo\Greenbook\Greenbook\Greenbook.Services\obj\Debug\Greenbook.Services.pdb
