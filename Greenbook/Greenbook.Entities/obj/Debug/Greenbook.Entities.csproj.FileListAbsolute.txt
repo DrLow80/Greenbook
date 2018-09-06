@@ -24,3 +24,16 @@ C:\source\repo\Greenbook\Greenbook\Greenbook.Entities\obj\Debug\Greenbook.Entiti
 C:\source\repo\Greenbook\Greenbook\Greenbook.Entities\obj\Debug\Greenbook.Entities.csproj.CopyComplete
 C:\source\repo\Greenbook\Greenbook\Greenbook.Entities\obj\Debug\Greenbook.Entities.dll
 C:\source\repo\Greenbook\Greenbook\Greenbook.Entities\obj\Debug\Greenbook.Entities.pdb
+C:\repos\Greenbook\Greenbook\Greenbook.Entities\bin\Debug\Greenbook.Entities.dll
+C:\repos\Greenbook\Greenbook\Greenbook.Entities\bin\Debug\Greenbook.Entities.pdb
+C:\repos\Greenbook\Greenbook\Greenbook.Entities\bin\Debug\Common.Logging.dll
+C:\repos\Greenbook\Greenbook\Greenbook.Entities\bin\Debug\PropertyChanged.dll
+C:\repos\Greenbook\Greenbook\Greenbook.Entities\bin\Debug\Spring.Core.dll
+C:\repos\Greenbook\Greenbook\Greenbook.Entities\bin\Debug\PropertyChanged.xml
+C:\repos\Greenbook\Greenbook\Greenbook.Entities\bin\Debug\Spring.Core.pdb
+C:\repos\Greenbook\Greenbook\Greenbook.Entities\bin\Debug\Spring.Core.xml
+C:\repos\Greenbook\Greenbook\Greenbook.Entities\obj\Debug\Greenbook.Entities.csprojAssemblyReference.cache
+C:\repos\Greenbook\Greenbook\Greenbook.Entities\obj\Debug\Greenbook.Entities.csproj.CoreCompileInputs.cache
+C:\repos\Greenbook\Greenbook\Greenbook.Entities\obj\Debug\Greenbook.Entities.csproj.CopyComplete
+C:\repos\Greenbook\Greenbook\Greenbook.Entities\obj\Debug\Greenbook.Entities.dll
+C:\repos\Greenbook\Greenbook\Greenbook.Entities\obj\Debug\Greenbook.Entities.pdb

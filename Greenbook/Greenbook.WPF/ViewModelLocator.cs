@@ -1,4 +1,5 @@
 ﻿using Greenbook.WPF.ContentItems;
+using Greenbook.WPF.Sessions;
 
 namespace Greenbook.WPF
 {
@@ -14,5 +15,11 @@ namespace Greenbook.WPF
 
         public static ContentItemViewModel ContentItemViewModel =>
             SpringContext.GetObject<ContentItemViewModel>(nameof(ContentItemViewModel));
+
+        public static SessionViewModel SessionViewModel =>
+            SpringContext.GetObject<SessionViewModel>(nameof(SessionViewModel));
+
+        public static ListSessionsViewModel ListSessionsViewModel =>
+            SpringContext.GetObject<ListSessionsViewModel>(nameof(ListSessionsViewModel));
     }
 }

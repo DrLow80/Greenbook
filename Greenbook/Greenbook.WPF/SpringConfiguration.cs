@@ -1,6 +1,7 @@
 ﻿using Greenbook.Services;
 using Greenbook.WPF.ContentItems;
 using Greenbook.WPF.Services;
+using Greenbook.WPF.Sessions;
 using Spring.Context.Attributes;
 
 namespace Greenbook.WPF
@@ -42,6 +43,18 @@ namespace Greenbook.WPF
         public virtual IDialogService DialogService()
         {
             return new DialogService();
+        }
+
+        [Definition]
+        public virtual SessionViewModel SessionViewModel()
+        {
+            return new SessionViewModel();
+        }
+
+        [Definition]
+        public virtual ListSessionsViewModel ListSessionsViewModel()
+        {
+            return new ListSessionsViewModel();
         }
     }
 }

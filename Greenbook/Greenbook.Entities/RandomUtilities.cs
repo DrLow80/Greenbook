@@ -218,6 +218,11 @@ namespace Greenbook.Entities
             return list;
         }
 
+        public static Session RandomSession()
+        {
+            return new Session();
+        }
+
         public static ContentItem RandomContentItem()
         {
             return new ContentItem

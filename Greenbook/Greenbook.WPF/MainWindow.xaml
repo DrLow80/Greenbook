@@ -6,6 +6,7 @@
         xmlns:contentItems="clr-namespace:Greenbook.WPF.ContentItems"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:sessions="clr-namespace:Greenbook.WPF.Sessions"
         x:Class="Greenbook.WPF.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow"
@@ -28,6 +29,9 @@
                       Command="{Binding ApplicationViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
                       CommandParameter="{Binding ContentItemListViewModel, Source={StaticResource ViewModelLocator}}"
                       Margin="5" />
+            <MenuItem Header="Sessions"
+                      Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
+                      CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=ListSessionsViewModel}"></MenuItem>
         </Menu>
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
@@ -36,6 +40,12 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type contentItems:ContentItemViewModel}">
                     <contentItems:ContentItemView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type sessions:ListSessionsViewModel}">
+                    <sessions:ListSessionsView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type sessions:SessionViewModel}">
+                    <sessions:SessionView/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
