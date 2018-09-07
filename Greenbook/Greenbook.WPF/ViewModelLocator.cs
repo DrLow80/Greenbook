@@ -19,7 +19,7 @@ namespace Greenbook.WPF
         public static SessionViewModel SessionViewModel =>
             SpringContext.GetObject<SessionViewModel>(nameof(SessionViewModel));
 
-        public static ListSessionsViewModel ListSessionsViewModel =>
-            SpringContext.GetObject<ListSessionsViewModel>(nameof(ListSessionsViewModel));
+        public static SessionListViewModel SessionListViewModel =>
+            SpringContext.GetObject<SessionListViewModel>(nameof(SessionListViewModel));
     }
 }

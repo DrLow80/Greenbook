@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Greenbook.WPF.Sessions
 {
-    public class ListSessionsViewModel : BaseViewModel
+    public class SessionListViewModel : BaseViewModel
     {
     }
 }

@@ -178,3 +178,7 @@ C:\repos\Greenbook\Greenbook\Greenbook.WPF\obj\Debug\Sessions\ListSessionsView.g
 C:\repos\Greenbook\Greenbook\Greenbook.WPF\obj\Debug\Sessions\ListSessionsView.baml
 C:\repos\Greenbook\Greenbook\Greenbook.WPF\obj\Debug\Sessions\SessionView.g.cs
 C:\repos\Greenbook\Greenbook\Greenbook.WPF\obj\Debug\Sessions\SessionView.baml
+E:\repo\Greenbook\Greenbook\Greenbook.WPF\obj\Debug\Sessions\SessionView.g.cs
+E:\repo\Greenbook\Greenbook\Greenbook.WPF\obj\Debug\Sessions\SessionView.baml
+E:\repo\Greenbook\Greenbook\Greenbook.WPF\obj\Debug\Sessions\SessionListView.g.cs
+E:\repo\Greenbook\Greenbook\Greenbook.WPF\obj\Debug\Sessions\SessionListView.baml

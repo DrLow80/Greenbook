@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Greenbook.WPF.Sessions
 {
     /// <summary>
-    /// Interaction logic for ListSessionsView.xaml
+    /// Interaction logic for SessionListView.xaml
     /// </summary>
-    public partial class ListSessionsView : UserControl
+    public partial class SessionListView : UserControl
     {
-        public ListSessionsView()
+        public SessionListView()
         {
             InitializeComponent();
         }

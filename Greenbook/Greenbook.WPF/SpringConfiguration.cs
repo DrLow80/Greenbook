@@ -52,9 +52,9 @@ namespace Greenbook.WPF
         }
 
         [Definition]
-        public virtual ListSessionsViewModel ListSessionsViewModel()
+        public virtual SessionListViewModel SessionListViewModel()
         {
-            return new ListSessionsViewModel();
+            return new SessionListViewModel();
         }
     }
 }
