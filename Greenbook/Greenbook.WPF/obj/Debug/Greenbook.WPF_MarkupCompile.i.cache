@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\repo\Greenbook\Greenbook\Greenbook.WPF\obj\Debug\
+C:\repo\Greenbook\Greenbook\Greenbook.WPF\obj\Debug\
 Greenbook.WPF
 none
 false
 DEBUG;TRACE
-E:\repo\Greenbook\Greenbook\Greenbook.WPF\App.xaml
-5-2080932327
+C:\repo\Greenbook\Greenbook\Greenbook.WPF\App.xaml
+6-2133256704
 
-261448212423
-23-178369222
-ContentItems\ContentItemListView.xaml;ContentItems\ContentItemView.xaml;MainWindow.xaml;Sessions\SessionListView.xaml;Sessions\SessionView.xaml;
+28-674657885
+231078916984
+ContentItems\ContentItemListView.xaml;ContentItems\ContentItemView.xaml;MainWindow.xaml;Sessions\SessionListView.xaml;Sessions\SessionView.xaml;UserControls\EncountersListControl.xaml;
 
 True
 

@@ -220,7 +220,11 @@ namespace Greenbook.Entities
 
         public static Session RandomSession()
         {
-            return new Session();
+            return new Session()
+            {
+                Name = RandomName(),
+                Encounters = RandomList(3, 5, RandomEncounter).ToList()
+            };
         }
 
         public static ContentItem RandomContentItem()
@@ -230,7 +234,7 @@ namespace Greenbook.Entities
                 Description = RandomDescription(),
                 Id = Guid.NewGuid(),
                 Name = RandomName(),
-                Encounters = RandomList(1, 5, RandomEncounter).ToList()
+                Encounters = RandomList(3, 5, RandomEncounter).ToList()
             };
         }
 
@@ -257,8 +261,13 @@ namespace Greenbook.Entities
             {
                 Id = Guid.NewGuid(),
                 Name = RandomName(),
-                Description = RandomDescription()
+                Description = RandomDescription(),
             };
+        }
+
+        private static bool RandomBool()
+        {
+            return RandomInt(1, 10) % 5 == 0;
         }
     }
 }

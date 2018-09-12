@@ -88,6 +88,7 @@
     <Compile Include="ContentItems\ContentItemViewModel.cs" />
     <Compile Include="DataViewModel.cs" />
     <Compile Include="HostBaseViewModel.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Sessions\SessionListView.xaml.cs">
@@ -100,6 +101,9 @@
     <Compile Include="Sessions\SessionViewModel.cs" />
     <Compile Include="SpringConfiguration.cs" />
     <Compile Include="SpringContext.cs" />
+    <Compile Include="UserControls\EncountersListControl.xaml.cs">
+      <DependentUpon>EncountersListControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModelLocator.cs" />
     <Page Include="ContentItems\ContentItemListView.xaml">
       <SubType>Designer</SubType>
@@ -126,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Sessions\SessionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\EncountersListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

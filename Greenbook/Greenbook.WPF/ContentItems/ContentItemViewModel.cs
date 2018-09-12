@@ -2,6 +2,7 @@
 using Greenbook.Services;
 using Greenbook.WPF.View.ViewModel;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace Greenbook.WPF.ContentItems
@@ -38,6 +39,8 @@ namespace Greenbook.WPF.ContentItems
             {
                 Encounters.Remove(obj);
             }
+
+            ContentItem.Encounters.Remove(obj);
         }
 
         public void Load()
@@ -62,5 +65,7 @@ namespace Greenbook.WPF.ContentItems
 
             if (result.IsSuccess) ContentItem.ImageSource = result.Value;
         }
+
+      
     }
 }

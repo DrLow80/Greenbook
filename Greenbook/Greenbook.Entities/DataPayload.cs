@@ -12,6 +12,7 @@ namespace Greenbook.Entities
         }
 
         public IEnumerable<ContentItem> ContentItems { get; }
+
         public IEnumerable<string> ContentItemTypes { get; }
 
         public IEnumerable<Session> Sessions { get; }
