@@ -31,7 +31,8 @@
                       Margin="5" />
             <MenuItem Header="Sessions"
                       Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
-                      CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionListViewModel}"></MenuItem>
+                      CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionListViewModel}"
+                      Margin="5"></MenuItem>
         </Menu>
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>

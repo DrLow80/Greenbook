@@ -3,6 +3,7 @@ using Greenbook.Entities;
 using Greenbook.Services;
 using Greenbook.WPF.View.ViewModel;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows.Input;
 
 namespace Greenbook.WPF
@@ -60,5 +61,12 @@ namespace Greenbook.WPF
         public ICommand AddContentItemCommand => new RelayCommand<ContentItem>(OnAddContentItem);
 
         public ObservableCollection<string> ContentItemTypes { get; private set; } = new ObservableCollection<string>();
+
+        public ICommand ScanCommand => new RelayCommand<Encounter>(OnScan);
+
+        private static void OnScan(Encounter obj)
+        {
+            
+        }
     }
 }

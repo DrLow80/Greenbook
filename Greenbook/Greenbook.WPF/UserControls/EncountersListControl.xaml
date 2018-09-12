@@ -59,7 +59,15 @@
                                          Text="{Binding Description, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
                                          TextWrapping="Wrap"
                                          AcceptsReturn="True"
-                                         Margin="5" />
+                                         Margin="5">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="LostFocus">
+                                            <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=DataViewModel.ScanCommand}"
+                                                                   CommandParameter="{Binding}"></i:InvokeCommandAction>
+                                            
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </TextBox>
                                 <Border BorderBrush="Black"
                                         BorderThickness="0,0,0,1"
                                         Height="Auto"
