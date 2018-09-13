@@ -4,6 +4,7 @@ using Greenbook.Services;
 using Greenbook.WPF.View.ViewModel;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Input;
 
 namespace Greenbook.WPF
@@ -64,9 +65,23 @@ namespace Greenbook.WPF
 
         public ICommand ScanCommand => new RelayCommand<Encounter>(OnScan);
 
-        private static void OnScan(Encounter obj)
+        private void OnScan(Encounter obj)
         {
-            
+            var nameParser = new ContentNameParser(obj.Description);
+
+            foreach (var name in nameParser)
+            {
+                var contentItem = ContentItems.FirstOrDefault(x => x.Name.Equals(name.LowerName, StringComparison.OrdinalIgnoreCase));
+
+                if (contentItem != null) continue;
+
+                contentItem = new ContentItem()
+                {
+                    Name = name.Name
+                };
+
+                ContentItems.Add(contentItem);
+            }
         }
     }
 }
