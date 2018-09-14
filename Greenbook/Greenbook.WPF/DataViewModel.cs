@@ -6,16 +6,17 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
+using Greenbook.WPF.Extensions;
 
 namespace Greenbook.WPF
 {
     public class DataViewModel : BaseViewModel
     {
-        private readonly IPayloadService _playloadService;
+        private readonly IPayloadService _payloadService;
 
-        public DataViewModel(IPayloadService playloadService)
+        public DataViewModel(IPayloadService payloadService)
         {
-            _playloadService = playloadService;
+            _payloadService = payloadService;
         }
 
         private void OnAddContentItem(ContentItem obj)
@@ -30,21 +31,15 @@ namespace Greenbook.WPF
 
         public void Load()
         {
-            var result = _playloadService.Load();
+            var result = _payloadService.Load();
 
             if (result.IsFailure) return;
 
-            ContentItems.Clear();
+            ContentItems.ClearAndLoad(result.Value.ContentItems);
 
-            foreach (var contentItem in result.Value.ContentItems) ContentItems.Add(contentItem);
+            ContentItemTypes.ClearAndLoad(result.Value.ContentItemTypes);
 
-            ContentItemTypes.Clear();
-
-            foreach (var contentItemType in result.Value.ContentItemTypes) ContentItemTypes.Add(contentItemType);
-
-            Sessions.Clear();
-
-            foreach (var session in result.Value.Sessions) Sessions.Add(session);
+            Sessions.ClearAndLoad(result.Value.Sessions);
         }
 
         public ICommand AddSessionCommand => new RelayCommand<Session>(OnAddSession);

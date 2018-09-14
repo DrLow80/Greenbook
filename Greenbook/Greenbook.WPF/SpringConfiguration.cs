@@ -56,5 +56,11 @@ namespace Greenbook.WPF
         {
             return new SessionListViewModel();
         }
+
+        [Definition]
+        public virtual SessionPrintViewModel SessionPrintViewModel()
+        {
+            return new SessionPrintViewModel();
+        }
     }
 }

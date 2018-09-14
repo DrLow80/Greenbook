@@ -48,6 +48,9 @@
                 <DataTemplate DataType="{x:Type sessions:SessionViewModel}">
                     <sessions:SessionView/>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type sessions:SessionPrintViewModel}">
+                    <sessions:SessionPrintView/>
+                </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
     </DockPanel>

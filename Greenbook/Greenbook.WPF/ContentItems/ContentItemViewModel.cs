@@ -1,9 +1,9 @@
-﻿using Greenbook.Entities;
-using Greenbook.Services;
-using Greenbook.WPF.View.ViewModel;
-using System.Collections.ObjectModel;
-using System.Linq;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Greenbook.Entities;
+using Greenbook.Services;
+using Greenbook.WPF.Extensions;
+using Greenbook.WPF.View.ViewModel;
 
 namespace Greenbook.WPF.ContentItems
 {
@@ -14,11 +14,6 @@ namespace Greenbook.WPF.ContentItems
         public ContentItemViewModel(IDialogService dialogService)
         {
             _dialogService = dialogService;
-        }
-
-        private void OnCreate(object obj)
-        {
-            ContentItem = new ContentItem();
         }
 
         public ICommand AddCommand => new RelayCommand(OnAdd);
@@ -33,21 +28,21 @@ namespace Greenbook.WPF.ContentItems
 
         public ICommand RemoveCommand => new RelayCommand<Encounter>(OnRemove);
 
+        private void OnCreate(object obj)
+        {
+            ContentItem = new ContentItem();
+        }
+
         private void OnRemove(Encounter obj)
         {
-            if (Encounters.Contains(obj))
-            {
-                Encounters.Remove(obj);
-            }
+            if (Encounters.Contains(obj)) Encounters.Remove(obj);
 
             ContentItem.Encounters.Remove(obj);
         }
 
         public void Load()
         {
-            Encounters.Clear();
-
-            foreach (var encounter in ContentItem.Encounters) Encounters.Add(encounter);
+            Encounters.ClearAndLoad(ContentItem.Encounters);
         }
 
         private void OnAdd(object obj)
@@ -65,7 +60,5 @@ namespace Greenbook.WPF.ContentItems
 
             if (result.IsSuccess) ContentItem.ImageSource = result.Value;
         }
-
-      
     }
 }

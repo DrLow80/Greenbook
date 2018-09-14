@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Greenbook.WPF.Sessions.SessionPrintView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Greenbook.WPF.Sessions"
+             xmlns:entities="clr-namespace:Greenbook.Entities;assembly=Greenbook.Entities"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <!--<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.Session}">
+            <TextBlock Margin="5"
+                       Text="{Binding Name}"></TextBlock>
+            <ItemsControl ItemsSource="{Binding Encounters}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type entities:Encounter}">
+                        <StackPanel>
+                            <TextBlock Margin="5"
+                                       Text="{Binding Name}"></TextBlock>
+                            <TextBlock Margin="5"
+                                       Text="{Binding Description}"
+                                       TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <ItemsControl DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel}"
+                          ItemsSource="{Binding ContentItems}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type entities:Encounter}">
+                        <StackPanel>
+                            <TextBlock Margin="5"
+                                       Text="{Binding Name}"></TextBlock>
+                            <TextBlock Margin="5"
+                                       Text="{Binding Description}"
+                                       TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </Grid>-->
+
+    <FlowDocumentReader x:Name="FlowDocumentReader">
+        <FlowDocument>
+            <Paragraph>
+                <Run Text="Hi"></Run>
+            </Paragraph>
+        </FlowDocument>
+    </FlowDocumentReader>
+</UserControl>

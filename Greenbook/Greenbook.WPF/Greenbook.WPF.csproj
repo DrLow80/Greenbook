@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="ContentItems\ContentItemViewModel.cs" />
     <Compile Include="DataViewModel.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="HostBaseViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="RelayCommand.cs" />
@@ -95,6 +96,10 @@
       <DependentUpon>SessionListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sessions\SessionListViewModel.cs" />
+    <Compile Include="Sessions\SessionPrintView.xaml.cs">
+      <DependentUpon>SessionPrintView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sessions\SessionPrintViewModel.cs" />
     <Compile Include="Sessions\SessionView.xaml.cs">
       <DependentUpon>SessionView.xaml</DependentUpon>
     </Compile>
@@ -126,6 +131,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Sessions\SessionListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sessions\SessionPrintView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
