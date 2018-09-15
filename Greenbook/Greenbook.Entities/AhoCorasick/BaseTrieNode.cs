@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
+using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
 
 namespace Greenbook.Entities.AhoCorasick
 {
@@ -13,14 +13,14 @@ namespace Greenbook.Entities.AhoCorasick
         {
             Guard.ArgumentNotNull(fragment, nameof(fragment));
 
-            this.Fragment = fragment;
+            Fragment = fragment;
         }
 
         public BaseTrieNode FailNode { get; protected set; }
 
         public string Fragment { get; }
 
-        public bool IsMatch => !string.IsNullOrEmpty(this.Term);
+        public bool IsMatch => !string.IsNullOrEmpty(Term);
 
         public string Term { get; protected set; }
 
@@ -28,18 +28,18 @@ namespace Greenbook.Entities.AhoCorasick
 
         public IEnumerator<BaseTrieNode> GetEnumerator()
         {
-            foreach (var characterNode in this.CharacterNodes.Values)
+            foreach (var characterNode in CharacterNodes.Values)
             {
                 yield return characterNode;
 
-                foreach (var childNode in characterNode)
-                {
-                    yield return childNode;
-                }
+                foreach (var childNode in characterNode) yield return childNode;
             }
         }
 
-        IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
 
         public abstract BaseTrieNode Seek(char character);
 
@@ -47,14 +47,14 @@ namespace Greenbook.Entities.AhoCorasick
         {
             Guard.ArgumentNotNull(baseNode, nameof(baseNode));
 
-            this.FailNode = baseNode;
+            FailNode = baseNode;
         }
 
         public virtual void UpdateTerm(string term)
         {
             Guard.ArgumentNotNullOrEmpty(term, nameof(term));
 
-            this.Term = term;
+            Term = term;
         }
     }
 }

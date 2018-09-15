@@ -9,7 +9,7 @@ namespace Greenbook.Entities
 
         public ContentNameParser(string value)
         {
-            this._value = value;
+            _value = value;
         }
 
         public IEnumerator<ContentName> GetEnumerator()
@@ -20,10 +20,7 @@ namespace Greenbook.Entities
             {
                 var result = ContentName.Create(name);
 
-                if (result.IsSuccess)
-                {
-                    yield return result.Value;
-                }
+                if (result.IsSuccess) yield return result.Value;
             }
         }
 

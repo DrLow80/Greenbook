@@ -7,9 +7,8 @@ namespace Greenbook.Entities.AhoCorasick.Iterators
 {
     public class SessionTrieIterator : ITrieIterator, IEnumerable<ContentItem>
     {
-        private readonly Session _session;
-
         private readonly IEnumerable<ContentItem> _contentItems;
+        private readonly Session _session;
 
         private readonly List<ContentItem> _sessionContentItems = new List<ContentItem>();
 
@@ -17,6 +16,16 @@ namespace Greenbook.Entities.AhoCorasick.Iterators
         {
             _session = session;
             _contentItems = contentItems;
+        }
+
+        public IEnumerator<ContentItem> GetEnumerator()
+        {
+            return _sessionContentItems.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
 
         public void Iterate(RootNode rootNode)
@@ -41,19 +50,7 @@ namespace Greenbook.Entities.AhoCorasick.Iterators
                 x.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
             if (contentItem != null && !_sessionContentItems.Contains(contentItem))
-            {
                 _sessionContentItems.Add(contentItem);
-            }
-        }
-
-        public IEnumerator<ContentItem> GetEnumerator()
-        {
-            return _sessionContentItems.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
     }
 }

@@ -32,7 +32,7 @@
             <MenuItem Header="Sessions"
                       Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
                       CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionListViewModel}"
-                      Margin="5"></MenuItem>
+                      Margin="5" />
         </Menu>
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
@@ -43,13 +43,13 @@
                     <contentItems:ContentItemView />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type sessions:SessionListViewModel}">
-                    <sessions:SessionListView/>
+                    <sessions:SessionListView />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type sessions:SessionViewModel}">
-                    <sessions:SessionView/>
+                    <sessions:SessionView />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type sessions:SessionPrintViewModel}">
-                    <sessions:SessionPrintView/>
+                    <sessions:SessionPrintView />
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

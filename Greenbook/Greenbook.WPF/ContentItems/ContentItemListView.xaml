@@ -17,9 +17,9 @@
                       Margin="5">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
-                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel.CreateCommand}"></i:InvokeCommandAction>
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel.CreateCommand}" />
                         <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=DataViewModel.AddContentItemCommand}"
-                                               CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel.ContentItem}"></i:InvokeCommandAction>
+                                               CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel.ContentItem}" />
                         <i:InvokeCommandAction Command="{Binding ApplicationViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
                                                CommandParameter="{Binding ContentItemViewModel, Source={StaticResource ViewModelLocator}}" />
                     </i:EventTrigger>

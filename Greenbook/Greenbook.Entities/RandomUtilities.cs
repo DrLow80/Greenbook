@@ -220,7 +220,7 @@ namespace Greenbook.Entities
 
         public static Session RandomSession()
         {
-            return new Session()
+            return new Session
             {
                 Name = RandomName(),
                 Encounters = RandomList(3, 5, RandomEncounter).ToList()
@@ -261,7 +261,7 @@ namespace Greenbook.Entities
             {
                 Id = Guid.NewGuid(),
                 Name = RandomName(),
-                Description = RandomDescription(),
+                Description = RandomDescription()
             };
         }
 

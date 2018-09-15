@@ -9,19 +9,16 @@ namespace Greenbook.Entities.AhoCorasick
         {
             Guard.ArgumentNotNull(baseNode, nameof(baseNode));
 
-            this.FailNode = baseNode;
+            FailNode = baseNode;
         }
 
         public override BaseTrieNode Seek(char character)
         {
-            if (char.IsUpper(character))
-            {
-                character = char.ToLowerInvariant(character);
-            }
+            if (char.IsUpper(character)) character = char.ToLowerInvariant(character);
 
-            var result = this.CharacterNodes.TryGetValue(character, out var value);
+            var result = CharacterNodes.TryGetValue(character, out var value);
 
-            var node = result ? value : this.FailNode.Seek(character);
+            var node = result ? value : FailNode.Seek(character);
 
             return node;
         }

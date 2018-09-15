@@ -1,5 +1,5 @@
-﻿using System.Windows.Input;
-using Greenbook.WPF.View.ViewModel;
+﻿using Greenbook.WPF.View.ViewModel;
+using System.Windows.Input;
 
 namespace Greenbook.WPF
 {

@@ -44,10 +44,10 @@
                     <TextBox Text="{Binding ContentItem.Name}"
                              Margin="5" />
                     <TextBlock Text="Type:"
-                               Margin="5"></TextBlock>
+                               Margin="5" />
                     <ComboBox Margin="5"
                               SelectedItem="{Binding ContentItem.ContentType}"
-                              ItemsSource="{Binding Source={StaticResource ViewModelLocator}, Path=DataViewModel.ContentItemTypes}"></ComboBox>
+                              ItemsSource="{Binding Source={StaticResource ViewModelLocator}, Path=DataViewModel.ContentItemTypes}" />
                     <TextBlock Text="Description:"
                                Margin="5" />
                     <TextBox Text="{Binding ContentItem.Description}"
@@ -58,7 +58,6 @@
                 </StackPanel>
             </Grid>
         </Grid>
-
         <userControls:EncountersListControl Grid.Row="1"
                                             DataContext="{Binding Encounters}"
                                             AddCommand="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel.AddCommand}"

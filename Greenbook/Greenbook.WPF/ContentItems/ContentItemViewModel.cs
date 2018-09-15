@@ -1,9 +1,9 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
-using Greenbook.Entities;
+﻿using Greenbook.Entities;
 using Greenbook.Services;
 using Greenbook.WPF.Extensions;
 using Greenbook.WPF.View.ViewModel;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace Greenbook.WPF.ContentItems
 {

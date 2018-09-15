@@ -22,7 +22,6 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="Print"
@@ -30,9 +29,9 @@
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <i:InvokeCommandAction Command="{Binding ScanCommand}"
-                                                   CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=DataViewModel.ContentItems}"></i:InvokeCommandAction>
+                                                   CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=DataViewModel.ContentItems}" />
                             <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
-                                                   CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionPrintViewModel}"></i:InvokeCommandAction>
+                                                   CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionPrintViewModel}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </MenuItem>
@@ -46,7 +45,6 @@
                 </StackPanel>
             </Grid>
         </DockPanel>
-
         <UserControls:EncountersListControl Grid.Row="1"
                                             DataContext="{Binding Encounters}"
                                             AddCommand="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.AddCommand}"

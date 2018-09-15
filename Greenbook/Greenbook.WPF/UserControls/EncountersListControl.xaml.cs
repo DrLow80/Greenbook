@@ -5,31 +5,31 @@ using System.Windows.Input;
 namespace Greenbook.WPF.UserControls
 {
     /// <summary>
-    /// Interaction logic for EncountersListControl.xaml
+    ///     Interaction logic for EncountersListControl.xaml
     /// </summary>
     public partial class EncountersListControl : UserControl
     {
+        public static readonly DependencyProperty RemoveCommandProperty = DependencyProperty.Register(
+            "RemoveCommand", typeof(ICommand), typeof(EncountersListControl), new PropertyMetadata(default(ICommand)));
+
+        public static readonly DependencyProperty AddCommandProperty = DependencyProperty.Register(
+            "AddCommand", typeof(ICommand), typeof(EncountersListControl), new PropertyMetadata(default(ICommand)));
+
         public EncountersListControl()
         {
             InitializeComponent();
         }
 
-        public static readonly DependencyProperty RemoveCommandProperty = DependencyProperty.Register(
-            "RemoveCommand", typeof(ICommand), typeof(EncountersListControl), new PropertyMetadata(default(ICommand)));
-
         public ICommand RemoveCommand
         {
-            get { return (ICommand)GetValue(RemoveCommandProperty); }
-            set { SetValue(RemoveCommandProperty, value); }
+            get => (ICommand)GetValue(RemoveCommandProperty);
+            set => SetValue(RemoveCommandProperty, value);
         }
-
-        public static readonly DependencyProperty AddCommandProperty = DependencyProperty.Register(
-            "AddCommand", typeof(ICommand), typeof(EncountersListControl), new PropertyMetadata(default(ICommand)));
 
         public ICommand AddCommand
         {
-            get { return (ICommand)GetValue(AddCommandProperty); }
-            set { SetValue(AddCommandProperty, value); }
+            get => (ICommand)GetValue(AddCommandProperty);
+            set => SetValue(AddCommandProperty, value);
         }
     }
 }

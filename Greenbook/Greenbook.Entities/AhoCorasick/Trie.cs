@@ -9,12 +9,9 @@ namespace Greenbook.Entities.AhoCorasick
 
         public Trie(params string[] terms)
         {
-            foreach (var term in terms)
-            {
-                this.Iterate(new BuildAhoCorasickMapBranchIterator(term));
-            }
+            foreach (var term in terms) Iterate(new BuildAhoCorasickMapBranchIterator(term));
 
-            this.Iterate(new BuildAhoCorasikFailMapIterator(this));
+            Iterate(new BuildAhoCorasikFailMapIterator(this));
         }
 
         public BaseTrieNode Find(string value)
@@ -23,7 +20,7 @@ namespace Greenbook.Entities.AhoCorasick
 
             var ahoCorasickIterator = new FindAhoCorasickIterator(value);
 
-            this.Iterate(ahoCorasickIterator);
+            Iterate(ahoCorasickIterator);
 
             return ahoCorasickIterator.Cursor;
         }
@@ -32,7 +29,7 @@ namespace Greenbook.Entities.AhoCorasick
         {
             Guard.ArgumentNotNull(trieIterator, nameof(trieIterator));
 
-            trieIterator.Iterate(this._rootNode);
+            trieIterator.Iterate(_rootNode);
         }
     }
 }

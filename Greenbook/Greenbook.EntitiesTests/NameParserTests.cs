@@ -1,6 +1,5 @@
-﻿using Greenbook.Entities;
-using NUnit.Framework;
-using System.Linq;
+﻿using System.Linq;
+using Greenbook.Entities;
 
 namespace Greenbook.EntitiesTests
 {

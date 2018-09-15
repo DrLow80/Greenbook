@@ -29,7 +29,6 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-
         </StackPanel>
         <StackPanel Grid.Row="1">
             <ItemsControl DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel}"
@@ -48,11 +47,10 @@
             </ItemsControl>
         </StackPanel>
     </Grid>-->
-
     <FlowDocumentReader x:Name="FlowDocumentReader">
         <FlowDocument>
             <Paragraph>
-                <Run Text="Hi"></Run>
+                <Run Text="Hi" />
             </Paragraph>
         </FlowDocument>
     </FlowDocumentReader>

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
+using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
 
 namespace Greenbook.Entities.AhoCorasick.Iterators
 {
@@ -19,28 +19,19 @@ namespace Greenbook.Entities.AhoCorasick.Iterators
         {
             Guard.ArgumentNotNull(rootNode, nameof(rootNode));
 
-            foreach (var node in rootNode)
-            {
-                this.UpdateFailNodeForEachFragment(node);
-            }
+            foreach (var node in rootNode) UpdateFailNodeForEachFragment(node);
         }
 
         private void UpdateFailNodeForEachFragment(BaseTrieNode baseNode)
         {
-            foreach (var fragment in GetFragments(baseNode.Fragment))
-            {
-                this.UpdateFailNodeIfNotRootOrSelf(fragment, baseNode);
-            }
+            foreach (var fragment in GetFragments(baseNode.Fragment)) UpdateFailNodeIfNotRootOrSelf(fragment, baseNode);
         }
 
         private void UpdateFailNodeIfNotRootOrSelf(string fragment, BaseTrieNode baseNode)
         {
-            var failNode = this.trie.Find(fragment);
+            var failNode = trie.Find(fragment);
 
-            if (!failNode.IsRoot && failNode != baseNode)
-            {
-                baseNode.UpdateFailNode(failNode);
-            }
+            if (!failNode.IsRoot && failNode != baseNode) baseNode.UpdateFailNode(failNode);
         }
 
         private static IEnumerable<string> GetFragments(string value)

@@ -19,12 +19,9 @@ namespace Greenbook.Entities.AhoCorasick.Iterators
         {
             Guard.ArgumentNotNull(rootNode, nameof(rootNode));
 
-            this.Cursor = rootNode;
+            Cursor = rootNode;
 
-            foreach (var chracter in this.term)
-            {
-                this.Cursor = this.Cursor.Seek(chracter);
-            }
+            foreach (var chracter in term) Cursor = Cursor.Seek(chracter);
         }
     }
 }
