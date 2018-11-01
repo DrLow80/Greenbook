@@ -2,11 +2,11 @@
 using Greenbook.Entities.AhoCorasick;
 using Greenbook.Entities.AhoCorasick.Iterators;
 using Greenbook.WPF.Extensions;
-using Greenbook.WPF.View.ViewModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using Greenbook.Domain;
 
 namespace Greenbook.WPF.Sessions
 {

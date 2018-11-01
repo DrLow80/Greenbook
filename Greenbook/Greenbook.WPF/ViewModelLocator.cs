@@ -1,4 +1,5 @@
-﻿using Greenbook.WPF.ContentItems;
+﻿using Greenbook.RandomTools;
+using Greenbook.WPF.ContentItems;
 using Greenbook.WPF.Sessions;
 
 namespace Greenbook.WPF
@@ -24,5 +25,7 @@ namespace Greenbook.WPF
 
         public static SessionPrintViewModel SessionPrintViewModel =>
             SpringContext.GetObject<SessionPrintViewModel>(nameof(SessionPrintViewModel));
+
+        public static HomeViewModel HomeViewModel => SpringContext.GetObject<HomeViewModel>(nameof(HomeViewModel));
     }
 }

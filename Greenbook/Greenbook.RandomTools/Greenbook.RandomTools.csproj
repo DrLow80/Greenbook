@@ -5,20 +5,19 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8EA511F2-2011-477F-948D-472335F81E52}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>Greenbook.WPF</RootNamespace>
-    <AssemblyName>Greenbook.WPF</AssemblyName>
+    <ProjectGuid>{6F379CD3-F4F1-451B-88E0-8C2EAEA6BAE5}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>Greenbook.RandomTools</RootNamespace>
+    <AssemblyName>Greenbook.RandomTools</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -28,7 +27,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,13 +38,7 @@
     <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
       <HintPath>..\packages\Common.Logging.1.2.0\lib\1.0\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="CSharpFunctionalExtensions, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CSharpFunctionalExtensions.1.10.0\lib\net461\CSharpFunctionalExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
-    </Reference>
     <Reference Include="PropertyChanged, Version=2.5.13.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
       <HintPath>..\packages\PropertyChanged.Fody.2.5.13\lib\net452\PropertyChanged.dll</HintPath>
     </Reference>
@@ -58,7 +50,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft SDKs\Expression\Blend\.NETFramework\v4.5\Libraries\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -73,81 +68,18 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="ApplicationViewModel.cs" />
-    <Compile Include="ContentItems\ContentItemListView.xaml.cs">
-      <DependentUpon>ContentItemListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ContentItems\ContentItemListViewModel.cs" />
-    <Compile Include="ContentItems\ContentItemView.xaml.cs">
-      <DependentUpon>ContentItemView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ContentItems\ContentItemViewModel.cs" />
-    <Compile Include="DataViewModel.cs" />
-    <Compile Include="Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Features\RandomTools\RandomToolsConfiguration.cs" />
-    <Compile Include="Features\RandomTools\RandomToolsRepository.cs" />
-    <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Services\DialogService.cs" />
-    <Compile Include="Sessions\SessionListView.xaml.cs">
-      <DependentUpon>SessionListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Sessions\SessionListViewModel.cs" />
-    <Compile Include="Sessions\SessionPrintView.xaml.cs">
-      <DependentUpon>SessionPrintView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Sessions\SessionPrintViewModel.cs" />
-    <Compile Include="Sessions\SessionView.xaml.cs">
-      <DependentUpon>SessionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Sessions\SessionViewModel.cs" />
-    <Compile Include="SpringConfiguration.cs" />
-    <Compile Include="SpringContext.cs" />
-    <Compile Include="UserControls\EncountersListControl.xaml.cs">
-      <DependentUpon>EncountersListControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModelLocator.cs" />
-    <Page Include="ContentItems\ContentItemListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ContentItems\ContentItemView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="HomeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
+    <Compile Include="HomeViewModel.cs" />
+    <Compile Include="HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Sessions\SessionListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Sessions\SessionPrintView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Sessions\SessionView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\EncountersListControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRandomToolsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -172,30 +104,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Greenbook.Domain\Greenbook.Domain.csproj">
-      <Project>{3D009133-5B25-4B32-89A9-99C9F708E0F5}</Project>
+      <Project>{3d009133-5b25-4b32-89a9-99c9f708e0f5}</Project>
       <Name>Greenbook.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Greenbook.Entities\Greenbook.Entities.csproj">
-      <Project>{4BA04B68-38C6-49C9-8C3D-B2D2E0FD6A87}</Project>
-      <Name>Greenbook.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Greenbook.RandomTools\Greenbook.RandomTools.csproj">
-      <Project>{6f379cd3-f4f1-451b-88e0-8c2eaea6bae5}</Project>
-      <Name>Greenbook.RandomTools</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Greenbook.Services\Greenbook.Services.csproj">
-      <Project>{E50997BA-7DD5-4127-A10C-740D118AE00D}</Project>
-      <Name>Greenbook.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FodyWeavers.xml" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.3.2.9\build\Fody.targets" Condition="Exists('..\packages\Fody.3.2.9\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

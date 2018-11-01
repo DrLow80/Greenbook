@@ -7,6 +7,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:sessions="clr-namespace:Greenbook.WPF.Sessions"
+        xmlns:randomTools="clr-namespace:Greenbook.RandomTools;assembly=Greenbook.RandomTools"
         x:Class="Greenbook.WPF.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow"
@@ -33,6 +34,10 @@
                       Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
                       CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionListViewModel}"
                       Margin="5" />
+            <MenuItem Header="Random Tools"
+                      Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
+                      CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=HomeViewModel}"
+                      Margin="5" />
         </Menu>
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
@@ -50,6 +55,9 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type sessions:SessionPrintViewModel}">
                     <sessions:SessionPrintView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type randomTools:HomeViewModel}">
+                    <randomTools:HomeView/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
