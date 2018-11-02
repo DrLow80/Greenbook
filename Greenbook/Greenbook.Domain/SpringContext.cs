@@ -1,7 +1,7 @@
 ﻿using Spring.Context;
 using Spring.Context.Support;
 
-namespace Greenbook.WPF
+namespace Greenbook.Domain
 {
     public class SpringContext
     {

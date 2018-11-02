@@ -77,47 +77,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ApplicationViewModel.cs" />
-    <Compile Include="ContentItems\ContentItemListView.xaml.cs">
-      <DependentUpon>ContentItemListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ContentItems\ContentItemListViewModel.cs" />
-    <Compile Include="ContentItems\ContentItemView.xaml.cs">
-      <DependentUpon>ContentItemView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ContentItems\ContentItemViewModel.cs" />
     <Compile Include="DataViewModel.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Features\Application\ApplicationConfiguration.cs" />
+    <Compile Include="Features\ContentItems\ContentItemsConfiguration.cs" />
+    <Compile Include="Features\ContentItems\ContentItemsRepository.cs" />
     <Compile Include="Features\RandomTools\RandomToolsConfiguration.cs" />
     <Compile Include="Features\RandomTools\RandomToolsRepository.cs" />
+    <Compile Include="Features\Sessions\SessionConfiguration.cs" />
+    <Compile Include="Features\Sessions\SessionRepository.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Services\DialogService.cs" />
-    <Compile Include="Sessions\SessionListView.xaml.cs">
-      <DependentUpon>SessionListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Sessions\SessionListViewModel.cs" />
-    <Compile Include="Sessions\SessionPrintView.xaml.cs">
-      <DependentUpon>SessionPrintView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Sessions\SessionPrintViewModel.cs" />
-    <Compile Include="Sessions\SessionView.xaml.cs">
-      <DependentUpon>SessionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Sessions\SessionViewModel.cs" />
     <Compile Include="SpringConfiguration.cs" />
-    <Compile Include="SpringContext.cs" />
     <Compile Include="UserControls\EncountersListControl.xaml.cs">
       <DependentUpon>EncountersListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModelLocator.cs" />
-    <Page Include="ContentItems\ContentItemListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ContentItems\ContentItemView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -130,18 +105,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Sessions\SessionListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Sessions\SessionPrintView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Sessions\SessionView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControls\EncountersListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +138,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Greenbook.Application\Greenbook.Application.csproj">
+      <Project>{E496F70C-DB13-4304-987F-301313A3577F}</Project>
+      <Name>Greenbook.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Greenbook.ContentItems\Greenbook.ContentItems.csproj">
+      <Project>{37A7BFE7-FEBD-4A95-8C39-AADC3CA9B75D}</Project>
+      <Name>Greenbook.ContentItems</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Greenbook.Domain\Greenbook.Domain.csproj">
       <Project>{3D009133-5B25-4B32-89A9-99C9F708E0F5}</Project>
       <Name>Greenbook.Domain</Name>
@@ -190,6 +161,10 @@
     <ProjectReference Include="..\Greenbook.Services\Greenbook.Services.csproj">
       <Project>{E50997BA-7DD5-4127-A10C-740D118AE00D}</Project>
       <Name>Greenbook.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Greenbook.Sessions\Greenbook.Sessions.csproj">
+      <Project>{04d630d8-5cee-4c64-adab-ca1dbc865b92}</Project>
+      <Name>Greenbook.Sessions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

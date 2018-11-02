@@ -2,9 +2,9 @@
 
 namespace Greenbook.Domain
 {
-    public abstract class HostBaseViewModel : BaseViewModel
+    public abstract class BaseHostViewModel : BaseViewModel
     {
-        public BaseViewModel CurrentViewModel { get; set; }
+        public BaseViewModel CurrentViewModel { get; private set; }
 
         public ICommand NavigateCommand => new RelayCommand<BaseViewModel>(OnNavigate);
 

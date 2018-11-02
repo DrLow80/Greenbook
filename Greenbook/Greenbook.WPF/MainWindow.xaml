@@ -2,12 +2,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Greenbook.WPF"
-        xmlns:contentItems="clr-namespace:Greenbook.WPF.ContentItems"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
-        xmlns:sessions="clr-namespace:Greenbook.WPF.Sessions"
         xmlns:randomTools="clr-namespace:Greenbook.RandomTools;assembly=Greenbook.RandomTools"
+        xmlns:sessions="clr-namespace:Greenbook.Sessions;assembly=Greenbook.Sessions"
+        xmlns:contentItems="clr-namespace:Greenbook.ContentItems;assembly=Greenbook.ContentItems"
         x:Class="Greenbook.WPF.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow"
@@ -27,13 +26,32 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Content"
-                      Command="{Binding ApplicationViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
-                      CommandParameter="{Binding ContentItemListViewModel, Source={StaticResource ViewModelLocator}}"
-                      Margin="5" />
-            <MenuItem Header="Sessions"
-                      Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
-                      CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionListViewModel}"
-                      Margin="5" />
+                      Margin="5" >
+                <MenuItem.Resources>
+                    <contentItems:ViewModelLocator x:Key="ContentItemsViewModelLocator"></contentItems:ViewModelLocator>
+                </MenuItem.Resources>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
+                                               CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel}"/>
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel.NavigateCommand}"
+                                               CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemListViewModel}"></i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </MenuItem>
+            <MenuItem Header="Sessions" Margin="5">
+                <MenuItem.Resources>
+                    <sessions:ViewModelLocator x:Key="SessionsViewModelLocator"></sessions:ViewModelLocator>
+                </MenuItem.Resources>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
+                                               CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionHostViewModel}"/>
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionHostViewModel.NavigateCommand}"
+                                               CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionListViewModel}"></i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </MenuItem>
             <MenuItem Header="Random Tools"
                       Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
                       CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=HomeViewModel}"
@@ -41,20 +59,11 @@
         </Menu>
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type contentItems:ContentItemListViewModel}">
-                    <contentItems:ContentItemListView />
+                <DataTemplate DataType="{x:Type contentItems:ContentItemsHostViewModel}">
+                    <contentItems:ContentItemsHostView/>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type contentItems:ContentItemViewModel}">
-                    <contentItems:ContentItemView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type sessions:SessionListViewModel}">
-                    <sessions:SessionListView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type sessions:SessionViewModel}">
-                    <sessions:SessionView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type sessions:SessionPrintViewModel}">
-                    <sessions:SessionPrintView />
+                <DataTemplate DataType="{x:Type sessions:SessionHostViewModel}">
+                    <sessions:SessionHostView/>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type randomTools:HomeViewModel}">
                     <randomTools:HomeView/>

@@ -2,7 +2,7 @@
 
 namespace Greenbook.RandomTools
 {
-    public class HomeViewModel : BaseViewModel
+    public class HomeViewModel : BaseHostViewModel
     {
         private readonly IRandomToolsRepository _randomToolsRepository;
 

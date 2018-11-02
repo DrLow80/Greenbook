@@ -17,5 +17,17 @@ namespace Greenbook.WPF.Features.RandomTools
         {
             return new RandomToolsRepository();
         }
+
+        [Definition]
+        public virtual TestOneViewModel TestOneViewModel()
+        {
+            return new TestOneViewModel();
+        }
+
+        [Definition]
+        public virtual TestTwoViewModel TestTwoViewModel()
+        {
+            return new TestTwoViewModel();
+        }
     }
 }
