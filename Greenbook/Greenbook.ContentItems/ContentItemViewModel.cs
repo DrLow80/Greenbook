@@ -1,26 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using CSharpFunctionalExtensions;
 using Greenbook.Domain;
 using Greenbook.Entities;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace Greenbook.ContentItems
 {
     public class ContentItemViewModel : BaseViewModel
     {
-        //private readonly IDialogService _dialogService;
-
-        //public ContentItemViewModel(IDialogService dialogService)
-        //{
-        //    _dialogService = dialogService;
-        //}
-
-        public ICommand AddCommand => new RelayCommand(OnAdd);
-
         public ContentItem ContentItem { get; set; }
 
         public ObservableCollection<Encounter> Encounters { get; } = new ObservableCollection<Encounter>();
@@ -29,39 +16,33 @@ namespace Greenbook.ContentItems
 
         public ICommand CreateCommand => new RelayCommand(OnCreate);
 
-        public ICommand RemoveCommand => new RelayCommand<Encounter>(OnRemove);
-
         private void OnCreate(object obj)
         {
             ContentItem = new ContentItem();
         }
 
-        private void OnRemove(Encounter obj)
-        {
-            if (Encounters.Contains(obj)) Encounters.Remove(obj);
-
-            ContentItem.Encounters.Remove(obj);
-        }
+        public EncountersViewModel EncountersViewModel { get; private set; }
 
         public void Load()
         {
-            //Encounters.ClearAndLoad(ContentItem.Encounters);
-        }
-
-        private void OnAdd(object obj)
-        {
-            var encounter = new Encounter();
-
-            ContentItem.Encounters.Add(encounter);
-
-            Encounters.Add(encounter);
+            EncountersViewModel = new EncountersViewModel(ContentItem);
         }
 
         private void OnSelectImage(object obj)
         {
-            //var result = _dialogService.Open();
+            Result<string> path = _contentItemsRepository.SelectImage();
 
-            //if (result.IsSuccess) ContentItem.ImageSource = result.Value;
+            if (path.IsSuccess)
+            {
+                ContentItem.ImageSource = path.Value;
+            }
+        }
+
+        private IContentItemsRepository _contentItemsRepository;
+
+        public ContentItemViewModel(IContentItemsRepository contentItemsRepository)
+        {
+            _contentItemsRepository = contentItemsRepository;
         }
     }
 }

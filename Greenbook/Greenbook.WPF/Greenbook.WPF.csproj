@@ -87,7 +87,6 @@
     <Compile Include="Features\Sessions\SessionConfiguration.cs" />
     <Compile Include="Features\Sessions\SessionRepository.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Services\DialogService.cs" />
     <Compile Include="SpringConfiguration.cs" />
     <Compile Include="UserControls\EncountersListControl.xaml.cs">
       <DependentUpon>EncountersListControl.xaml</DependentUpon>

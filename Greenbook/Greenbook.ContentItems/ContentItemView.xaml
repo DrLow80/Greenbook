@@ -6,8 +6,10 @@
              xmlns:local="clr-namespace:Greenbook.ContentItems"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:entities="clr-namespace:Greenbook.Entities;assembly=Greenbook.Entities"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             x:Name="Parent">
     <UserControl.Resources>
         <local:ViewModelLocator x:Key="ViewModelLocator" />
     </UserControl.Resources>
@@ -60,6 +62,60 @@
                 </StackPanel>
             </Grid>
         </Grid>
+        <DockPanel Grid.Row="1">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Add"
+                          Margin="5"
+                          Command="{Binding EncountersViewModel.InsertCommand}"></MenuItem>
+            </Menu>
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding EncountersViewModel.Items}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type entities:Encounter}">
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="50" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.ColumnSpan="1">
+                                        <TextBlock Text="Name:"
+                                               Margin="5" />
+                                        <TextBox x:Name="nameTextBox"
+                                             Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                                             Margin="5" />
+                                    </StackPanel>
+                                    <Button Content="Remove"
+                                        Grid.Column="1"
+                                        Margin="5"
+                                        Command="{Binding ElementName=Parent, Path=DataContext.EncountersViewModel.RemoveCommand}"
+                                        CommandParameter="{Binding}" />
+                                </Grid>
+                                <StackPanel Grid.Row="1">
+                                    <TextBlock Text="Description:"
+                                           Margin="5" />
+                                    <TextBox x:Name="descriptionTextBox"
+                                         Text="{Binding Description, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                                         TextWrapping="Wrap"
+                                         AcceptsReturn="True"
+                                         Margin="5">
+                                    </TextBox>
+                                    <Border BorderBrush="Black"
+                                        BorderThickness="0,0,0,1"
+                                        Height="Auto"
+                                        Width="Auto"
+                                        Margin="5" />
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </DockPanel>
     </Grid> 
 
 </UserControl>

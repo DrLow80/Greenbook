@@ -31,7 +31,7 @@ public    class ContentItemsConfiguration
         [Definition]
         public virtual ContentItemViewModel ContentItemViewModel()
         {
-            return new ContentItemViewModel();
+            return new ContentItemViewModel(ContentItemsRepository());
         }
 
         [Definition]
