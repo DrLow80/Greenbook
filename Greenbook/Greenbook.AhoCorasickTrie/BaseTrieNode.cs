@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
 
-namespace Greenbook.Entities.AhoCorasick
+namespace Greenbook.AhoCorasickTrie
 {
     public abstract class BaseTrieNode : IEnumerable<BaseTrieNode>
     {

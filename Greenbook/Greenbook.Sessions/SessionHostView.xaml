@@ -21,7 +21,7 @@
                 <local:SessionListView />
             </DataTemplate>
             <DataTemplate DataType="{x:Type local:SessionViewModel}">
-                <local:SessionView />
+                <local:EditSessionView />
             </DataTemplate>
         </ContentControl.Resources>
     </ContentControl>

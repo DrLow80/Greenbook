@@ -1,4 +1,4 @@
-﻿namespace Greenbook.Entities.AhoCorasick.Iterators
+﻿namespace Greenbook.AhoCorasickTrie
 {
     public interface ITrieIterator
     {

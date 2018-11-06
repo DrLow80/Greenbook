@@ -61,6 +61,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentItemsByTypeGroup.cs" />
+    <Compile Include="ContentItemsView.xaml.cs">
+      <DependentUpon>ContentItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentItemsViewModel.cs" />
+    <Compile Include="EditSessionView.xaml.cs">
+      <DependentUpon>EditSessionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EncountersViewModel.cs" />
     <Compile Include="ISessionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +87,14 @@
     <Compile Include="ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ContentItemsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditSessionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SessionHostView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -36,5 +36,11 @@ namespace Greenbook.WPF.Features.Sessions
         {
             return new SessionRepository();
         }
+
+        [Definition]
+        public virtual ContentItemsViewModel ContentItemsViewModel()
+        {
+            return new ContentItemsViewModel(SessionRepository());
+        }
     }
 }

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.ContentItems", "G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.Application", "Greenbook.Application\Greenbook.Application.csproj", "{E496F70C-DB13-4304-987F-301313A3577F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.AhoCorasickTrie", "Greenbook.AhoCorasickTrie\Greenbook.AhoCorasickTrie.csproj", "{DB538444-BF19-4DA3-8142-CBCED2171E28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,12 +65,16 @@ Global
 		{E496F70C-DB13-4304-987F-301313A3577F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E496F70C-DB13-4304-987F-301313A3577F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E496F70C-DB13-4304-987F-301313A3577F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB538444-BF19-4DA3-8142-CBCED2171E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB538444-BF19-4DA3-8142-CBCED2171E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB538444-BF19-4DA3-8142-CBCED2171E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB538444-BF19-4DA3-8142-CBCED2171E28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45
 		SolutionGuid = {2989585A-AD9D-4732-82A6-4D76C4943DBE}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal

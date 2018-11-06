@@ -12,5 +12,8 @@ namespace Greenbook.Sessions
 
         public static SessionViewModel SessionViewModel =>
             SpringContext.GetObject<SessionViewModel>(nameof(SessionViewModel));
+
+        public static ContentItemsViewModel ContentItemsViewModel =>
+            SpringContext.GetObject<ContentItemsViewModel>(nameof(ContentItemsViewModel));
     }
 }

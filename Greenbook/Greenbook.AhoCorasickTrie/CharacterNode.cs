@@ -1,6 +1,6 @@
 ﻿using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
 
-namespace Greenbook.Entities.AhoCorasick
+namespace Greenbook.AhoCorasickTrie
 {
     public class CharacterNode : BaseTrieNode
     {

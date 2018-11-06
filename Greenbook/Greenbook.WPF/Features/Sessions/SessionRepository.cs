@@ -10,5 +10,10 @@ namespace Greenbook.WPF.Features.Sessions
         {
             return RandomUtilities.RandomList(5, 10, RandomUtilities.RandomSession);
         }
+
+        public IEnumerable<ContentItem> LoadContentItems()
+        {
+            return RandomUtilities.RandomList(5, 10, RandomUtilities.RandomContentItem);
+        }
     }
 }

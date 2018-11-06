@@ -1,7 +1,6 @@
-﻿using Greenbook.Entities.AhoCorasick.Iterators;
-using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
+﻿using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
 
-namespace Greenbook.Entities.AhoCorasick
+namespace Greenbook.AhoCorasickTrie
 {
     public class Trie
     {

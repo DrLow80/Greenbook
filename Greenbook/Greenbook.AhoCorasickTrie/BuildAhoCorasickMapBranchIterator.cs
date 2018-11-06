@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
 
-namespace Greenbook.Entities.AhoCorasick.Iterators
+namespace Greenbook.AhoCorasickTrie
 {
     public class BuildAhoCorasickMapBranchIterator : ITrieIterator
     {

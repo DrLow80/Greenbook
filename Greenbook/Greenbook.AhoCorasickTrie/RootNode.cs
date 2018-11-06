@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Greenbook.Entities.AhoCorasick
+namespace Greenbook.AhoCorasickTrie
 {
     public class RootNode : BaseTrieNode
     {

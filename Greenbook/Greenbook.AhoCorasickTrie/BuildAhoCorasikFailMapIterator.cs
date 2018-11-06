@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
 
-namespace Greenbook.Entities.AhoCorasick.Iterators
+namespace Greenbook.AhoCorasickTrie
 {
     public class BuildAhoCorasikFailMapIterator : ITrieIterator
     {
