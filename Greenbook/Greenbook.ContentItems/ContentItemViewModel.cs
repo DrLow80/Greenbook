@@ -1,13 +1,19 @@
-﻿using CSharpFunctionalExtensions;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Greenbook.Domain;
 using Greenbook.Entities;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
 
 namespace Greenbook.ContentItems
 {
     public class ContentItemViewModel : BaseViewModel
     {
+        private readonly IContentItemsRepository _contentItemsRepository;
+
+        public ContentItemViewModel(IContentItemsRepository contentItemsRepository)
+        {
+            _contentItemsRepository = contentItemsRepository;
+        }
+
         public ContentItem ContentItem { get; set; }
 
         public ObservableCollection<Encounter> Encounters { get; } = new ObservableCollection<Encounter>();
@@ -16,12 +22,12 @@ namespace Greenbook.ContentItems
 
         public ICommand CreateCommand => new RelayCommand(OnCreate);
 
+        public EncountersViewModel EncountersViewModel { get; private set; }
+
         private void OnCreate(object obj)
         {
             ContentItem = new ContentItem();
         }
-
-        public EncountersViewModel EncountersViewModel { get; private set; }
 
         public void Load()
         {
@@ -30,19 +36,9 @@ namespace Greenbook.ContentItems
 
         private void OnSelectImage(object obj)
         {
-            Result<string> path = _contentItemsRepository.SelectImage();
+            var path = _contentItemsRepository.SelectImage();
 
-            if (path.IsSuccess)
-            {
-                ContentItem.ImageSource = path.Value;
-            }
-        }
-
-        private IContentItemsRepository _contentItemsRepository;
-
-        public ContentItemViewModel(IContentItemsRepository contentItemsRepository)
-        {
-            _contentItemsRepository = contentItemsRepository;
+            if (path.IsSuccess) ContentItem.ImageSource = path.Value;
         }
     }
 }

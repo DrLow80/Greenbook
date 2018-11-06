@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace Greenbook.EntitiesTests
 {
-    [TestFixture()]
+    [TestFixture]
     public class NameParserTests
     {
         private const string TestName = "@Test Name";

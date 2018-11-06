@@ -1,17 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Greenbook.Sessions;
-//using Greenbook.WPF.Sessions;
+﻿using Greenbook.Sessions;
 using Spring.Context.Attributes;
+//using Greenbook.WPF.Sessions;
 
 namespace Greenbook.WPF.Features.Sessions
 {
     [Configuration]
     public class SessionConfiguration
     {
-        
         [Definition]
         public virtual SessionViewModel SessionViewModel()
         {

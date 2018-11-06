@@ -62,8 +62,9 @@
                                          Margin="5">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="LostFocus">
-                                            <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=DataViewModel.ScanCommand}"
-                                                                   CommandParameter="{Binding}" />
+                                            <i:InvokeCommandAction
+                                                Command="{Binding Source={StaticResource ViewModelLocator}, Path=DataViewModel.ScanCommand}"
+                                                CommandParameter="{Binding}" />
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>

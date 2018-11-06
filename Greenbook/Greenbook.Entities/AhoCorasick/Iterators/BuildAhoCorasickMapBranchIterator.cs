@@ -1,5 +1,5 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
-using System.Text;
+﻿using System.Text;
+using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
 
 namespace Greenbook.Entities.AhoCorasick.Iterators
 {

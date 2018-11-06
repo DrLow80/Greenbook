@@ -1,13 +1,12 @@
-﻿using Greenbook.Domain;
+﻿using System.Collections.Generic;
+using Greenbook.Domain;
 using Greenbook.Entities;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Greenbook.Sessions
 {
     public class SessionListViewModel : BaseListViewModel<Session>
     {
-        private ISessionRepository _sessionRepository;
+        private readonly ISessionRepository _sessionRepository;
 
         public SessionListViewModel(ISessionRepository sessionRepository)
         {

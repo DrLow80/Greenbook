@@ -1,14 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Greenbook.ContentItems;
+﻿using Greenbook.ContentItems;
 using Spring.Context.Attributes;
 
 namespace Greenbook.WPF.Features.ContentItems
 {
     [Configuration]
-public    class ContentItemsConfiguration
+    public class ContentItemsConfiguration
     {
         [Definition]
         public virtual ContentItemsHostViewModel ContentItemsHostViewModel()

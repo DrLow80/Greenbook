@@ -22,13 +22,13 @@ namespace Greenbook.WPF.UserControls
 
         public ICommand RemoveCommand
         {
-            get => (ICommand)GetValue(RemoveCommandProperty);
+            get => (ICommand) GetValue(RemoveCommandProperty);
             set => SetValue(RemoveCommandProperty, value);
         }
 
         public ICommand AddCommand
         {
-            get => (ICommand)GetValue(AddCommandProperty);
+            get => (ICommand) GetValue(AddCommandProperty);
             set => SetValue(AddCommandProperty, value);
         }
     }

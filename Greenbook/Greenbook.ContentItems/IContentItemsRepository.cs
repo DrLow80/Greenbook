@@ -7,6 +7,7 @@ namespace Greenbook.ContentItems
     public interface IContentItemsRepository
     {
         IEnumerable<ContentItem> LoadContentItems();
+
         Result<string> SelectImage();
     }
 }

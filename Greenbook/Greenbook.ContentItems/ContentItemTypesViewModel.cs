@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Greenbook.Domain;
 
 namespace Greenbook.ContentItems
@@ -11,7 +7,7 @@ namespace Greenbook.ContentItems
     {
         protected override IEnumerable<string> GetItems()
         {
-            return new[] { "TEST", "TEST2", "TEST2" };
+            return new[] {"TEST", "TEST2", "TEST2"};
         }
     }
 }

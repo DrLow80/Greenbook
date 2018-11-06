@@ -6,16 +6,13 @@ namespace Greenbook.ContentItems
 {
     public class EncountersViewModel : BaseListViewModel<Encounter>
     {
-        private ContentItem _contentItem;
+        private readonly ContentItem _contentItem;
 
         public EncountersViewModel(ContentItem contentItem)
         {
             _contentItem = contentItem;
 
-            foreach (var encounter in contentItem.Encounters)
-            {
-                Items.Add(encounter);
-            }
+            foreach (var encounter in contentItem.Encounters) Items.Add(encounter);
         }
 
         protected override IEnumerable<Encounter> GetItems()
@@ -39,7 +36,7 @@ namespace Greenbook.ContentItems
 
         protected override void OnInsert(object obj)
         {
-            Encounter encounter = new Encounter();
+            var encounter = new Encounter();
 
             OnAdd(encounter);
         }

@@ -11,12 +11,14 @@ namespace Greenbook.Domain
 
         public ICommand AddCommand => new RelayCommand<T>(OnAdd);
 
+        public ICommand RemoveCommand => new RelayCommand<T>(OnRemove);
+
+        public ICommand InsertCommand => new RelayCommand(OnInsert);
+
         protected virtual void OnAdd(T obj)
         {
             if (!Items.Contains(obj)) Items.Add(obj);
         }
-
-        public ICommand RemoveCommand=>new RelayCommand<T>(OnRemove);
 
         protected virtual void OnRemove(T obj)
         {
@@ -25,19 +27,14 @@ namespace Greenbook.Domain
 
         public void Load()
         {
-            IEnumerable<T> items = GetItems();
+            var items = GetItems();
 
             Items.Clear();
 
-            foreach (var item in items)
-            {
-                OnAdd(item);
-            }
+            foreach (var item in items) OnAdd(item);
         }
 
         protected abstract IEnumerable<T> GetItems();
-
-        public ICommand InsertCommand=>new RelayCommand(OnInsert);
 
         protected virtual void OnInsert(object obj)
         {

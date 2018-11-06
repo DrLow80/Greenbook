@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace Greenbook.WPF
+﻿namespace Greenbook.WPF
 {
     /// <summary>
     ///     Interaction logic for App.xaml

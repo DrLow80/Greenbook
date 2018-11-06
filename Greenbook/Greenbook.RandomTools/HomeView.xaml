@@ -17,10 +17,10 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="One"
                       Command="{Binding NavigateCommand}"
-                      CommandParameter="{Binding Source={StaticResource RandomToolsViewModelLocator}, Path=TestOneViewModel}"></MenuItem>
+                      CommandParameter="{Binding Source={StaticResource RandomToolsViewModelLocator}, Path=TestOneViewModel}" />
             <MenuItem Header="Two"
                       Command="{Binding NavigateCommand}"
-                      CommandParameter="{Binding Source={StaticResource RandomToolsViewModelLocator}, Path=TestTwoViewModel}"></MenuItem>
+                      CommandParameter="{Binding Source={StaticResource RandomToolsViewModelLocator}, Path=TestTwoViewModel}" />
         </Menu>
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>

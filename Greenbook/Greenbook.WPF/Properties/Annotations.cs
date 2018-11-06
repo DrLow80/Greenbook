@@ -38,13 +38,13 @@ namespace Greenbook.WPF.Annotations
     /// </summary>
     /// <example>
     ///     <code>
-    /// [CanBeNull] object Test() => null;
-    ///
-    /// void UseTest() {
-    ///   var p = Test();
-    ///   var s = p.ToString(); // Warning: Possible 'System.NullReferenceException'
-    /// }
-    /// </code>
+    ///  [CanBeNull] object Test() => null;
+    /// 
+    ///  void UseTest() {
+    ///    var p = Test();
+    ///    var s = p.ToString(); // Warning: Possible 'System.NullReferenceException'
+    ///  }
+    ///  </code>
     /// </example>
     [AttributeUsage(
         AttributeTargets.Method | AttributeTargets.Parameter | AttributeTargets.Property |
@@ -103,13 +103,13 @@ namespace Greenbook.WPF.Annotations
     /// </summary>
     /// <example>
     ///     <code>
-    /// [StringFormatMethod("message")]
-    /// void ShowError(string message, params object[] args) { /* do something */ }
-    ///
-    /// void Foo() {
-    ///   ShowError("Failed: {0}"); // Warning: Non-existing argument in format string
-    /// }
-    /// </code>
+    ///  [StringFormatMethod("message")]
+    ///  void ShowError(string message, params object[] args) { /* do something */ }
+    /// 
+    ///  void Foo() {
+    ///    ShowError("Failed: {0}"); // Warning: Non-existing argument in format string
+    ///  }
+    ///  </code>
     /// </example>
     [AttributeUsage(
         AttributeTargets.Constructor | AttributeTargets.Method |
@@ -189,20 +189,20 @@ namespace Greenbook.WPF.Annotations
     /// </remarks>
     /// <example>
     ///     <code>
-    ///  public class Foo : INotifyPropertyChanged {
-    ///    public event PropertyChangedEventHandler PropertyChanged;
-    ///
-    ///    [NotifyPropertyChangedInvocator]
-    ///    protected virtual void NotifyChanged(string propertyName) { ... }
-    ///
-    ///    string _name;
-    ///
-    ///    public string Name {
-    ///      get { return _name; }
-    ///      set { _name = value; NotifyChanged("LastName"); /* Warning */ }
-    ///    }
-    ///  }
-    ///  </code>
+    ///   public class Foo : INotifyPropertyChanged {
+    ///     public event PropertyChangedEventHandler PropertyChanged;
+    /// 
+    ///     [NotifyPropertyChangedInvocator]
+    ///     protected virtual void NotifyChanged(string propertyName) { ... }
+    /// 
+    ///     string _name;
+    /// 
+    ///     public string Name {
+    ///       get { return _name; }
+    ///       set { _name = value; NotifyChanged("LastName"); /* Warning */ }
+    ///     }
+    ///   }
+    ///   </code>
     ///     Examples of generated notifications:
     ///     <list>
     ///         <item>
@@ -343,19 +343,19 @@ namespace Greenbook.WPF.Annotations
     /// </summary>
     /// <example>
     ///     <code>
-    /// [CannotApplyEqualityOperator]
-    /// class NoEquality { }
-    ///
-    /// class UsesNoEquality {
-    ///   void Test() {
-    ///     var ca1 = new NoEquality();
-    ///     var ca2 = new NoEquality();
-    ///     if (ca1 != null) { // OK
-    ///       bool condition = ca1 == ca2; // Warning
-    ///     }
-    ///   }
-    /// }
-    /// </code>
+    ///  [CannotApplyEqualityOperator]
+    ///  class NoEquality { }
+    /// 
+    ///  class UsesNoEquality {
+    ///    void Test() {
+    ///      var ca1 = new NoEquality();
+    ///      var ca2 = new NoEquality();
+    ///      if (ca1 != null) { // OK
+    ///        bool condition = ca1 == ca2; // Warning
+    ///      }
+    ///    }
+    ///  }
+    ///  </code>
     /// </example>
     [AttributeUsage(AttributeTargets.Interface | AttributeTargets.Class | AttributeTargets.Struct)]
     public sealed class CannotApplyEqualityOperatorAttribute : Attribute
@@ -368,12 +368,12 @@ namespace Greenbook.WPF.Annotations
     /// </summary>
     /// <example>
     ///     <code>
-    /// [BaseTypeRequired(typeof(IComponent)] // Specify requirement
-    /// class ComponentAttribute : Attribute { }
-    ///
-    /// [Component] // ComponentAttribute requires implementing IComponent interface
-    /// class MyComponent : IComponent { }
-    /// </code>
+    ///  [BaseTypeRequired(typeof(IComponent)] // Specify requirement
+    ///  class ComponentAttribute : Attribute { }
+    /// 
+    ///  [Component] // ComponentAttribute requires implementing IComponent interface
+    ///  class MyComponent : IComponent { }
+    ///  </code>
     /// </example>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     [BaseTypeRequired(typeof(Attribute))]
@@ -526,12 +526,12 @@ namespace Greenbook.WPF.Annotations
     /// </summary>
     /// <example>
     ///     <code>
-    /// [Pure] int Multiply(int x, int y) => x * y;
-    ///
-    /// void M() {
-    ///   Multiply(123, 42); // Waring: Return value of pure method is not used
-    /// }
-    /// </code>
+    ///  [Pure] int Multiply(int x, int y) => x * y;
+    /// 
+    ///  void M() {
+    ///    Multiply(123, 42); // Waring: Return value of pure method is not used
+    ///  }
+    ///  </code>
     /// </example>
     [AttributeUsage(AttributeTargets.Method)]
     public sealed class PureAttribute : Attribute
@@ -563,15 +563,15 @@ namespace Greenbook.WPF.Annotations
     /// </summary>
     /// <example>
     ///     <code>
-    /// class Foo {
-    ///   [ProvidesContext] IBarService _barService = ...;
-    ///
-    ///   void ProcessNode(INode node) {
-    ///     DoSomething(node, node.GetGlobalServices().Bar);
-    ///     //              ^ Warning: use value of '_barService' field
-    ///   }
-    /// }
-    /// </code>
+    ///  class Foo {
+    ///    [ProvidesContext] IBarService _barService = ...;
+    /// 
+    ///    void ProcessNode(INode node) {
+    ///      DoSomething(node, node.GetGlobalServices().Bar);
+    ///      //              ^ Warning: use value of '_barService' field
+    ///    }
+    ///  }
+    ///  </code>
     /// </example>
     [AttributeUsage(
         AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter | AttributeTargets.Method |

@@ -1,6 +1,6 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
 
 namespace Greenbook.Entities.AhoCorasick.Iterators
 {

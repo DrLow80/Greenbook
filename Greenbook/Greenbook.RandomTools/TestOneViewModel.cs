@@ -4,6 +4,5 @@ namespace Greenbook.RandomTools
 {
     public class TestOneViewModel : BaseViewModel
     {
-
     }
 }

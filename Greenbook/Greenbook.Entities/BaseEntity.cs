@@ -1,5 +1,5 @@
-﻿using PropertyChanged;
-using System;
+﻿using System;
+using PropertyChanged;
 
 namespace Greenbook.Entities
 {

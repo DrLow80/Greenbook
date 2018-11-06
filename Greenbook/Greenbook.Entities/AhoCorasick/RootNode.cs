@@ -17,7 +17,7 @@ namespace Greenbook.Entities.AhoCorasick
 
             var result = CharacterNodes.TryGetValue(character, out var value);
 
-            return result ? (BaseTrieNode)value : this;
+            return result ? (BaseTrieNode) value : this;
         }
 
         public override void UpdateFailNode(BaseTrieNode baseNode)

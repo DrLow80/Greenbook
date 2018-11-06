@@ -7,7 +7,7 @@ namespace Greenbook.Entities
         public DataPayload()
         {
             ContentItems = RandomUtilities.RandomList(3, 5, RandomUtilities.RandomContentItem);
-            ContentItemTypes = new[] { "Test", "Test 2" };
+            ContentItemTypes = new[] {"Test", "Test 2"};
             Sessions = RandomUtilities.RandomList(3, 5, RandomUtilities.RandomSession);
         }
 

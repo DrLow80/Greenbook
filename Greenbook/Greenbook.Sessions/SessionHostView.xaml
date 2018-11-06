@@ -12,7 +12,8 @@
         <local:ViewModelLocator x:Key="ViewModelLocator" />
     </UserControl.Resources>
     <UserControl.DataContext>
-        <Binding Source="{StaticResource ViewModelLocator}" Path="SessionHostViewModel" />
+        <Binding Source="{StaticResource ViewModelLocator}"
+                 Path="SessionHostViewModel" />
     </UserControl.DataContext>
     <ContentControl Content="{Binding CurrentViewModel}">
         <ContentControl.Resources>

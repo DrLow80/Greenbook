@@ -26,29 +26,34 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Content"
-                      Margin="5" >
+                      Margin="5">
                 <MenuItem.Resources>
-                    <contentItems:ViewModelLocator x:Key="ContentItemsViewModelLocator"></contentItems:ViewModelLocator>
+                    <contentItems:ViewModelLocator x:Key="ContentItemsViewModelLocator" />
                 </MenuItem.Resources>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
-                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
-                                               CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel}"/>
-                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel.NavigateCommand}"
-                                               CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemListViewModel}"></i:InvokeCommandAction>
+                        <i:InvokeCommandAction
+                            Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
+                            CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel}" />
+                        <i:InvokeCommandAction
+                            Command="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel.NavigateCommand}"
+                            CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemListViewModel}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </MenuItem>
-            <MenuItem Header="Sessions" Margin="5">
+            <MenuItem Header="Sessions"
+                      Margin="5">
                 <MenuItem.Resources>
-                    <sessions:ViewModelLocator x:Key="SessionsViewModelLocator"></sessions:ViewModelLocator>
+                    <sessions:ViewModelLocator x:Key="SessionsViewModelLocator" />
                 </MenuItem.Resources>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
-                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
-                                               CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionHostViewModel}"/>
-                        <i:InvokeCommandAction Command="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionHostViewModel.NavigateCommand}"
-                                               CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionListViewModel}"></i:InvokeCommandAction>
+                        <i:InvokeCommandAction
+                            Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
+                            CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionHostViewModel}" />
+                        <i:InvokeCommandAction
+                            Command="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionHostViewModel.NavigateCommand}"
+                            CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionListViewModel}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </MenuItem>
@@ -60,13 +65,13 @@
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type contentItems:ContentItemsHostViewModel}">
-                    <contentItems:ContentItemsHostView/>
+                    <contentItems:ContentItemsHostView />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type sessions:SessionHostViewModel}">
-                    <sessions:SessionHostView/>
+                    <sessions:SessionHostView />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type randomTools:HomeViewModel}">
-                    <randomTools:HomeView/>
+                    <randomTools:HomeView />
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

@@ -1,11 +1,11 @@
-﻿using Greenbook.Entities;
-using Greenbook.Services;
-using Greenbook.WPF.Extensions;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using Greenbook.Domain;
+using Greenbook.Entities;
+using Greenbook.Services;
+using Greenbook.WPF.Extensions;
 
 namespace Greenbook.WPF
 {

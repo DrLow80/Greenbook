@@ -1,6 +1,6 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
 
 namespace Greenbook.Entities.AhoCorasick
 {

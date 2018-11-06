@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Greenbook.Application;
+﻿using Greenbook.Application;
 using Spring.Context.Attributes;
 
 namespace Greenbook.WPF.Features.Application

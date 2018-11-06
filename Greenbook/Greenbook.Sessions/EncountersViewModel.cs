@@ -6,16 +6,13 @@ namespace Greenbook.Sessions
 {
     public class EncountersViewModel : BaseListViewModel<Encounter>
     {
-        private Session _session;
+        private readonly Session _session;
 
         public EncountersViewModel(Session session)
         {
             _session = session;
 
-            foreach (var encounter in session.Encounters)
-            {
-                Items.Add(encounter);
-            }
+            foreach (var encounter in session.Encounters) Items.Add(encounter);
         }
 
         protected override IEnumerable<Encounter> GetItems()
@@ -39,7 +36,7 @@ namespace Greenbook.Sessions
 
         protected override void OnInsert(object obj)
         {
-            Encounter encounter = new Encounter();
+            var encounter = new Encounter();
 
             OnAdd(encounter);
         }
