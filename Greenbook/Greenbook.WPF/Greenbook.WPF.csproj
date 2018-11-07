@@ -162,7 +162,7 @@
       <Name>Greenbook.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\Greenbook.Sessions\Greenbook.Sessions.csproj">
-      <Project>{04d630d8-5cee-4c64-adab-ca1dbc865b92}</Project>
+      <Project>{1018f476-24af-4860-aeaa-6fd8ef6bc675}</Project>
       <Name>Greenbook.Sessions</Name>
     </ProjectReference>
   </ItemGroup>

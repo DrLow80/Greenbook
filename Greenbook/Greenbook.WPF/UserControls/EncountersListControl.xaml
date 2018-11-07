@@ -15,7 +15,7 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Add"
                       Command="{Binding ElementName=EncountersUserControl, Path=AddCommand}"
-                      Margin="5">
+                      >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
                         <ei:CallMethodAction MethodName="ScrollToBottom"
@@ -41,25 +41,25 @@
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Grid.ColumnSpan="1">
                                     <TextBlock Text="Name:"
-                                               Margin="5" />
+                                                 />
                                     <TextBox x:Name="nameTextBox"
                                              Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
-                                             Margin="5" />
+                                              />
                                 </StackPanel>
                                 <Button Content="Remove"
                                         Grid.Column="1"
-                                        Margin="5"
+                                        
                                         Command="{Binding ElementName=EncountersUserControl, Path=RemoveCommand}"
                                         CommandParameter="{Binding}" />
                             </Grid>
                             <StackPanel Grid.Row="1">
                                 <TextBlock Text="Description:"
-                                           Margin="5" />
+                                            />
                                 <TextBox x:Name="descriptionTextBox"
                                          Text="{Binding Description, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
                                          TextWrapping="Wrap"
                                          AcceptsReturn="True"
-                                         Margin="5">
+                                         >
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="LostFocus">
                                             <i:InvokeCommandAction
@@ -72,7 +72,7 @@
                                         BorderThickness="0,0,0,1"
                                         Height="Auto"
                                         Width="Auto"
-                                        Margin="5" />
+                                        />
                             </StackPanel>
                         </Grid>
                     </DataTemplate>

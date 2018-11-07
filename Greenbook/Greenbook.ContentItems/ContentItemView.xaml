@@ -36,7 +36,7 @@
             </Grid.ColumnDefinitions>
             <Button VerticalAlignment="Top"
                     Command="{Binding SelectImageCommand}"
-                    Margin="5"
+                    
                     Width="150"
                     Height="150">
                 <Image Source="{Binding ContentItem.ImageSource}" />
@@ -44,29 +44,25 @@
             <Grid Grid.Column="1"
                   Margin="5">
                 <StackPanel>
-                    <TextBlock Text="Name:"
-                               Margin="5" />
+                    <TextBlock Text="Name:" />
                     <TextBox Text="{Binding ContentItem.Name}"
-                             Margin="5" />
-                    <TextBlock Text="Type:"
-                               Margin="5" />
+                             />
+                    <TextBlock Text="Type:" />
                     <ComboBox Margin="5"
                               SelectedItem="{Binding ContentItem.ContentType}"
                               ItemsSource="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemTypesViewModel.Items}" />
-                    <TextBlock Text="Description:"
-                               Margin="5" />
+                    <TextBlock Text="Description:" />
                     <TextBox Text="{Binding ContentItem.Description}"
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
                              AcceptsTab="True"
-                             Margin="5" />
+                             />
                 </StackPanel>
             </Grid>
         </Grid>
         <DockPanel Grid.Row="1">
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="Add"
-                          Margin="5"
                           Command="{Binding EncountersViewModel.InsertCommand}" />
             </Menu>
             <ScrollViewer>
@@ -84,26 +80,24 @@
                                         <ColumnDefinition Width="50" />
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Grid.ColumnSpan="1">
-                                        <TextBlock Text="Name:"
-                                                   Margin="5" />
+                                        <TextBlock Text="Name:" />
                                         <TextBox x:Name="nameTextBox"
                                                  Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
-                                                 Margin="5" />
+                                                 />
                                     </StackPanel>
                                     <Button Content="Remove"
                                             Grid.Column="1"
-                                            Margin="5"
+                                            
                                             Command="{Binding ElementName=Parent, Path=DataContext.EncountersViewModel.RemoveCommand}"
                                             CommandParameter="{Binding}" />
                                 </Grid>
                                 <StackPanel Grid.Row="1">
-                                    <TextBlock Text="Description:"
-                                               Margin="5" />
+                                    <TextBlock Text="Description:" />
                                     <TextBox x:Name="descriptionTextBox"
                                              Text="{Binding Description, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
                                              TextWrapping="Wrap"
                                              AcceptsReturn="True"
-                                             Margin="5" />
+                                             />
                                     <Border BorderBrush="Black"
                                             BorderThickness="0,0,0,1"
                                             Height="Auto"

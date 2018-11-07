@@ -25,17 +25,14 @@
     </i:Interaction.Triggers>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Add"
-                      Margin="5">
+            <MenuItem Header="Add">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
-                        <i:InvokeCommandAction
-                            Command="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.CreateCommand}" />
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.CreateCommand}" />
                         <i:InvokeCommandAction Command="{Binding AddCommand}"
                                                CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.Session}" />
-                        <i:InvokeCommandAction
-                            Command="{Binding SessionHostViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
-                            CommandParameter="{Binding SessionViewModel, Source={StaticResource ViewModelLocator}}" />
+                        <i:InvokeCommandAction Command="{Binding SessionHostViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
+                                               CommandParameter="{Binding SessionViewModel, Source={StaticResource ViewModelLocator}}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </MenuItem>
@@ -44,15 +41,13 @@
                   SelectedItem="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.Session}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction
-                        Command="{Binding SessionHostViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
-                        CommandParameter="{Binding SessionViewModel, Source={StaticResource ViewModelLocator}}" />
+                    <i:InvokeCommandAction Command="{Binding SessionHostViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
+                                           CommandParameter="{Binding SessionViewModel, Source={StaticResource ViewModelLocator}}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
             <ListView.ItemTemplate>
                 <DataTemplate DataType="{x:Type entities:Session}">
-                    <TextBlock Text="{Binding Name}"
-                               Margin="5" />
+                    <TextBlock Text="{Binding Name}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

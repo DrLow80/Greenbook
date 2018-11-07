@@ -27,84 +27,73 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <DockPanel>
-            <!--<Menu DockPanel.Dock="Top">
-                <MenuItem Header="Print"
-                          Margin="5">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
+        <Menu>
+            <MenuItem Header="Print">
+                <i:Interaction.Triggers>
+                    <!--<i:EventTrigger EventName="Click">
                             <i:InvokeCommandAction Command="{Binding ScanCommand}"
                                                    CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=DataViewModel.ContentItems}" />
                             <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
                                                    CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionPrintViewModel}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </MenuItem>
-            </Menu>-->
-            <Grid Margin="5">
-                <StackPanel>
-                    <TextBlock Text="Name:"
-                               Margin="5" />
-                    <TextBox Margin="5"
+                        </i:EventTrigger>-->
+                </i:Interaction.Triggers>
+            </MenuItem>
+        </Menu>
+        <Grid Grid.Row="1" Margin="5">
+            <StackPanel>
+                <TextBlock Text="Name:" />
+                <TextBox
                              Text="{Binding Session.Name}" />
-                </StackPanel>
-            </Grid>
-        </DockPanel>
-        <DockPanel Grid.Row="1">
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Add"
-                          Margin="5"
+            </StackPanel>
+        </Grid>
+        <Menu Grid.Row="2">
+            <MenuItem Header="Add"
                           Command="{Binding EncountersViewModel.InsertCommand}" />
-            </Menu>
-            <ScrollViewer>
-                <ItemsControl ItemsSource="{Binding EncountersViewModel.Items}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="{x:Type entities:Encounter}">
-                            <Grid Margin="5">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition Width="50" />
-                                    </Grid.ColumnDefinitions>
-                                    <StackPanel Grid.ColumnSpan="1">
-                                        <TextBlock Text="Name:"
-                                                   Margin="5" />
-                                        <TextBox x:Name="nameTextBox"
-                                                 Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
-                                                 Margin="5" />
-                                    </StackPanel>
-                                    <Button Content="Remove"
+        </Menu>
+        <ScrollViewer Grid.Row="3">
+            <ItemsControl ItemsSource="{Binding EncountersViewModel.Items}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type entities:Encounter}">
+                        <Grid Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.ColumnSpan="1">
+                                    <TextBlock Text="Name:" />
+                                    <TextBox x:Name="nameTextBox"
+                                                 Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+                                </StackPanel>
+                                <Button Content="Remove"
                                             Grid.Column="1"
-                                            Margin="5"
+
                                             Command="{Binding ElementName=Parent, Path=DataContext.EncountersViewModel.RemoveCommand}"
                                             CommandParameter="{Binding}" />
-                                </Grid>
-                                <StackPanel Grid.Row="1">
-                                    <TextBlock Text="Description:"
-                                               Margin="5" />
-                                    <TextBox x:Name="descriptionTextBox"
+                            </Grid>
+                            <StackPanel Grid.Row="1">
+                                <TextBlock Text="Description:" />
+                                <TextBox x:Name="descriptionTextBox"
                                              Text="{Binding Description, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
                                              TextWrapping="Wrap"
-                                             AcceptsReturn="True"
-                                             Margin="5" />
-                                    <Border BorderBrush="Black"
+                                             AcceptsReturn="True" />
+                                <Border BorderBrush="Black"
                                             BorderThickness="0,0,0,1"
                                             Height="Auto"
-                                            Width="Auto"
-                                            Margin="5" />
-                                </StackPanel>
-                            </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>
-        </DockPanel>
+                                            Width="Auto" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
-
 </UserControl>

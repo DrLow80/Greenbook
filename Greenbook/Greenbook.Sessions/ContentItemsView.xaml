@@ -21,50 +21,70 @@
                                  TargetObject="{Binding}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
-        <DockPanel>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Referenced"></MenuItem>
-                <MenuItem Header="Grouped"></MenuItem>
-                <MenuItem Header="All" IsChecked="True"></MenuItem>
-            </Menu>
-            <ScrollViewer>
-                <Grid>
-                    <Grid.Resources>
-                        <DataTemplate DataType="{x:Type entities:ContentItem}">
-                            <StackPanel>
-                                <TextBox Text="{Binding Name}" IsReadOnly="True" />
-                                <ItemsControl ItemsSource="{Binding Encounters}">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate DataType="{x:Type entities:Encounter}">
-                                            <StackPanel Orientation="Horizontal">
-                                                <Button Content="Add"
-                                                        Command="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.EncountersViewModel.AddCommand}"
-                                                        CommandParameter="{Binding}">
-                                                </Button>
-                                                <TextBlock Text="{Binding Name}"></TextBlock>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                            </StackPanel>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Referenced"
+                      IsChecked="{Binding ViewType, Converter={local:ViewTypeToBoolConverter ViewType=Referenced}, Mode=OneWay}"
+                      Command="{Binding ChangeViewCommand}"
+                      CommandParameter="{x:Static local:ViewType.Referenced}" />
+            <MenuItem Header="Grouped"
+                      IsChecked="{Binding ViewType, Converter={local:ViewTypeToBoolConverter ViewType=Grouped}, Mode=OneWay}"
+                      Command="{Binding ChangeViewCommand}"
+                      CommandParameter="{x:Static local:ViewType.Grouped}"></MenuItem>
+            <MenuItem Header="All"
+                      IsChecked="{Binding ViewType, Converter={local:ViewTypeToBoolConverter ViewType=All}, Mode=OneWay}"
+                      Command="{Binding ChangeViewCommand}"
+                      CommandParameter="{x:Static local:ViewType.All}"></MenuItem>
+        </Menu>
+        <ScrollViewer>
+            <Grid>
+                <Grid.Resources>
+                    <DataTemplate DataType="{x:Type entities:ContentItem}">
+                        <Grid Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBox Text="{Binding Name}"
+                                     IsReadOnly="True" />
+                            <ItemsControl Grid.Row="1"
+                                          ItemsSource="{Binding Encounters}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type entities:Encounter}">
+                                        <Grid Margin="5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Button Content="Add"
+                                                    Command="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.EncountersViewModel.AddCommand}"
+                                                    CommandParameter="{Binding}"></Button>
+                                            <TextBlock Grid.Column="1"
+                                                       TextWrapping="Wrap"
+                                                       Text="{Binding Name}" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </DataTemplate>
+                </Grid.Resources>
+                <ItemsControl ItemsSource="{Binding ScannedContentItems}"
+                              Visibility="{Binding ViewType, Converter={local:ViewTypeToVisibilityConverter ViewType=Referenced}}"></ItemsControl>
+                <ItemsControl ItemsSource="{Binding ContentItems}"
+                              Visibility="{Binding ViewType, Converter={local:ViewTypeToVisibilityConverter ViewType=Grouped}}"></ItemsControl>
+                <ItemsControl ItemsSource="{Binding ContentItemsByTypeGroups}"
+                              Visibility="{Binding ViewType, Converter={local:ViewTypeToVisibilityConverter ViewType=All}}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type local:ContentItemsByTypeGroup}">
+                            <Expander Header="{Binding Key}"
+                                      IsExpanded="False">
+                                <ItemsControl ItemsSource="{Binding}" />
+                            </Expander>
                         </DataTemplate>
-                    </Grid.Resources>
-                    <ItemsControl ItemsSource="{Binding ScannedContentItems}" Visibility="Collapsed">
-                    </ItemsControl>
-                    <ItemsControl ItemsSource="{Binding ContentItems}">
-                    </ItemsControl>
-                    <ItemsControl ItemsSource="{Binding ContentItemsByTypeGroups}" Visibility="Collapsed">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate DataType="{x:Type local:ContentItemsByTypeGroup}">
-                                <Expander Header="{Binding Key}" IsExpanded="False">
-                                    <ItemsControl ItemsSource="{Binding}" />
-                                </Expander>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-            </ScrollViewer>
-        </DockPanel>
-    </Grid>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
 </UserControl>

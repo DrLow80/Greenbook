@@ -25,8 +25,7 @@
     </i:Interaction.Triggers>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Add"
-                      Margin="5">
+            <MenuItem Header="Add">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
                         <i:InvokeCommandAction
@@ -65,7 +64,7 @@
                         </Grid.ColumnDefinitions>
                         <Image Width="50"
                                Height="50"
-                               Margin="5" />
+                               />
                         <Grid Grid.Column="1"
                               Width="Auto"
                               Margin="0">
@@ -76,13 +75,13 @@
                             <TextBlock Text="{Binding Name}"
                                        Grid.Column="0"
                                        MinWidth="50"
-                                       Margin="5,0,5,5" />
+                                        />
                             <TextBlock Text="{Binding Description}"
                                        TextWrapping="Wrap"
                                        Grid.Column="0"
                                        Grid.Row="1"
                                        MinWidth="50"
-                                       Margin="5" />
+                                        />
                         </Grid>
                     </Grid>
                 </DataTemplate>

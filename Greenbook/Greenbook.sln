@@ -15,13 +15,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.RandomTools", "Gr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.Domain", "Greenbook.Domain\Greenbook.Domain.csproj", "{3D009133-5B25-4B32-89A9-99C9F708E0F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.Sessions", "Greenbook.Sessions\Greenbook.Sessions.csproj", "{04D630D8-5CEE-4C64-ADAB-CA1DBC865B92}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.ContentItems", "Greenbook.ContentItems\Greenbook.ContentItems.csproj", "{37A7BFE7-FEBD-4A95-8C39-AADC3CA9B75D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.Application", "Greenbook.Application\Greenbook.Application.csproj", "{E496F70C-DB13-4304-987F-301313A3577F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.AhoCorasickTrie", "Greenbook.AhoCorasickTrie\Greenbook.AhoCorasickTrie.csproj", "{DB538444-BF19-4DA3-8142-CBCED2171E28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.Sessions", "Greenbook.Sessions\Greenbook.Sessions.csproj", "{1018F476-24AF-4860-AEAA-6FD8EF6BC675}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,6 @@ Global
 		{3D009133-5B25-4B32-89A9-99C9F708E0F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D009133-5B25-4B32-89A9-99C9F708E0F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D009133-5B25-4B32-89A9-99C9F708E0F5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{04D630D8-5CEE-4C64-ADAB-CA1DBC865B92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{04D630D8-5CEE-4C64-ADAB-CA1DBC865B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{04D630D8-5CEE-4C64-ADAB-CA1DBC865B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{04D630D8-5CEE-4C64-ADAB-CA1DBC865B92}.Release|Any CPU.Build.0 = Release|Any CPU
 		{37A7BFE7-FEBD-4A95-8C39-AADC3CA9B75D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{37A7BFE7-FEBD-4A95-8C39-AADC3CA9B75D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37A7BFE7-FEBD-4A95-8C39-AADC3CA9B75D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,12 +65,16 @@ Global
 		{DB538444-BF19-4DA3-8142-CBCED2171E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB538444-BF19-4DA3-8142-CBCED2171E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB538444-BF19-4DA3-8142-CBCED2171E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1018F476-24AF-4860-AEAA-6FD8EF6BC675}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1018F476-24AF-4860-AEAA-6FD8EF6BC675}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1018F476-24AF-4860-AEAA-6FD8EF6BC675}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1018F476-24AF-4860-AEAA-6FD8EF6BC675}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2989585A-AD9D-4732-82A6-4D76C4943DBE}
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45
+		SolutionGuid = {2989585A-AD9D-4732-82A6-4D76C4943DBE}
 	EndGlobalSection
 EndGlobal
