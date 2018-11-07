@@ -78,7 +78,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataViewModel.cs" />
-    <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Features\Application\ApplicationConfiguration.cs" />
     <Compile Include="Features\ContentItems\ContentItemsConfiguration.cs" />
     <Compile Include="Features\ContentItems\ContentItemsRepository.cs" />
@@ -88,9 +87,6 @@
     <Compile Include="Features\Sessions\SessionRepository.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="SpringConfiguration.cs" />
-    <Compile Include="UserControls\EncountersListControl.xaml.cs">
-      <DependentUpon>EncountersListControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -104,10 +100,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserControls\EncountersListControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

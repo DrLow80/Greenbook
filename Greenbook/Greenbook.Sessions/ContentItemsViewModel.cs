@@ -1,8 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using Greenbook.AhoCorasickTrie;
 using Greenbook.Domain;
 using Greenbook.Entities;
+using Greenbook.Extensions;
 
 namespace Greenbook.Sessions
 {
@@ -24,10 +26,7 @@ namespace Greenbook.Sessions
 
         public void Load()
         {
-            ContentItems.Clear();
-
-            foreach (var contentItem in _sessionRepository.LoadContentItems().OrderBy(x => x.Name))
-                ContentItems.Add(contentItem);
+            ContentItems.ClearAndLoad(_sessionRepository.LoadContentItems().OrderBy(x => x.Name));
 
             ContentItemsByTypeGroups.Clear();
 
@@ -47,6 +46,19 @@ namespace Greenbook.Sessions
         }
 
         public ViewType ViewType { get; private set; } = ViewType.Referenced;
+
+        public ICommand ScanCommand=>new RelayCommand<Session>(OnScan);
+
+        private void OnScan(Session obj)
+        {
+            Trie trie = new Trie(ContentItems.Select(x=>x.Name).ToArray());
+
+            SessionTrieIterator sessionTrieIterator = new SessionTrieIterator(obj, ContentItems);
+
+            trie.Iterate(sessionTrieIterator);
+
+            ScannedContentItems.ClearAndLoad(sessionTrieIterator);
+        }
     }
 
     public enum ViewType

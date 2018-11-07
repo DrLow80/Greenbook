@@ -9,7 +9,9 @@ namespace Greenbook.WPF
         [Definition]
         public virtual DataViewModel DataViewModel()
         {
-            return new DataViewModel(PayloadService());
+            //return new DataViewModel(PayloadService());
+
+            return new DataViewModel();
         }
 
         [Definition]

@@ -72,9 +72,9 @@
                 <ItemsControl ItemsSource="{Binding ScannedContentItems}"
                               Visibility="{Binding ViewType, Converter={local:ViewTypeToVisibilityConverter ViewType=Referenced}}"></ItemsControl>
                 <ItemsControl ItemsSource="{Binding ContentItems}"
-                              Visibility="{Binding ViewType, Converter={local:ViewTypeToVisibilityConverter ViewType=Grouped}}"></ItemsControl>
+                              Visibility="{Binding ViewType, Converter={local:ViewTypeToVisibilityConverter ViewType=All}}"></ItemsControl>
                 <ItemsControl ItemsSource="{Binding ContentItemsByTypeGroups}"
-                              Visibility="{Binding ViewType, Converter={local:ViewTypeToVisibilityConverter ViewType=All}}">
+                              Visibility="{Binding ViewType, Converter={local:ViewTypeToVisibilityConverter ViewType=Grouped}}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate DataType="{x:Type local:ContentItemsByTypeGroup}">
                             <Expander Header="{Binding Key}"

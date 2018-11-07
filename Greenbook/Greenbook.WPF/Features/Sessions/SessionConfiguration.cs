@@ -19,12 +19,6 @@ namespace Greenbook.WPF.Features.Sessions
             return new SessionListViewModel(SessionRepository());
         }
 
-        //[Definition]
-        //public virtual SessionPrintViewModel SessionPrintViewModel()
-        //{
-        //    return new SessionPrintViewModel();
-        //}
-
         [Definition]
         public virtual SessionHostViewModel SessionHostViewModel()
         {
@@ -41,6 +35,12 @@ namespace Greenbook.WPF.Features.Sessions
         public virtual ContentItemsViewModel ContentItemsViewModel()
         {
             return new ContentItemsViewModel(SessionRepository());
+        }
+
+        [Definition]
+        public virtual PrintViewModel PrintViewModel()
+        {
+            return new PrintViewModel(SessionRepository());
         }
     }
 }

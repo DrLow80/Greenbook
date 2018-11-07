@@ -62,6 +62,11 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PrintView.xaml.cs">
+      <DependentUpon>PrintView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrintViewModel.cs" />
+    <Compile Include="SessionTrieIterator.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewTypeToVisibilityConverter.cs" />
     <Page Include="ContentItemsView.xaml">
@@ -71,6 +76,10 @@
     <Page Include="EditSessionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PrintView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SessionHostView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -132,6 +141,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Greenbook.AhoCorasickTrie\Greenbook.AhoCorasickTrie.csproj">
+      <Project>{db538444-bf19-4da3-8142-cbced2171e28}</Project>
+      <Name>Greenbook.AhoCorasickTrie</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Greenbook.Domain\Greenbook.Domain.csproj">
       <Project>{3d009133-5b25-4b32-89a9-99c9f708e0f5}</Project>
       <Name>Greenbook.Domain</Name>
@@ -139,6 +152,10 @@
     <ProjectReference Include="..\Greenbook.Entities\Greenbook.Entities.csproj">
       <Project>{4ba04b68-38c6-49c9-8c3d-b2d2e0fd6a87}</Project>
       <Name>Greenbook.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Greenbook.Extensions\Greenbook.Extensions.csproj">
+      <Project>{c999d850-6918-4cd3-9b4f-28fec835d2bd}</Project>
+      <Name>Greenbook.Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

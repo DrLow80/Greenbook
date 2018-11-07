@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Greenbook.Extensions;
 
 namespace Greenbook.Domain
 {
@@ -27,11 +28,7 @@ namespace Greenbook.Domain
 
         public void Load()
         {
-            var items = GetItems();
-
-            Items.Clear();
-
-            foreach (var item in items) OnAdd(item);
+            Items.ClearAndLoad(GetItems());
         }
 
         protected abstract IEnumerable<T> GetItems();
