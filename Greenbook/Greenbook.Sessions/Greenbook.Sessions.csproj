@@ -62,13 +62,16 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\CollectionContainsToVisibilityConverter.cs" />
+    <Compile Include="Converters\ViewTypeToBoolConverter.cs" />
     <Compile Include="PrintView.xaml.cs">
       <DependentUpon>PrintView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PrintViewModel.cs" />
     <Compile Include="SessionTrieIterator.cs" />
     <Compile Include="ViewModelLocator.cs" />
-    <Compile Include="ViewTypeToVisibilityConverter.cs" />
+    <Compile Include="Converters\ViewTypeToVisibilityConverter.cs" />
+    <Compile Include="ViewType.cs" />
     <Page Include="ContentItemsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

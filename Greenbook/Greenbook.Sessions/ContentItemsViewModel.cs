@@ -51,6 +51,13 @@ namespace Greenbook.Sessions
 
         private void OnScan(Session obj)
         {
+            if (!obj.Encounters.Any())
+            {
+                ScannedContentItems.Clear();
+
+                return;
+            }
+
             Trie trie = new Trie(ContentItems.Select(x=>x.Name).ToArray());
 
             SessionTrieIterator sessionTrieIterator = new SessionTrieIterator(obj, ContentItems);
@@ -59,12 +66,5 @@ namespace Greenbook.Sessions
 
             ScannedContentItems.ClearAndLoad(sessionTrieIterator);
         }
-    }
-
-    public enum ViewType
-    {
-        All,
-        Grouped,
-        Referenced
     }
 }

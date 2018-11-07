@@ -1,24 +1,10 @@
 ﻿using System;
 using System.Globalization;
-using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Greenbook.Sessions
+namespace Greenbook.Sessions.Converters
 {
-    public class ViewTypeToVisibilityConverter : ViewTypeToBoolConverter
-    {
-        public override object ProvideValue(IServiceProvider serviceProvider)
-        {
-            return this;
-        }
-
-        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return DoesViewTypeMatch(value) ? Visibility.Visible : Visibility.Collapsed;
-        }
-    }
-
     public class ViewTypeToBoolConverter : MarkupExtension, IValueConverter
     {
         public ViewType ViewType { get; set; } = ViewType.All;

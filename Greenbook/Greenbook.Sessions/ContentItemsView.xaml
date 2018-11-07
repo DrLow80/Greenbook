@@ -7,6 +7,7 @@
              xmlns:entities="clr-namespace:Greenbook.Entities;assembly=Greenbook.Entities"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:converters="clr-namespace:Greenbook.Sessions.Converters"
              mc:Ignorable="d">
     <UserControl.Resources>
         <local:ViewModelLocator x:Key="ViewModelLocator" />
@@ -19,22 +20,24 @@
         <i:EventTrigger EventName="Loaded">
             <ei:CallMethodAction MethodName="Load"
                                  TargetObject="{Binding}" />
+            <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemsViewModel.ScanCommand}"
+                                   CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.Session}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Referenced"
-                      IsChecked="{Binding ViewType, Converter={local:ViewTypeToBoolConverter ViewType=Referenced}, Mode=OneWay}"
+                      IsChecked="{Binding ViewType, Converter={converters:ViewTypeToBoolConverter ViewType=Referenced}, Mode=OneWay}"
                       Command="{Binding ChangeViewCommand}"
                       CommandParameter="{x:Static local:ViewType.Referenced}" />
             <MenuItem Header="Grouped"
-                      IsChecked="{Binding ViewType, Converter={local:ViewTypeToBoolConverter ViewType=Grouped}, Mode=OneWay}"
+                      IsChecked="{Binding ViewType, Converter={converters:ViewTypeToBoolConverter ViewType=Grouped}, Mode=OneWay}"
                       Command="{Binding ChangeViewCommand}"
-                      CommandParameter="{x:Static local:ViewType.Grouped}"></MenuItem>
+                      CommandParameter="{x:Static local:ViewType.Grouped}" />
             <MenuItem Header="All"
-                      IsChecked="{Binding ViewType, Converter={local:ViewTypeToBoolConverter ViewType=All}, Mode=OneWay}"
+                      IsChecked="{Binding ViewType, Converter={converters:ViewTypeToBoolConverter ViewType=All}, Mode=OneWay}"
                       Command="{Binding ChangeViewCommand}"
-                      CommandParameter="{x:Static local:ViewType.All}"></MenuItem>
+                      CommandParameter="{x:Static local:ViewType.All}" />
         </Menu>
         <ScrollViewer>
             <Grid>
@@ -52,13 +55,20 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate DataType="{x:Type entities:Encounter}">
                                         <Grid Margin="5">
+                                            <Grid.Visibility>
+                                                <MultiBinding Converter="{converters:CollectionContainsToVisibilityConverter}">
+                                                    <Binding />
+                                                    <Binding Source="{StaticResource ViewModelLocator}"
+                                                             Path="SessionViewModel.EncountersViewModel.Items" />
+                                                </MultiBinding>
+                                            </Grid.Visibility>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto" />
                                                 <ColumnDefinition />
                                             </Grid.ColumnDefinitions>
                                             <Button Content="Add"
                                                     Command="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.EncountersViewModel.AddCommand}"
-                                                    CommandParameter="{Binding}"></Button>
+                                                    CommandParameter="{Binding}" />
                                             <TextBlock Grid.Column="1"
                                                        TextWrapping="Wrap"
                                                        Text="{Binding Name}" />
@@ -70,11 +80,11 @@
                     </DataTemplate>
                 </Grid.Resources>
                 <ItemsControl ItemsSource="{Binding ScannedContentItems}"
-                              Visibility="{Binding ViewType, Converter={local:ViewTypeToVisibilityConverter ViewType=Referenced}}"></ItemsControl>
+                              Visibility="{Binding ViewType, Converter={converters:ViewTypeToVisibilityConverter ViewType=Referenced}}" />
                 <ItemsControl ItemsSource="{Binding ContentItems}"
-                              Visibility="{Binding ViewType, Converter={local:ViewTypeToVisibilityConverter ViewType=All}}"></ItemsControl>
+                              Visibility="{Binding ViewType, Converter={converters:ViewTypeToVisibilityConverter ViewType=All}}" />
                 <ItemsControl ItemsSource="{Binding ContentItemsByTypeGroups}"
-                              Visibility="{Binding ViewType, Converter={local:ViewTypeToVisibilityConverter ViewType=Grouped}}">
+                              Visibility="{Binding ViewType, Converter={converters:ViewTypeToVisibilityConverter ViewType=Grouped}}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate DataType="{x:Type local:ContentItemsByTypeGroup}">
                             <Expander Header="{Binding Key}"

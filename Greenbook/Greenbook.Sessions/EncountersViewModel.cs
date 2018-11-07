@@ -25,6 +25,8 @@ namespace Greenbook.Sessions
             base.OnAdd(obj);
 
             _session.Encounters.Add(obj);
+
+            OnPropertyChanged(nameof(Items));
         }
 
         protected override void OnRemove(Encounter obj)
@@ -32,6 +34,8 @@ namespace Greenbook.Sessions
             base.OnRemove(obj);
 
             _session.Encounters.Remove(obj);
+
+            OnPropertyChanged(nameof(Items));
         }
 
         protected override void OnInsert(object obj)
