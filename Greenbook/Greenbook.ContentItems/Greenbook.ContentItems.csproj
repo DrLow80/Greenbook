@@ -65,6 +65,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentItemTypesView.xaml.cs">
+      <DependentUpon>ContentItemTypesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ContentItemTypesViewModel.cs" />
     <Compile Include="EncountersViewModel.cs" />
     <Compile Include="IContentItemsRepository.cs" />
@@ -85,6 +88,10 @@
       <DependentUpon>ContentItemsHostView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ContentItemsHostViewModel.cs" />
+    <Page Include="ContentItemTypesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ContentItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

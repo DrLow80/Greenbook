@@ -36,7 +36,6 @@
             </Grid.ColumnDefinitions>
             <Button VerticalAlignment="Top"
                     Command="{Binding SelectImageCommand}"
-                    
                     Width="150"
                     Height="150">
                 <Image Source="{Binding ContentItem.ImageSource}" />
@@ -45,18 +44,15 @@
                   Margin="5">
                 <StackPanel>
                     <TextBlock Text="Name:" />
-                    <TextBox Text="{Binding ContentItem.Name}"
-                             />
+                    <TextBox Text="{Binding ContentItem.Name}" />
                     <TextBlock Text="Type:" />
-                    <ComboBox Margin="5"
-                              SelectedItem="{Binding ContentItem.ContentType}"
+                    <ComboBox SelectedItem="{Binding ContentItem.ContentType}"
                               ItemsSource="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemTypesViewModel.Items}" />
                     <TextBlock Text="Description:" />
                     <TextBox Text="{Binding ContentItem.Description}"
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
-                             AcceptsTab="True"
-                             />
+                             AcceptsTab="True" />
                 </StackPanel>
             </Grid>
         </Grid>
@@ -82,12 +78,10 @@
                                     <StackPanel Grid.ColumnSpan="1">
                                         <TextBlock Text="Name:" />
                                         <TextBox x:Name="nameTextBox"
-                                                 Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
-                                                 />
+                                                 Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
                                     </StackPanel>
                                     <Button Content="Remove"
                                             Grid.Column="1"
-                                            
                                             Command="{Binding ElementName=Parent, Path=DataContext.EncountersViewModel.RemoveCommand}"
                                             CommandParameter="{Binding}" />
                                 </Grid>
@@ -96,8 +90,7 @@
                                     <TextBox x:Name="descriptionTextBox"
                                              Text="{Binding Description, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
                                              TextWrapping="Wrap"
-                                             AcceptsReturn="True"
-                                             />
+                                             AcceptsReturn="True" />
                                     <Border BorderBrush="Black"
                                             BorderThickness="0,0,0,1"
                                             Height="Auto"

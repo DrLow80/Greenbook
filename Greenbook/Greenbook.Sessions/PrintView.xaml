@@ -17,6 +17,6 @@
                  Path="PrintViewModel" />
     </UserControl.DataContext>
     <Grid>
-            
+            <TextBlock>iz r print u</TextBlock>
     </Grid>
 </UserControl>

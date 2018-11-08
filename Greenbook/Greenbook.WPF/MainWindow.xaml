@@ -31,27 +31,36 @@
                 </MenuItem.Resources>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
-                        <i:InvokeCommandAction
-                            Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
-                            CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel}" />
-                        <i:InvokeCommandAction
-                            Command="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel.NavigateCommand}"
-                            CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemListViewModel}" />
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
+                                               CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel}" />
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel.NavigateCommand}"
+                                               CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemListViewModel}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </MenuItem>
+            <!--<MenuItem Header="Content Types">
+                <MenuItem.Resources>
+                    <contentItems:ViewModelLocator x:Key="ContentItemsViewModelLocator" />
+                </MenuItem.Resources>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
+                                               CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel}" />
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel.NavigateCommand}"
+                                               CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemTypesViewModel}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </MenuItem>-->
             <MenuItem Header="Sessions">
                 <MenuItem.Resources>
                     <sessions:ViewModelLocator x:Key="SessionsViewModelLocator" />
                 </MenuItem.Resources>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
-                        <i:InvokeCommandAction
-                            Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
-                            CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionHostViewModel}" />
-                        <i:InvokeCommandAction
-                            Command="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionHostViewModel.NavigateCommand}"
-                            CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionListViewModel}" />
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
+                                               CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionHostViewModel}" />
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionHostViewModel.NavigateCommand}"
+                                               CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionListViewModel}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </MenuItem>

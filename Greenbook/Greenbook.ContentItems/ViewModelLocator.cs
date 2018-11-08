@@ -15,5 +15,6 @@ namespace Greenbook.ContentItems
 
         public static ContentItemTypesViewModel ContentItemTypesViewModel =>
             SpringContext.GetObject<ContentItemTypesViewModel>(nameof(ContentItemTypesViewModel));
+
     }
 }

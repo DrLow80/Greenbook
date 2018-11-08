@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Greenbook.Domain;
+﻿using Greenbook.Domain;
+using System.Collections.Generic;
 
 namespace Greenbook.ContentItems
 {
@@ -7,7 +7,14 @@ namespace Greenbook.ContentItems
     {
         protected override IEnumerable<string> GetItems()
         {
-            return new[] {"TEST", "TEST2", "TEST2"};
+            return _contentItemsRepository.LoadContentItemTypes();
+        }
+
+        private IContentItemsRepository _contentItemsRepository;
+
+        public ContentItemTypesViewModel(IContentItemsRepository contentItemsRepository)
+        {
+            _contentItemsRepository = contentItemsRepository;
         }
     }
 }

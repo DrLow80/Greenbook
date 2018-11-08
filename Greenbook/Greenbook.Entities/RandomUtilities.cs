@@ -243,7 +243,7 @@ namespace Greenbook.Entities
             return string.Join(" ", RandomList(10, 100, RandomLipsum));
         }
 
-        private static string RandomLipsum()
+        public static string RandomLipsum()
         {
             var result = RandomInt(0, LipsumData.Length);
 

@@ -33,7 +33,7 @@ namespace Greenbook.WPF.Features.ContentItems
         [Definition]
         public virtual ContentItemTypesViewModel ContentItemTypesViewModel()
         {
-            return new ContentItemTypesViewModel();
+            return new ContentItemTypesViewModel(ContentItemsRepository());
         }
     }
 }

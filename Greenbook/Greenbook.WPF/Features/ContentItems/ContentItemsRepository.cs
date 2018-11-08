@@ -19,6 +19,11 @@ namespace Greenbook.WPF.Features.ContentItems
             return Result.Ok(ShowDialog(new OpenFileDialog()));
         }
 
+        public IEnumerable<string> LoadContentItemTypes()
+        {
+            return RandomUtilities.RandomList(5, 10, RandomUtilities.RandomLipsum);
+        }
+
         private static string ShowDialog(FileDialog fileDialog)
         {
             Guard.ArgumentNotNull(fileDialog, nameof(fileDialog));
