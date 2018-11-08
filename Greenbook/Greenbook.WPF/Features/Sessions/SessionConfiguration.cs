@@ -1,16 +1,17 @@
 ﻿using Greenbook.Sessions;
+using Greenbook.WPF.Features.ContentItems;
+using Spring.Context;
 using Spring.Context.Attributes;
-//using Greenbook.WPF.Sessions;
 
 namespace Greenbook.WPF.Features.Sessions
 {
     [Configuration]
-    public class SessionConfiguration
+    public class SessionConfiguration: IApplicationContextAware
     {
         [Definition]
         public virtual SessionViewModel SessionViewModel()
         {
-            return new SessionViewModel();
+            return new SessionViewModel(SessionRepository());
         }
 
         [Definition]
@@ -28,7 +29,7 @@ namespace Greenbook.WPF.Features.Sessions
         [Definition]
         public virtual ISessionRepository SessionRepository()
         {
-            return new SessionRepository();
+            return ApplicationContext.GetObject<TestDataRepo>();
         }
 
         [Definition]
@@ -42,5 +43,7 @@ namespace Greenbook.WPF.Features.Sessions
         {
             return new PrintViewModel(SessionRepository());
         }
+
+        public IApplicationContext ApplicationContext { get; set; }
     }
 }

@@ -27,6 +27,8 @@ namespace Greenbook.ContentItems
         private void OnCreate(object obj)
         {
             ContentItem = new ContentItem();
+
+            _contentItemsRepository.Insert(ContentItem);
         }
 
         public void Load()
@@ -39,6 +41,20 @@ namespace Greenbook.ContentItems
             var path = _contentItemsRepository.SelectImage();
 
             if (path.IsSuccess) ContentItem.ImageSource = path.Value;
+        }
+
+        public ICommand RemoveCommand => new RelayCommand(OnRemove);
+
+        private void OnRemove(object obj)
+        {
+            if (ContentItem == null)
+            {
+                //what do?
+            }
+
+            _contentItemsRepository.Remove(ContentItem);
+
+            ContentItem = null;
         }
     }
 }

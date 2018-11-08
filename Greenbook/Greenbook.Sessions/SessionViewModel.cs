@@ -15,11 +15,34 @@ namespace Greenbook.Sessions
         private void OnCreate(object obj)
         {
             Session = new Session();
+
+            _sessionRepository.Insert(Session);
         }
 
         public void Load()
         {
             EncountersViewModel = new EncountersViewModel(Session);
+        }
+
+        private ISessionRepository _sessionRepository;
+
+        public SessionViewModel(ISessionRepository sessionRepository)
+        {
+            _sessionRepository = sessionRepository;
+        }
+
+        public ICommand RemoveCommand=>new RelayCommand(OnRemove);
+
+        private void OnRemove(object obj)
+        {
+            if (Session == null)
+            {
+                //what do?
+            }
+
+            _sessionRepository.Remove(Session);
+
+            Session = null;
         }
     }
 }

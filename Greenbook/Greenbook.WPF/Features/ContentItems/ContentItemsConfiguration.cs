@@ -1,10 +1,11 @@
 ﻿using Greenbook.ContentItems;
+using Spring.Context;
 using Spring.Context.Attributes;
 
 namespace Greenbook.WPF.Features.ContentItems
 {
     [Configuration]
-    public class ContentItemsConfiguration
+    public class ContentItemsConfiguration: IApplicationContextAware
     {
         [Definition]
         public virtual ContentItemsHostViewModel ContentItemsHostViewModel()
@@ -21,7 +22,9 @@ namespace Greenbook.WPF.Features.ContentItems
         [Definition]
         public virtual IContentItemsRepository ContentItemsRepository()
         {
-            return new ContentItemsRepository();
+            //return new ContentItemsRepository();
+
+            return ApplicationContext.GetObject<TestDataRepo>();
         }
 
         [Definition]
@@ -35,5 +38,7 @@ namespace Greenbook.WPF.Features.ContentItems
         {
             return new ContentItemTypesViewModel(ContentItemsRepository());
         }
+
+        public IApplicationContext ApplicationContext { get; set; }
     }
 }
