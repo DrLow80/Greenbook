@@ -7,6 +7,7 @@
         xmlns:randomTools="clr-namespace:Greenbook.RandomTools;assembly=Greenbook.RandomTools"
         xmlns:sessions="clr-namespace:Greenbook.Sessions;assembly=Greenbook.Sessions"
         xmlns:contentItems="clr-namespace:Greenbook.ContentItems;assembly=Greenbook.ContentItems"
+        xmlns:data="clr-namespace:Greenbook.Data;assembly=Greenbook.Data"
         x:Class="Greenbook.WPF.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow"
@@ -25,6 +26,15 @@
     </i:Interaction.Triggers>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Load">
+                <MenuItem.Resources>
+                    <data:ViewModelLocator x:Key="DataViewModelLocator" />
+                </MenuItem.Resources>
+                <MenuItem.Command>
+                    <Binding Source="{StaticResource DataViewModelLocator}"
+                             Path="DataViewModel.LoadCommand" />
+                </MenuItem.Command>
+            </MenuItem>
             <MenuItem Header="Content">
                 <MenuItem.Resources>
                     <contentItems:ViewModelLocator x:Key="ContentItemsViewModelLocator" />

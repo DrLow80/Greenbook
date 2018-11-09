@@ -77,16 +77,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DataViewModel.cs" />
     <Compile Include="Features\Application\ApplicationConfiguration.cs" />
     <Compile Include="Features\ContentItems\ContentItemsConfiguration.cs" />
-    <Compile Include="Features\ContentItems\ContentItemsRepository.cs" />
+    <Compile Include="Features\DataContext.cs" />
+    <Compile Include="Features\DataDefinition.cs" />
+    <Compile Include="Features\Data\DataConfiguration.cs" />
     <Compile Include="Features\RandomTools\RandomToolsConfiguration.cs" />
-    <Compile Include="Features\RandomTools\RandomToolsRepository.cs" />
     <Compile Include="Features\Sessions\SessionConfiguration.cs" />
-    <Compile Include="Features\Sessions\SessionRepository.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="SpringConfiguration.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +135,10 @@
       <Project>{37A7BFE7-FEBD-4A95-8C39-AADC3CA9B75D}</Project>
       <Name>Greenbook.ContentItems</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Greenbook.Data\Greenbook.Data.csproj">
+      <Project>{B102AC2D-0678-4707-B4F9-A65571E965E4}</Project>
+      <Name>Greenbook.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Greenbook.Domain\Greenbook.Domain.csproj">
       <Project>{3D009133-5B25-4B32-89A9-99C9F708E0F5}</Project>
       <Name>Greenbook.Domain</Name>
@@ -148,10 +150,6 @@
     <ProjectReference Include="..\Greenbook.RandomTools\Greenbook.RandomTools.csproj">
       <Project>{6f379cd3-f4f1-451b-88e0-8c2eaea6bae5}</Project>
       <Name>Greenbook.RandomTools</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Greenbook.Services\Greenbook.Services.csproj">
-      <Project>{E50997BA-7DD5-4127-A10C-740D118AE00D}</Project>
-      <Name>Greenbook.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\Greenbook.Sessions\Greenbook.Sessions.csproj">
       <Project>{1018f476-24af-4860-aeaa-6fd8ef6bc675}</Project>

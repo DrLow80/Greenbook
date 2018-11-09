@@ -245,9 +245,14 @@ namespace Greenbook.Entities
 
         public static string RandomLipsum()
         {
-            var result = RandomInt(0, LipsumData.Length);
+            return OneRandom(LipsumData);
+        }
 
-            return LipsumData[result];
+        public static T OneRandom<T>(T[] items)
+        {
+            var result = RandomInt(0, items.Length);
+
+            return items[result];
         }
 
         private static string RandomName()

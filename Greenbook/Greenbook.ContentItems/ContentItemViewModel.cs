@@ -1,7 +1,9 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using Greenbook.Domain;
 using Greenbook.Entities;
+using Greenbook.Extensions;
 
 namespace Greenbook.ContentItems
 {
@@ -15,8 +17,6 @@ namespace Greenbook.ContentItems
         }
 
         public ContentItem ContentItem { get; set; }
-
-        public ObservableCollection<Encounter> Encounters { get; } = new ObservableCollection<Encounter>();
 
         public ICommand SelectImageCommand => new RelayCommand(OnSelectImage);
 
@@ -34,6 +34,12 @@ namespace Greenbook.ContentItems
         public void Load()
         {
             EncountersViewModel = new EncountersViewModel(ContentItem);
+
+            //HACK: Find a better way to do this
+            if (!ContentItemTypes.Any())
+            {
+                ContentItemTypes.ClearAndLoad(_contentItemsRepository.LoadContentItemTypes());
+            }
         }
 
         private void OnSelectImage(object obj)
@@ -56,5 +62,7 @@ namespace Greenbook.ContentItems
 
             ContentItem = null;
         }
+
+        public ObservableCollection<string> ContentItemTypes { get; } = new ObservableCollection<string>();
     }
 }

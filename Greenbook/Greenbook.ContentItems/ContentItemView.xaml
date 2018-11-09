@@ -47,7 +47,7 @@
                     <TextBox Text="{Binding ContentItem.Name}" />
                     <TextBlock Text="Type:" />
                     <ComboBox SelectedItem="{Binding ContentItem.ContentType}"
-                              ItemsSource="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemTypesViewModel.Items}" />
+                              ItemsSource="{Binding ContentItemTypes}" />
                     <TextBlock Text="Description:" />
                     <TextBox Text="{Binding ContentItem.Description}"
                              TextWrapping="Wrap"
@@ -58,10 +58,17 @@
         </Grid>
         <DockPanel Grid.Row="1">
             <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Add"
-                          Command="{Binding EncountersViewModel.InsertCommand}" />
+                <MenuItem Header="Add">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding EncountersViewModel.InsertCommand}" />
+                            <ei:CallMethodAction TargetObject="{Binding ElementName=ScrollViewer}"
+                                                 MethodName="ScrollToEnd" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
             </Menu>
-            <ScrollViewer>
+            <ScrollViewer x:Name="ScrollViewer">
                 <ItemsControl ItemsSource="{Binding EncountersViewModel.Items}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate DataType="{x:Type entities:Encounter}">

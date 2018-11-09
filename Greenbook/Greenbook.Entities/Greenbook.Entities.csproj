@@ -61,7 +61,6 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="ContentItem.cs" />
     <Compile Include="ContentName.cs" />
-    <Compile Include="DataPayload.cs" />
     <Compile Include="Encounter.cs" />
     <Compile Include="NameParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.WPF", "Greenbook.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.Entities", "Greenbook.Entities\Greenbook.Entities.csproj", "{4BA04B68-38C6-49C9-8C3D-B2D2E0FD6A87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.Services", "Greenbook.Services\Greenbook.Services.csproj", "{E50997BA-7DD5-4127-A10C-740D118AE00D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.EntitiesTests", "Greenbook.EntitiesTests\Greenbook.EntitiesTests.csproj", "{6E416758-C6D0-4EC9-9892-2BE7AC74EE65}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.RandomTools", "Greenbook.RandomTools\Greenbook.RandomTools.csproj", "{6F379CD3-F4F1-451B-88E0-8C2EAEA6BAE5}"
@@ -31,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{8D73
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.Extensions", "Greenbook.Extensions\Greenbook.Extensions.csproj", "{C999D850-6918-4CD3-9B4F-28FEC835D2BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.Data", "Greenbook.Data\Greenbook.Data.csproj", "{B102AC2D-0678-4707-B4F9-A65571E965E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,10 +45,6 @@ Global
 		{4BA04B68-38C6-49C9-8C3D-B2D2E0FD6A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BA04B68-38C6-49C9-8C3D-B2D2E0FD6A87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BA04B68-38C6-49C9-8C3D-B2D2E0FD6A87}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E50997BA-7DD5-4127-A10C-740D118AE00D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E50997BA-7DD5-4127-A10C-740D118AE00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E50997BA-7DD5-4127-A10C-740D118AE00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E50997BA-7DD5-4127-A10C-740D118AE00D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6E416758-C6D0-4EC9-9892-2BE7AC74EE65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6E416758-C6D0-4EC9-9892-2BE7AC74EE65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E416758-C6D0-4EC9-9892-2BE7AC74EE65}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -81,6 +77,10 @@ Global
 		{C999D850-6918-4CD3-9B4F-28FEC835D2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C999D850-6918-4CD3-9B4F-28FEC835D2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C999D850-6918-4CD3-9B4F-28FEC835D2BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B102AC2D-0678-4707-B4F9-A65571E965E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B102AC2D-0678-4707-B4F9-A65571E965E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B102AC2D-0678-4707-B4F9-A65571E965E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B102AC2D-0678-4707-B4F9-A65571E965E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,7 +88,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8EA511F2-2011-477F-948D-472335F81E52} = {8D7350B3-AD4D-405F-A859-E2B3F538CE70}
 		{4BA04B68-38C6-49C9-8C3D-B2D2E0FD6A87} = {097C85E9-53EA-4698-82B0-EEB80DA93971}
-		{E50997BA-7DD5-4127-A10C-740D118AE00D} = {0BBD69F6-22EC-44DC-BA6B-2C170B6D38EC}
 		{6E416758-C6D0-4EC9-9892-2BE7AC74EE65} = {097C85E9-53EA-4698-82B0-EEB80DA93971}
 		{6F379CD3-F4F1-451B-88E0-8C2EAEA6BAE5} = {0BBD69F6-22EC-44DC-BA6B-2C170B6D38EC}
 		{3D009133-5B25-4B32-89A9-99C9F708E0F5} = {097C85E9-53EA-4698-82B0-EEB80DA93971}
@@ -97,9 +96,10 @@ Global
 		{DB538444-BF19-4DA3-8142-CBCED2171E28} = {097C85E9-53EA-4698-82B0-EEB80DA93971}
 		{1018F476-24AF-4860-AEAA-6FD8EF6BC675} = {0BBD69F6-22EC-44DC-BA6B-2C170B6D38EC}
 		{C999D850-6918-4CD3-9B4F-28FEC835D2BD} = {097C85E9-53EA-4698-82B0-EEB80DA93971}
+		{B102AC2D-0678-4707-B4F9-A65571E965E4} = {0BBD69F6-22EC-44DC-BA6B-2C170B6D38EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2989585A-AD9D-4732-82A6-4D76C4943DBE}
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45
+		SolutionGuid = {2989585A-AD9D-4732-82A6-4D76C4943DBE}
 	EndGlobalSection
 EndGlobal

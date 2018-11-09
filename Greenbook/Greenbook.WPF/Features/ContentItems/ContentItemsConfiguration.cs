@@ -24,7 +24,7 @@ namespace Greenbook.WPF.Features.ContentItems
         {
             //return new ContentItemsRepository();
 
-            return ApplicationContext.GetObject<TestDataRepo>();
+            return ApplicationContext.GetObject<DataContext>();
         }
 
         [Definition]

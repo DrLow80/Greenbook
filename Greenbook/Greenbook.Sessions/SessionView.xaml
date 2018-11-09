@@ -51,10 +51,18 @@
             </StackPanel>
         </Grid>
         <Menu Grid.Row="2">
-            <MenuItem Header="Add"
-                      Command="{Binding EncountersViewModel.InsertCommand}" />
+            <MenuItem Header="Add">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding EncountersViewModel.InsertCommand}" />
+                        <ei:CallMethodAction TargetObject="{Binding ElementName=ScrollViewer}"
+                                             MethodName="ScrollToEnd" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </MenuItem>
         </Menu>
-        <ScrollViewer Grid.Row="3">
+        <ScrollViewer x:Name="ScrollViewer"
+                      Grid.Row="3">
             <ItemsControl ItemsSource="{Binding EncountersViewModel.Items}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="{x:Type entities:Encounter}">
