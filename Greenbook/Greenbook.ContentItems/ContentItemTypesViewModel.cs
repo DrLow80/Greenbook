@@ -1,11 +1,12 @@
 ﻿using Greenbook.Domain;
 using System.Collections.Generic;
+using Greenbook.Entities;
 
 namespace Greenbook.ContentItems
 {
-    public class ContentItemTypesViewModel : BaseListViewModel<string>
+    public class ContentItemTypesViewModel : BaseListViewModel<ContentItemType>
     {
-        protected override IEnumerable<string> GetItems()
+        protected override IEnumerable<ContentItemType> GetItems()
         {
             return _contentItemsRepository.LoadContentItemTypes();
         }

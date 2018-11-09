@@ -30,7 +30,7 @@ namespace Greenbook.Sessions
 
             ContentItemsByTypeGroups.Clear();
 
-            foreach (var type in ContentItems.GroupBy(x => x.ContentType).OrderBy(x => x.Key))
+            foreach (var type in ContentItems.GroupBy(x => x.ContentType.Content).OrderBy(x => x.Key))
             {
                 var contentItemsByTypeGroup = new ContentItemsByTypeGroup(type.Key, type.OrderBy(x => x.Name));
 

@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.Extensions", "Gre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.Data", "Greenbook.Data\Greenbook.Data.csproj", "{B102AC2D-0678-4707-B4F9-A65571E965E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.ContentItemTypes", "Greenbook.ContentItemTypes\Greenbook.ContentItemTypes.csproj", "{2ABA6E10-AC53-44F5-AA85-03CEC840EEDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{B102AC2D-0678-4707-B4F9-A65571E965E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B102AC2D-0678-4707-B4F9-A65571E965E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B102AC2D-0678-4707-B4F9-A65571E965E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ABA6E10-AC53-44F5-AA85-03CEC840EEDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ABA6E10-AC53-44F5-AA85-03CEC840EEDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ABA6E10-AC53-44F5-AA85-03CEC840EEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ABA6E10-AC53-44F5-AA85-03CEC840EEDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,9 +103,10 @@ Global
 		{1018F476-24AF-4860-AEAA-6FD8EF6BC675} = {0BBD69F6-22EC-44DC-BA6B-2C170B6D38EC}
 		{C999D850-6918-4CD3-9B4F-28FEC835D2BD} = {097C85E9-53EA-4698-82B0-EEB80DA93971}
 		{B102AC2D-0678-4707-B4F9-A65571E965E4} = {0BBD69F6-22EC-44DC-BA6B-2C170B6D38EC}
+		{2ABA6E10-AC53-44F5-AA85-03CEC840EEDC} = {0BBD69F6-22EC-44DC-BA6B-2C170B6D38EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45
 		SolutionGuid = {2989585A-AD9D-4732-82A6-4D76C4943DBE}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal

@@ -79,6 +79,7 @@
     </ApplicationDefinition>
     <Compile Include="Features\Application\ApplicationConfiguration.cs" />
     <Compile Include="Features\ContentItems\ContentItemsConfiguration.cs" />
+    <Compile Include="Features\ContentItemTypeListViews\ContentItemTypeListViewConfiguration.cs" />
     <Compile Include="Features\DataContext.cs" />
     <Compile Include="Features\DataDefinition.cs" />
     <Compile Include="Features\Data\DataConfiguration.cs" />
@@ -134,6 +135,10 @@
     <ProjectReference Include="..\Greenbook.ContentItems\Greenbook.ContentItems.csproj">
       <Project>{37A7BFE7-FEBD-4A95-8C39-AADC3CA9B75D}</Project>
       <Name>Greenbook.ContentItems</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Greenbook.ContentItemTypes\Greenbook.ContentItemTypes.csproj">
+      <Project>{2aba6e10-ac53-44f5-aa85-03cec840eedc}</Project>
+      <Name>Greenbook.ContentItemTypes</Name>
     </ProjectReference>
     <ProjectReference Include="..\Greenbook.Data\Greenbook.Data.csproj">
       <Project>{B102AC2D-0678-4707-B4F9-A65571E965E4}</Project>

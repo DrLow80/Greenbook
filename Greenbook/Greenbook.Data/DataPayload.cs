@@ -8,7 +8,7 @@ namespace Greenbook.Data
     {
         public DataPayload()
         {
-            ContentItemTypes = RandomUtilities.RandomList(5, 5, RandomUtilities.RandomLipsum).ToArray();
+            ContentItemTypes = RandomUtilities.RandomList(5, 5, RandomUtilities.RandomContentItemType).ToArray();
 
             ContentItems = RandomUtilities.RandomList(3, 5, RandomUtilities.RandomContentItem).ToArray();
 
@@ -29,7 +29,7 @@ namespace Greenbook.Data
 
         public IEnumerable<ContentItem> ContentItems { get; }
 
-        public string[] ContentItemTypes { get; }
+        public ContentItemType[] ContentItemTypes { get; }
 
         public IEnumerable<Session> Sessions { get; }
     }

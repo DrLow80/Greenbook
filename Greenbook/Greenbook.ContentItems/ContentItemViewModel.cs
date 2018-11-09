@@ -63,6 +63,6 @@ namespace Greenbook.ContentItems
             ContentItem = null;
         }
 
-        public ObservableCollection<string> ContentItemTypes { get; } = new ObservableCollection<string>();
+        public ObservableCollection<ContentItemType> ContentItemTypes { get; } = new ObservableCollection<ContentItemType>();
     }
 }

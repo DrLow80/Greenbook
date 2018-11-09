@@ -8,13 +8,14 @@ using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
 using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Linq;
+using Greenbook.ContentItemTypes;
 
 namespace Greenbook.WPF.Features
 {
-    public class DataContext : IContentItemsRepository, ISessionRepository, IRandomToolsRepository, IDataRepository
+    public class DataContext : IContentItemsRepository, ISessionRepository, IRandomToolsRepository, IDataRepository, IContentItemTypesRepository
+
     {
         private IList<ContentItem> _contentItems = new List<ContentItem>();
-        private IList<string> _contentTypes = new List<string>();
         private IList<Session> _sessions = new List<Session>();
 
         public string GetMessage()
@@ -27,6 +28,12 @@ namespace Greenbook.WPF.Features
             _sessions.Add(session);
 
             return Result.Ok();
+        }
+
+        public IEnumerable<ContentItemType> LoadContentItemTypes()
+        {
+            return _contentItemTypes;
+
         }
 
         public Result Insert(ContentItem contentItem)
@@ -44,7 +51,7 @@ namespace Greenbook.WPF.Features
 
             _sessions = dataPayload.Sessions.ToList();
 
-            _contentTypes = dataPayload.ContentItemTypes.ToList();
+            _contentItemTypes = dataPayload.ContentItemTypes.ToList();
 
             return Result.Ok();
         }
@@ -54,10 +61,7 @@ namespace Greenbook.WPF.Features
             return _contentItems;
         }
 
-        public IEnumerable<string> LoadContentItemTypes()
-        {
-            return _contentTypes;
-        }
+        
 
         public IEnumerable<Session> LoadSessions()
         {
@@ -98,5 +102,9 @@ namespace Greenbook.WPF.Features
                 ? fileDialog.FileName
                 : string.Empty;
         }
+
+        IList<ContentItemType> _contentItemTypes=new List<ContentItemType>();
+
+     
     }
 }

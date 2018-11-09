@@ -8,6 +8,6 @@ namespace Greenbook.Entities
 
         public string ImageSource { get; set; }
 
-        public string ContentType { get; set; }
+        public ContentItemType ContentType { get; set; }
     }
 }

@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="ContentItem.cs" />
+    <Compile Include="ContentItemType.cs" />
     <Compile Include="ContentName.cs" />
     <Compile Include="Encounter.cs" />
     <Compile Include="NameParser.cs" />

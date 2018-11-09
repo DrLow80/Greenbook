@@ -47,7 +47,8 @@
                     <TextBox Text="{Binding ContentItem.Name}" />
                     <TextBlock Text="Type:" />
                     <ComboBox SelectedItem="{Binding ContentItem.ContentType}"
-                              ItemsSource="{Binding ContentItemTypes}" />
+                              ItemsSource="{Binding ContentItemTypes}"
+                              DisplayMemberPath="Content"/>
                     <TextBlock Text="Description:" />
                     <TextBox Text="{Binding ContentItem.Description}"
                              TextWrapping="Wrap"

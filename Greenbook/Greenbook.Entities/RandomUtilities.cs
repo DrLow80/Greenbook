@@ -227,6 +227,14 @@ namespace Greenbook.Entities
             };
         }
 
+        public static ContentItemType RandomContentItemType()
+        {
+            return new ContentItemType()
+            {
+                Content = RandomLipsum()
+            };
+        }
+
         public static ContentItem RandomContentItem()
         {
             return new ContentItem
