@@ -65,43 +65,35 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContentItemTypesView.xaml.cs">
-      <DependentUpon>ContentItemTypesView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ContentItemTypesViewModel.cs" />
-    <Compile Include="EncountersViewModel.cs" />
+    <Compile Include="Views\EncountersViewModel.cs" />
     <Compile Include="IContentItemsRepository.cs" />
     <Compile Include="ViewModelLocator.cs" />
-    <Page Include="ContentItemListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ContentItemsHostView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Compile Include="ContentItemListView.xaml.cs">
-      <DependentUpon>ContentItemListView.xaml</DependentUpon>
+    <Compile Include="Views\ContentItemView.xaml.cs">
+      <DependentUpon>ContentItemView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ContentItemListViewModel.cs" />
-    <Compile Include="ContentItemsHostView.xaml.cs">
-      <DependentUpon>ContentItemsHostView.xaml</DependentUpon>
+    <Compile Include="Views\HostView.xaml.cs">
+      <DependentUpon>HostView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ContentItemsHostViewModel.cs" />
-    <Page Include="ContentItemTypesView.xaml">
+    <Compile Include="Views\ListView.xaml.cs">
+      <DependentUpon>ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListViewModel.cs" />
+    <Compile Include="Views\HostViewModel.cs" />
+    <Page Include="Views\ContentItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ContentItemView.xaml">
+    <Page Include="Views\HostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContentItemView.xaml.cs">
-      <DependentUpon>ContentItemView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ContentItemViewModel.cs" />
+    <Compile Include="Views\ContentItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

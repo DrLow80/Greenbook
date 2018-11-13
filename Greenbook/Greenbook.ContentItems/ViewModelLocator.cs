@@ -1,20 +1,20 @@
-﻿using Greenbook.Domain;
+﻿using Greenbook.ContentItems.Views;
+using Greenbook.Domain;
 
 namespace Greenbook.ContentItems
 {
     public class ViewModelLocator
     {
-        public static ContentItemsHostViewModel ContentItemsHostViewModel =>
-            SpringContext.GetObject<ContentItemsHostViewModel>(nameof(ContentItemsHostViewModel));
+        public static HostViewModel HostViewModel =>
+            SpringContext.GetObject<HostViewModel>(nameof(HostViewModel));
 
-        public static ContentItemListViewModel ContentItemListViewModel =>
-            SpringContext.GetObject<ContentItemListViewModel>(nameof(ContentItemListViewModel));
+        public static ListViewModel ListViewModel =>
+            SpringContext.GetObject<ListViewModel>(nameof(Views.ListViewModel));
 
         public static ContentItemViewModel ContentItemViewModel =>
             SpringContext.GetObject<ContentItemViewModel>(nameof(ContentItemViewModel));
 
-        public static ContentItemTypesViewModel ContentItemTypesViewModel =>
-            SpringContext.GetObject<ContentItemTypesViewModel>(nameof(ContentItemTypesViewModel));
+    
 
     }
 }

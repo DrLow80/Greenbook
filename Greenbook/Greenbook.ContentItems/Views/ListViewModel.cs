@@ -2,13 +2,13 @@
 using Greenbook.Domain;
 using Greenbook.Entities;
 
-namespace Greenbook.ContentItems
+namespace Greenbook.ContentItems.Views
 {
-    public class ContentItemListViewModel : BaseListViewModel<ContentItem>
+    public class ListViewModel : BaseListViewModel<ContentItem>
     {
         private readonly IContentItemsRepository _contentItemsRepository;
 
-        public ContentItemListViewModel(IContentItemsRepository contentItemsRepository)
+        public ListViewModel(IContentItemsRepository contentItemsRepository)
         {
             _contentItemsRepository = contentItemsRepository;
         }

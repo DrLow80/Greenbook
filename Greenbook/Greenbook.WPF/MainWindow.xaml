@@ -8,6 +8,7 @@
         xmlns:sessions="clr-namespace:Greenbook.Sessions;assembly=Greenbook.Sessions"
         xmlns:contentItems="clr-namespace:Greenbook.ContentItems;assembly=Greenbook.ContentItems"
         xmlns:data="clr-namespace:Greenbook.Data;assembly=Greenbook.Data"
+        xmlns:contentItemsViews="clr-namespace:Greenbook.ContentItems.Views;assembly=Greenbook.ContentItems"
         x:Class="Greenbook.WPF.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow"
@@ -42,9 +43,9 @@
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
                         <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
-                                               CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel}" />
-                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemsHostViewModel.NavigateCommand}"
-                                               CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ContentItemListViewModel}" />
+                                               CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=HostViewModel}" />
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=HostViewModel.NavigateCommand}"
+                                               CommandParameter="{Binding Source={StaticResource ContentItemsViewModelLocator}, Path=ListViewModel}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </MenuItem>
@@ -80,8 +81,8 @@
         </Menu>
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type contentItems:ContentItemsHostViewModel}">
-                    <contentItems:ContentItemsHostView />
+                <DataTemplate DataType="{x:Type contentItemsViews:HostViewModel}">
+                    <contentItemsViews:HostView />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type sessions:SessionHostViewModel}">
                     <sessions:SessionHostView />

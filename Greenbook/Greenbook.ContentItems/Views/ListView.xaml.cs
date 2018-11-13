@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Greenbook.ContentItems
+namespace Greenbook.ContentItems.Views
 {
     /// <summary>
-    /// Interaction logic for ContentItemTypesView.xaml
+    /// Interaction logic for ListView.xaml
     /// </summary>
-    public partial class ContentItemTypesView : UserControl
+    public partial class ListView : UserControl
     {
-        public ContentItemTypesView()
+        public ListView()
         {
             InitializeComponent();
         }

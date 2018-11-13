@@ -2,7 +2,7 @@
 using Greenbook.Domain;
 using Greenbook.Entities;
 
-namespace Greenbook.ContentItems
+namespace Greenbook.ContentItems.Views
 {
     public class EncountersViewModel : BaseListViewModel<Encounter>
     {

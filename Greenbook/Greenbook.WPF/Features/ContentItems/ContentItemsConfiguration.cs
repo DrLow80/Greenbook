@@ -1,4 +1,5 @@
 ﻿using Greenbook.ContentItems;
+using Greenbook.ContentItems.Views;
 using Spring.Context;
 using Spring.Context.Attributes;
 
@@ -8,15 +9,15 @@ namespace Greenbook.WPF.Features.ContentItems
     public class ContentItemsConfiguration: IApplicationContextAware
     {
         [Definition]
-        public virtual ContentItemsHostViewModel ContentItemsHostViewModel()
+        public virtual HostViewModel HostViewModel()
         {
-            return new ContentItemsHostViewModel();
+            return new HostViewModel();
         }
 
         [Definition]
-        public virtual ContentItemListViewModel ContentItemListViewModel()
+        public virtual ListViewModel ListViewModel()
         {
-            return new ContentItemListViewModel(ContentItemsRepository());
+            return new ListViewModel(ContentItemsRepository());
         }
 
         [Definition]
@@ -30,13 +31,7 @@ namespace Greenbook.WPF.Features.ContentItems
         {
             return new ContentItemViewModel(ContentItemsRepository());
         }
-
-        [Definition]
-        public virtual ContentItemTypesViewModel ContentItemTypesViewModel()
-        {
-            return new ContentItemTypesViewModel(ContentItemsRepository());
-        }
-
+ 
         public IApplicationContext ApplicationContext { get; set; }
     }
 }

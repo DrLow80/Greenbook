@@ -5,7 +5,7 @@ using Greenbook.Domain;
 using Greenbook.Entities;
 using Greenbook.Extensions;
 
-namespace Greenbook.ContentItems
+namespace Greenbook.ContentItems.Views
 {
     public class ContentItemViewModel : BaseViewModel
     {
