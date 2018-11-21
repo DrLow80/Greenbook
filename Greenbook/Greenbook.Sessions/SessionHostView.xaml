@@ -24,7 +24,7 @@
                 <local:EditSessionView />
             </DataTemplate>
             <DataTemplate DataType="{x:Type local:PrintViewModel}">
-                <local:PrintView/>
+                <local:PrintView />
             </DataTemplate>
         </ContentControl.Resources>
     </ContentControl>

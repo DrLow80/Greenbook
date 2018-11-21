@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Greenbook.ContentItemTypes;
+﻿using Greenbook.ContentItemTypes;
 using Spring.Context;
 using Spring.Context.Attributes;
 
 namespace Greenbook.WPF.Features.ContentItemTypeListViews
 {
     [Configuration]
-    public class ContentItemTypeListViewConfiguration: IApplicationContextAware
+    public class ContentItemTypeListViewConfiguration : IApplicationContextAware
     {
+        public IApplicationContext ApplicationContext { get; set; }
+
         [Definition]
         public virtual ContentItemsTypesHostViewModel ContentItemsTypesHostViewModel()
         {
@@ -29,7 +26,5 @@ namespace Greenbook.WPF.Features.ContentItemTypeListViews
         {
             return ApplicationContext.GetObject<DataContext>();
         }
-
-        public IApplicationContext ApplicationContext { get; set; }
     }
 }

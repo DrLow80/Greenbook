@@ -1,13 +1,14 @@
 ﻿using Greenbook.RandomTools;
-using Greenbook.WPF.Features.ContentItems;
 using Spring.Context;
 using Spring.Context.Attributes;
 
 namespace Greenbook.WPF.Features.RandomTools
 {
     [Configuration]
-    public class RandomToolsConfiguration: IApplicationContextAware
+    public class RandomToolsConfiguration : IApplicationContextAware
     {
+        public IApplicationContext ApplicationContext { get; set; }
+
         [Definition]
         public virtual HomeViewModel HomeViewModel()
         {
@@ -31,7 +32,5 @@ namespace Greenbook.WPF.Features.RandomTools
         {
             return new TestTwoViewModel();
         }
-
-        public IApplicationContext ApplicationContext { get; set; }
     }
 }

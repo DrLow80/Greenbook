@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Greenbook.Domain;
 using Greenbook.Entities;
 
 namespace Greenbook.ContentItemTypes
 {
-public    class ContentItemTypeListViewModel:BaseListViewModel<ContentItemType>
+    public class ContentItemTypeListViewModel : BaseListViewModel<ContentItemType>
     {
-        protected override IEnumerable<ContentItemType> GetItems()
-        {
-            return _contentItemTypesRepository.LoadContentItemTypes();
-        }
-
-        private IContentItemTypesRepository _contentItemTypesRepository;
+        private readonly IContentItemTypesRepository _contentItemTypesRepository;
 
         public ContentItemTypeListViewModel(IContentItemTypesRepository contentItemTypesRepository)
         {
             _contentItemTypesRepository = contentItemTypesRepository;
+        }
+
+        protected override IEnumerable<ContentItemType> GetItems()
+        {
+            return _contentItemTypesRepository.LoadContentItemTypes();
         }
     }
 }

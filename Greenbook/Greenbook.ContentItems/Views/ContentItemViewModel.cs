@@ -24,6 +24,11 @@ namespace Greenbook.ContentItems.Views
 
         public EncountersViewModel EncountersViewModel { get; private set; }
 
+        public ICommand RemoveCommand => new RelayCommand(OnRemove);
+
+        public ObservableCollection<ContentItemType> ContentItemTypes { get; } =
+            new ObservableCollection<ContentItemType>();
+
         private void OnCreate(object obj)
         {
             ContentItem = new ContentItem();
@@ -36,10 +41,7 @@ namespace Greenbook.ContentItems.Views
             EncountersViewModel = new EncountersViewModel(ContentItem);
 
             //HACK: Find a better way to do this
-            if (!ContentItemTypes.Any())
-            {
-                ContentItemTypes.ClearAndLoad(_contentItemsRepository.LoadContentItemTypes());
-            }
+            if (!ContentItemTypes.Any()) ContentItemTypes.ClearAndLoad(_contentItemsRepository.LoadContentItemTypes());
         }
 
         private void OnSelectImage(object obj)
@@ -48,8 +50,6 @@ namespace Greenbook.ContentItems.Views
 
             if (path.IsSuccess) ContentItem.ImageSource = path.Value;
         }
-
-        public ICommand RemoveCommand => new RelayCommand(OnRemove);
 
         private void OnRemove(object obj)
         {
@@ -62,7 +62,5 @@ namespace Greenbook.ContentItems.Views
 
             ContentItem = null;
         }
-
-        public ObservableCollection<ContentItemType> ContentItemTypes { get; } = new ObservableCollection<ContentItemType>();
     }
 }

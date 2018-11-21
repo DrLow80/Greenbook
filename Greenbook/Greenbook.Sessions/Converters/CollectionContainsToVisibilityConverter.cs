@@ -8,16 +8,13 @@ using System.Windows.Markup;
 
 namespace Greenbook.Sessions.Converters
 {
-    public class CollectionContainsToVisibilityConverter : MarkupExtension,IMultiValueConverter
+    public class CollectionContainsToVisibilityConverter : MarkupExtension, IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             var item = values.FirstOrDefault();
 
-            if (item == null || !(values.ElementAtOrDefault(1) is IList items))
-            {
-                return Visibility.Visible;
-            }
+            if (item == null || !(values.ElementAtOrDefault(1) is IList items)) return Visibility.Visible;
 
             return items.Contains(item) ? Visibility.Collapsed : Visibility.Visible;
         }

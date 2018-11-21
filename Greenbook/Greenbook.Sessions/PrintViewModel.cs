@@ -1,9 +1,9 @@
-﻿using Greenbook.AhoCorasickTrie;
-using Greenbook.Domain;
-using Greenbook.Entities;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using Greenbook.AhoCorasickTrie;
+using Greenbook.Domain;
+using Greenbook.Entities;
 using Greenbook.Extensions;
 
 namespace Greenbook.Sessions

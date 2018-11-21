@@ -1,5 +1,4 @@
 ﻿using Greenbook.Data;
-using Greenbook.WPF.Features.ContentItems;
 using Spring.Context;
 using Spring.Context.Attributes;
 
@@ -8,6 +7,8 @@ namespace Greenbook.WPF.Features.Data
     [Configuration]
     public class DataConfiguration : IApplicationContextAware
     {
+        public IApplicationContext ApplicationContext { get; set; }
+
         [Definition]
         public virtual DataViewModel DataViewModel()
         {
@@ -19,7 +20,5 @@ namespace Greenbook.WPF.Features.Data
         {
             return ApplicationContext.GetObject<DataContext>();
         }
-
-        public IApplicationContext ApplicationContext { get; set; }
     }
 }

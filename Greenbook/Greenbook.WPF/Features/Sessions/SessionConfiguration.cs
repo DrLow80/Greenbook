@@ -1,13 +1,14 @@
 ﻿using Greenbook.Sessions;
-using Greenbook.WPF.Features.ContentItems;
 using Spring.Context;
 using Spring.Context.Attributes;
 
 namespace Greenbook.WPF.Features.Sessions
 {
     [Configuration]
-    public class SessionConfiguration: IApplicationContextAware
+    public class SessionConfiguration : IApplicationContextAware
     {
+        public IApplicationContext ApplicationContext { get; set; }
+
         [Definition]
         public virtual SessionViewModel SessionViewModel()
         {
@@ -43,7 +44,5 @@ namespace Greenbook.WPF.Features.Sessions
         {
             return new PrintViewModel(SessionRepository());
         }
-
-        public IApplicationContext ApplicationContext { get; set; }
     }
 }

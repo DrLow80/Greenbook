@@ -229,7 +229,7 @@ namespace Greenbook.Entities
 
         public static ContentItemType RandomContentItemType()
         {
-            return new ContentItemType()
+            return new ContentItemType
             {
                 Content = RandomLipsum()
             };

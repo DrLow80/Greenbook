@@ -1,15 +1,16 @@
 ﻿<UserControl x:Class="Greenbook.ContentItems.Views.ListView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Greenbook.ContentItems.Views"
              xmlns:contentItems="clr-namespace:Greenbook.ContentItems"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              xmlns:entities="clr-namespace:Greenbook.Entities;assembly=Greenbook.Entities"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
     <UserControl.Resources>
         <contentItems:ViewModelLocator x:Key="ViewModelLocator" />
     </UserControl.Resources>
@@ -28,11 +29,13 @@
             <MenuItem Header="Add">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
-                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel.CreateCommand}" />
+                        <i:InvokeCommandAction
+                            Command="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel.CreateCommand}" />
                         <i:InvokeCommandAction Command="{Binding AddCommand}"
                                                CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemViewModel.ContentItem}" />
-                        <i:InvokeCommandAction Command="{Binding HostViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
-                                               CommandParameter="{Binding ContentItemViewModel, Source={StaticResource ViewModelLocator}}" />
+                        <i:InvokeCommandAction
+                            Command="{Binding HostViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
+                            CommandParameter="{Binding ContentItemViewModel, Source={StaticResource ViewModelLocator}}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </MenuItem>
@@ -83,8 +86,9 @@
             </ListView.ItemTemplate>
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction Command="{Binding HostViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
-                                           CommandParameter="{Binding ContentItemViewModel, Source={StaticResource ViewModelLocator}}" />
+                    <i:InvokeCommandAction
+                        Command="{Binding HostViewModel.NavigateCommand, Source={StaticResource ViewModelLocator}}"
+                        CommandParameter="{Binding ContentItemViewModel, Source={StaticResource ViewModelLocator}}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </ListView>

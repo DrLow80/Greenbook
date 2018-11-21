@@ -20,8 +20,9 @@
         <i:EventTrigger EventName="Loaded">
             <ei:CallMethodAction MethodName="Load"
                                  TargetObject="{Binding}" />
-            <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemsViewModel.ScanCommand}"
-                                   CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.Session}" />
+            <i:InvokeCommandAction
+                Command="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemsViewModel.ScanCommand}"
+                CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.Session}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <DockPanel>
@@ -56,7 +57,8 @@
                                     <DataTemplate DataType="{x:Type entities:Encounter}">
                                         <Grid Margin="5">
                                             <Grid.Visibility>
-                                                <MultiBinding Converter="{converters:CollectionContainsToVisibilityConverter}">
+                                                <MultiBinding
+                                                    Converter="{converters:CollectionContainsToVisibilityConverter}">
                                                     <Binding />
                                                     <Binding Source="{StaticResource ViewModelLocator}"
                                                              Path="SessionViewModel.EncountersViewModel.Items" />

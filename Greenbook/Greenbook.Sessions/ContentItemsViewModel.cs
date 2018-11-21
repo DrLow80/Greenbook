@@ -24,6 +24,12 @@ namespace Greenbook.Sessions
 
         public ObservableCollection<ContentItem> ScannedContentItems { get; } = new ObservableCollection<ContentItem>();
 
+        public ICommand ChangeViewCommand => new RelayCommand<ViewType>(OnChangeView);
+
+        public ViewType ViewType { get; private set; } = ViewType.Referenced;
+
+        public ICommand ScanCommand => new RelayCommand<Session>(OnScan);
+
         public void Load()
         {
             ContentItems.ClearAndLoad(_sessionRepository.LoadContentItems().OrderBy(x => x.Name));
@@ -38,16 +44,10 @@ namespace Greenbook.Sessions
             }
         }
 
-        public ICommand ChangeViewCommand => new RelayCommand<ViewType>(OnChangeView);
-
         private void OnChangeView(ViewType obj)
         {
             ViewType = obj;
         }
-
-        public ViewType ViewType { get; private set; } = ViewType.Referenced;
-
-        public ICommand ScanCommand=>new RelayCommand<Session>(OnScan);
 
         private void OnScan(Session obj)
         {
@@ -58,9 +58,9 @@ namespace Greenbook.Sessions
                 return;
             }
 
-            Trie trie = new Trie(ContentItems.Select(x=>x.Name).ToArray());
+            var trie = new Trie(ContentItems.Select(x => x.Name).ToArray());
 
-            SessionTrieIterator sessionTrieIterator = new SessionTrieIterator(obj, ContentItems);
+            var sessionTrieIterator = new SessionTrieIterator(obj, ContentItems);
 
             trie.Iterate(sessionTrieIterator);
 

@@ -1,8 +1,8 @@
-﻿using Greenbook.AhoCorasickTrie;
-using Greenbook.Entities;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Greenbook.AhoCorasickTrie;
+using Greenbook.Entities;
 
 namespace Greenbook.Sessions
 {

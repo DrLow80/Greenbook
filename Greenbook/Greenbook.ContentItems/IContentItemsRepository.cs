@@ -9,7 +9,9 @@ namespace Greenbook.ContentItems
         IEnumerable<ContentItem> LoadContentItems();
 
         Result<string> SelectImage();
+
         IEnumerable<ContentItemType> LoadContentItemTypes();
+
         Result Insert(ContentItem contentItem);
 
         Result Remove(ContentItem contentItem);

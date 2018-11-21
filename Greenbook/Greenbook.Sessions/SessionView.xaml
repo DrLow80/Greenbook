@@ -35,10 +35,12 @@
             <MenuItem Header="Print">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
-                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=PrintViewModel.PrintCommand}"
-                                               CommandParameter="{Binding Session}" />
-                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=SessionHostViewModel.NavigateCommand}"
-                                               CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=PrintViewModel}" />
+                        <i:InvokeCommandAction
+                            Command="{Binding Source={StaticResource ViewModelLocator}, Path=PrintViewModel.PrintCommand}"
+                            CommandParameter="{Binding Session}" />
+                        <i:InvokeCommandAction
+                            Command="{Binding Source={StaticResource ViewModelLocator}, Path=SessionHostViewModel.NavigateCommand}"
+                            CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=PrintViewModel}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </MenuItem>
@@ -85,10 +87,12 @@
                                         Grid.Column="1">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click">
-                                            <i:InvokeCommandAction Command="{Binding ElementName=Parent, Path=DataContext.EncountersViewModel.RemoveCommand}"
-                                                                   CommandParameter="{Binding}" />
-                                            <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemsViewModel.ScanCommand}"
-                                                                   CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.Session}" />
+                                            <i:InvokeCommandAction
+                                                Command="{Binding ElementName=Parent, Path=DataContext.EncountersViewModel.RemoveCommand}"
+                                                CommandParameter="{Binding}" />
+                                            <i:InvokeCommandAction
+                                                Command="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemsViewModel.ScanCommand}"
+                                                CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.Session}" />
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </Button>
@@ -101,8 +105,9 @@
                                          AcceptsReturn="True">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="TextChanged">
-                                            <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemsViewModel.ScanCommand}"
-                                                                   CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.Session}" />
+                                            <i:InvokeCommandAction
+                                                Command="{Binding Source={StaticResource ViewModelLocator}, Path=ContentItemsViewModel.ScanCommand}"
+                                                CommandParameter="{Binding Source={StaticResource ViewModelLocator}, Path=SessionViewModel.Session}" />
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBox>

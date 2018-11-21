@@ -7,14 +7,13 @@ namespace Greenbook.Sessions
 {
     public class ContentItemsByTypeGroup : IGrouping<string, ContentItem>
     {
-        private IEnumerable<ContentItem> _contentItems;
+        private readonly IEnumerable<ContentItem> _contentItems;
 
         public ContentItemsByTypeGroup(string key, IEnumerable<ContentItem> contentItems)
         {
             Key = key;
             _contentItems = contentItems;
         }
-
 
         public IEnumerator<ContentItem> GetEnumerator()
         {

@@ -6,11 +6,20 @@ namespace Greenbook.Sessions
 {
     public class SessionViewModel : BaseViewModel
     {
+        private readonly ISessionRepository _sessionRepository;
+
+        public SessionViewModel(ISessionRepository sessionRepository)
+        {
+            _sessionRepository = sessionRepository;
+        }
+
         public Session Session { get; set; }
 
         public ICommand CreateCommand => new RelayCommand(OnCreate);
 
         public EncountersViewModel EncountersViewModel { get; private set; }
+
+        public ICommand RemoveCommand => new RelayCommand(OnRemove);
 
         private void OnCreate(object obj)
         {
@@ -23,15 +32,6 @@ namespace Greenbook.Sessions
         {
             EncountersViewModel = new EncountersViewModel(Session);
         }
-
-        private ISessionRepository _sessionRepository;
-
-        public SessionViewModel(ISessionRepository sessionRepository)
-        {
-            _sessionRepository = sessionRepository;
-        }
-
-        public ICommand RemoveCommand=>new RelayCommand(OnRemove);
 
         private void OnRemove(object obj)
         {

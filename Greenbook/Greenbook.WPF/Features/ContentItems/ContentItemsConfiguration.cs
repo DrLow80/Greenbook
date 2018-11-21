@@ -6,8 +6,10 @@ using Spring.Context.Attributes;
 namespace Greenbook.WPF.Features.ContentItems
 {
     [Configuration]
-    public class ContentItemsConfiguration: IApplicationContextAware
+    public class ContentItemsConfiguration : IApplicationContextAware
     {
+        public IApplicationContext ApplicationContext { get; set; }
+
         [Definition]
         public virtual HostViewModel HostViewModel()
         {
@@ -31,7 +33,5 @@ namespace Greenbook.WPF.Features.ContentItems
         {
             return new ContentItemViewModel(ContentItemsRepository());
         }
- 
-        public IApplicationContext ApplicationContext { get; set; }
     }
 }
