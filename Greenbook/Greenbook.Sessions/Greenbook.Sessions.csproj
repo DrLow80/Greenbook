@@ -69,60 +69,60 @@
     <Compile Include="Converters\ViewTypeToBoolConverter.cs" />
     <Compile Include="PrintSessionFactory.cs" />
     <Compile Include="PrintSessionRequest.cs" />
-    <Compile Include="PrintView.xaml.cs">
-      <DependentUpon>PrintView.xaml</DependentUpon>
+    <Compile Include="Views\ContentItemsView.xaml.cs">
+      <DependentUpon>ContentItemsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PrintViewModel.cs" />
+    <Compile Include="Views\EditSessionView.xaml.cs">
+      <DependentUpon>EditSessionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HostSessionView.xaml.cs">
+      <DependentUpon>HostSessionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListSessionsView.xaml.cs">
+      <DependentUpon>ListSessionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintViewModel.cs" />
     <Compile Include="SessionTrieIterator.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="Converters\ViewTypeToVisibilityConverter.cs" />
-    <Compile Include="ViewType.cs" />
-    <Page Include="ContentItemsView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="EditSessionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PrintView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SessionHostView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SessionListView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SessionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="ContentItemsByTypeGroup.cs" />
-    <Compile Include="ContentItemsView.xaml.cs">
-      <DependentUpon>ContentItemsView.xaml</DependentUpon>
+    <Compile Include="Views\PrintView.xaml.cs">
+      <DependentUpon>PrintView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ContentItemsViewModel.cs" />
-    <Compile Include="EditSessionView.xaml.cs">
-      <DependentUpon>EditSessionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EncountersViewModel.cs" />
-    <Compile Include="ISessionRepository.cs" />
-    <Compile Include="SessionHostView.xaml.cs">
-      <DependentUpon>SessionHostView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SessionHostViewModel.cs" />
-    <Compile Include="SessionListView.xaml.cs">
-      <DependentUpon>SessionListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SessionListViewModel.cs" />
-    <Compile Include="SessionView.xaml.cs">
+    <Compile Include="Views\SessionView.xaml.cs">
       <DependentUpon>SessionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SessionViewModel.cs" />
+    <Compile Include="ViewType.cs" />
+    <Compile Include="ContentItemsByTypeGroup.cs" />
+    <Compile Include="Views\ContentItemsViewModel.cs" />
+    <Compile Include="Views\EncountersViewModel.cs" />
+    <Compile Include="ISessionRepository.cs" />
+    <Compile Include="Views\HostSessionViewModel.cs" />
+    <Compile Include="Views\ListSessionsViewModel.cs" />
+    <Compile Include="Views\SessionViewModel.cs" />
+    <Page Include="Views\ContentItemsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditSessionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HostSessionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListSessionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PrintView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SessionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -2,13 +2,13 @@
 using Greenbook.Domain;
 using Greenbook.Entities;
 
-namespace Greenbook.Sessions
+namespace Greenbook.Sessions.Views
 {
-    public class SessionListViewModel : BaseListViewModel<Session>
+    public class ListSessionsViewModel : BaseListViewModel<Session>
     {
         private readonly ISessionRepository _sessionRepository;
 
-        public SessionListViewModel(ISessionRepository sessionRepository)
+        public ListSessionsViewModel(ISessionRepository sessionRepository)
         {
             _sessionRepository = sessionRepository;
         }

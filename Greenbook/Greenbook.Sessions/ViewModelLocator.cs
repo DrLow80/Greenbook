@@ -1,14 +1,15 @@
 ﻿using Greenbook.Domain;
+using Greenbook.Sessions.Views;
 
 namespace Greenbook.Sessions
 {
     public class ViewModelLocator
     {
-        public static SessionHostViewModel SessionHostViewModel =>
-            SpringContext.GetObject<SessionHostViewModel>(nameof(SessionHostViewModel));
+        public static HostSessionViewModel HostSessionViewModel =>
+            SpringContext.GetObject<HostSessionViewModel>(nameof(HostSessionViewModel));
 
-        public static SessionListViewModel SessionListViewModel =>
-            SpringContext.GetObject<SessionListViewModel>(nameof(SessionListViewModel));
+        public static ListSessionsViewModel ListSessionsViewModel =>
+            SpringContext.GetObject<ListSessionsViewModel>(nameof(ListSessionsViewModel));
 
         public static SessionViewModel SessionViewModel =>
             SpringContext.GetObject<SessionViewModel>(nameof(SessionViewModel));

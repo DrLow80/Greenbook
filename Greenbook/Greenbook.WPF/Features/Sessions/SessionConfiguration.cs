@@ -1,4 +1,5 @@
 ﻿using Greenbook.Sessions;
+using Greenbook.Sessions.Views;
 using Spring.Context;
 using Spring.Context.Attributes;
 
@@ -16,15 +17,15 @@ namespace Greenbook.WPF.Features.Sessions
         }
 
         [Definition]
-        public virtual SessionListViewModel SessionListViewModel()
+        public virtual ListSessionsViewModel ListSessionsViewModel()
         {
-            return new SessionListViewModel(SessionRepository());
+            return new ListSessionsViewModel(SessionRepository());
         }
 
         [Definition]
-        public virtual SessionHostViewModel SessionHostViewModel()
+        public virtual HostSessionViewModel HostSessionViewModel()
         {
-            return new SessionHostViewModel();
+            return new HostSessionViewModel();
         }
 
         [Definition]

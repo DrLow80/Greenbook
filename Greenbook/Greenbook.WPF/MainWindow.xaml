@@ -5,10 +5,11 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:randomTools="clr-namespace:Greenbook.RandomTools;assembly=Greenbook.RandomTools"
-        xmlns:sessions="clr-namespace:Greenbook.Sessions;assembly=Greenbook.Sessions"
+        xmlns:sessionViews="clr-namespace:Greenbook.Sessions.Views;assembly=Greenbook.Sessions"
         xmlns:contentItems="clr-namespace:Greenbook.ContentItems;assembly=Greenbook.ContentItems"
         xmlns:data="clr-namespace:Greenbook.Data;assembly=Greenbook.Data"
         xmlns:contentItemsViews="clr-namespace:Greenbook.ContentItems.Views;assembly=Greenbook.ContentItems"
+        xmlns:sessions="clr-namespace:Greenbook.Sessions;assembly=Greenbook.Sessions"
         x:Class="Greenbook.WPF.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow"
@@ -72,10 +73,10 @@
                     <i:EventTrigger EventName="Click">
                         <i:InvokeCommandAction
                             Command="{Binding Source={StaticResource ViewModelLocator}, Path=ApplicationViewModel.NavigateCommand}"
-                            CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionHostViewModel}" />
+                            CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=HostSessionViewModel}" />
                         <i:InvokeCommandAction
-                            Command="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionHostViewModel.NavigateCommand}"
-                            CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=SessionListViewModel}" />
+                            Command="{Binding Source={StaticResource SessionsViewModelLocator}, Path=HostSessionViewModel.NavigateCommand}"
+                            CommandParameter="{Binding Source={StaticResource SessionsViewModelLocator}, Path=ListSessionsViewModel}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </MenuItem>
@@ -88,8 +89,8 @@
                 <DataTemplate DataType="{x:Type contentItemsViews:HostViewModel}">
                     <contentItemsViews:HostView />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type sessions:SessionHostViewModel}">
-                    <sessions:SessionHostView />
+                <DataTemplate DataType="{x:Type sessionViews:HostSessionViewModel}">
+                    <sessionViews:HostSessionView />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type randomTools:HomeViewModel}">
                     <randomTools:HomeView />
