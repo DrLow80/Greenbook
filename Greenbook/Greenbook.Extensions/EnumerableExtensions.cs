@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Greenbook.Extensions
 {
@@ -9,6 +11,23 @@ namespace Greenbook.Extensions
             collection.Clear();
 
             foreach (var item in enumerable) collection.Add(item);
+        }
+
+        public static IEnumerable<IEnumerable<T>> ToBatches<T>(this IEnumerable<T> collection, int batchSize)
+        {
+            if (collection.Count() < batchSize)
+            {
+                yield return collection;
+            }
+            else
+            {
+                var amount = Math.Ceiling((double)collection.Count() / batchSize);
+
+                for (var i = 0; i < amount; i++)
+                {
+                    yield return collection.Skip(i * batchSize).Take(batchSize);
+                }
+            }
         }
     }
 }

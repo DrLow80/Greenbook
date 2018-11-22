@@ -1,4 +1,5 @@
 ﻿using Greenbook.Entities;
+using Greenbook.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -13,15 +14,9 @@ namespace Greenbook.Sessions
     {
         public static FlowDocument Print(PrintSessionRequest printSessionRequest)
         {
-            FlowDocument flowDocument = new FlowDocument
-            {
-                //PageHeight = (double)new LengthConverter().ConvertFrom("11in"),
-                //PageWidth = (double)new LengthConverter().ConvertFrom("8.5in"),
-                //PagePadding = new Thickness(0),
-                //ColumnGap =  0,
-            };
+            var flowDocument = new FlowDocument();
 
-            IEnumerable<Block> blocks = BuildBlocks(printSessionRequest);
+            var blocks = BuildBlocks(printSessionRequest);
 
             flowDocument.Blocks.AddRange(blocks);
 
@@ -32,56 +27,75 @@ namespace Greenbook.Sessions
         {
             yield return BuildSessionBlock(printSessionRequest.Session);
 
-            foreach (var encounter in printSessionRequest.Encounters)
-            {
-                yield return BuildEncounterBlock(encounter);
-            }
+            foreach (var encounter in printSessionRequest.Encounters) yield return BuildEncounterBlock(encounter);
 
-            //foreach (var contentItem in printSessionRequest.ContentItems)
-            //{
-            //    yield return BuildContentItemBlock(contentItem);
-            //}
-
-            yield return BuildContentItemsBlock(printSessionRequest.ContentItems);
+            foreach (var contentItems in printSessionRequest.ContentItems.ToBatches(4))
+                yield return BuildContentItemsBlock(contentItems);
         }
 
-        private static Block BuildContentItemsBlock(IEnumerable<ContentItem> contentItems)
+        private static Block BuildContentItemBlock(ContentItem contentItem)
         {
-            WrapPanel wrapPanel = new WrapPanel();
+            var uri = new Uri("C:\\Users\\947665\\Pictures\\IMG_0876.JPG");
 
-            foreach (var contentItem in contentItems)
-            {
-                var grid = BuildContentItemGrid(contentItem);
+            var bitmapImage = new BitmapImage(uri);
 
-                wrapPanel.Children.Add(grid);
-            }
+            var image = new Image { Source = bitmapImage };
 
-            BlockUIContainer blockUiContainer = new BlockUIContainer(wrapPanel)
-            {
-                BreakPageBefore = true
-            };
+            var viewbox = new Viewbox { Child = image };
 
-            return blockUiContainer;
-        }
-
-        private static UIElement BuildContentItemGrid(ContentItem contentItem)
-        {
-            Uri uri = new Uri("C:\\Users\\947665\\Pictures\\IMG_0876.JPG");
-
-            BitmapImage bitmapImage = new BitmapImage(uri);
-
-            Image image = new Image { Source = bitmapImage };
-
-            Viewbox viewbox = new Viewbox { Child = image };
-
-            TextBlock textBlock = new TextBlock
+            var textBlock = new TextBlock
             {
                 Text = contentItem.Name,
                 Margin = new Thickness(5),
                 TextWrapping = TextWrapping.Wrap
             };
 
-            Border border = new Border
+            var border = new Border
+            {
+                Child = textBlock,
+                Background = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Bottom,
+                HorizontalAlignment = HorizontalAlignment.Center
+            };
+
+            var height = (double)new LengthConverter().ConvertFrom("5in");
+
+            var width = (double)new LengthConverter().ConvertFrom("4in");
+
+            var grid = new Grid
+            {
+                Height = height,
+                Width = width,
+                Background = Brushes.Red
+            };
+
+            grid.Children.Add(viewbox);
+
+            grid.Children.Add(border);
+
+            var blockUiContainer = new BlockUIContainer(grid);
+
+            return blockUiContainer;
+        }
+
+        private static UIElement BuildContentItemGrid(ContentItem contentItem)
+        {
+            var uri = new Uri(contentItem.ImageSource);
+
+            var bitmapImage = new BitmapImage(uri);
+
+            var image = new Image { Source = bitmapImage };
+
+            var viewbox = new Viewbox { Child = image };
+
+            var textBlock = new TextBlock
+            {
+                Text = contentItem.Name,
+                Margin = new Thickness(5),
+                TextWrapping = TextWrapping.Wrap
+            };
+
+            var border = new Border
             {
                 Child = textBlock,
                 Background = Brushes.White,
@@ -93,7 +107,7 @@ namespace Greenbook.Sessions
 
             var width = (double)new LengthConverter().ConvertFrom("3.5in");
 
-            Grid grid = new Grid
+            var grid = new Grid
             {
                 Height = height,
                 Width = width,
@@ -114,56 +128,30 @@ namespace Greenbook.Sessions
             return border;
         }
 
-        private static Block BuildContentItemBlock(ContentItem contentItem)
+        private static Block BuildContentItemsBlock(IEnumerable<ContentItem> contentItems)
         {
-            Uri uri = new Uri("C:\\Users\\947665\\Pictures\\IMG_0876.JPG");
+            var wrapPanel = new WrapPanel();
 
-            BitmapImage bitmapImage = new BitmapImage(uri);
-
-            Image image = new Image { Source = bitmapImage };
-
-            Viewbox viewbox = new Viewbox { Child = image };
-
-            TextBlock textBlock = new TextBlock
+            foreach (var contentItem in contentItems)
             {
-                Text = contentItem.Name,
-                Margin = new Thickness(5),
-                TextWrapping = TextWrapping.Wrap
-            };
+                var grid = BuildContentItemGrid(contentItem);
 
-            Border border = new Border
+                wrapPanel.Children.Add(grid);
+            }
+
+            var blockUiContainer = new BlockUIContainer(wrapPanel)
             {
-                Child = textBlock,
-                Background = Brushes.White,
-                VerticalAlignment = VerticalAlignment.Bottom,
-                HorizontalAlignment = HorizontalAlignment.Center
+                BreakPageBefore = true
             };
-
-            var height = (double)new LengthConverter().ConvertFrom("5in");
-
-            var width = (double)new LengthConverter().ConvertFrom("4in");
-
-            Grid grid = new Grid
-            {
-                Height = height,
-                Width = width,
-                Background = Brushes.Red
-            };
-
-            grid.Children.Add(viewbox);
-
-            grid.Children.Add(border);
-
-            BlockUIContainer blockUiContainer = new BlockUIContainer(grid);
 
             return blockUiContainer;
         }
 
         private static Block BuildEncounterBlock(Encounter encounter)
         {
-            Paragraph paragraph = new Paragraph();
+            var paragraph = new Paragraph();
 
-            Run run = new Run(encounter.Name);
+            var run = new Run(encounter.Name);
 
             paragraph.Inlines.Add(run);
 
@@ -178,9 +166,9 @@ namespace Greenbook.Sessions
 
         private static Block BuildSessionBlock(Session session)
         {
-            Paragraph paragraph = new Paragraph();
+            var paragraph = new Paragraph();
 
-            Run run = new Run(session.Name);
+            var run = new Run(session.Name);
 
             paragraph.Inlines.Add(run);
 

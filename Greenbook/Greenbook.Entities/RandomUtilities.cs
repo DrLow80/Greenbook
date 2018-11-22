@@ -231,7 +231,8 @@ namespace Greenbook.Entities
         {
             return new ContentItemType
             {
-                Content = RandomLipsum()
+                Content = RandomLipsum(),
+                
             };
         }
 
@@ -242,7 +243,8 @@ namespace Greenbook.Entities
                 Description = RandomDescription(),
                 Id = Guid.NewGuid(),
                 Name = RandomName(),
-                Encounters = RandomList(3, 5, RandomEncounter).ToList()
+                Encounters = RandomList(3, 5, RandomEncounter).ToList(),
+                ImageSource = "C:\\Users\\MATT\\Desktop\\dea11d81ceaabf500b4d2dd18c034b8c.jpg"
             };
         }
 

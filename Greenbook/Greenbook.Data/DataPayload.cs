@@ -10,7 +10,7 @@ namespace Greenbook.Data
         {
             ContentItemTypes = RandomUtilities.RandomList(5, 5, RandomUtilities.RandomContentItemType).ToArray();
 
-            ContentItems = RandomUtilities.RandomList(3, 5, RandomUtilities.RandomContentItem).ToArray();
+            ContentItems = RandomUtilities.RandomList(7, 10, RandomUtilities.RandomContentItem).ToArray();
 
             foreach (var contentItem in ContentItems)
                 contentItem.ContentType = RandomUtilities.OneRandom(ContentItemTypes);
