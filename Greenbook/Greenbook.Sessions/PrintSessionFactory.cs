@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Greenbook.Entities;
+using System;
+using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
-using Greenbook.Entities;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Greenbook.Sessions
 {
@@ -8,7 +13,13 @@ namespace Greenbook.Sessions
     {
         public static FlowDocument Print(PrintSessionRequest printSessionRequest)
         {
-            FlowDocument flowDocument = new FlowDocument();
+            FlowDocument flowDocument = new FlowDocument
+            {
+                //PageHeight = (double)new LengthConverter().ConvertFrom("11in"),
+                //PageWidth = (double)new LengthConverter().ConvertFrom("8.5in"),
+                //PagePadding = new Thickness(0),
+                //ColumnGap =  0,
+            };
 
             IEnumerable<Block> blocks = BuildBlocks(printSessionRequest);
 
@@ -26,21 +37,126 @@ namespace Greenbook.Sessions
                 yield return BuildEncounterBlock(encounter);
             }
 
-            foreach (var contentItem in printSessionRequest.ContentItems)
+            //foreach (var contentItem in printSessionRequest.ContentItems)
+            //{
+            //    yield return BuildContentItemBlock(contentItem);
+            //}
+
+            yield return BuildContentItemsBlock(printSessionRequest.ContentItems);
+        }
+
+        private static Block BuildContentItemsBlock(IEnumerable<ContentItem> contentItems)
+        {
+            WrapPanel wrapPanel = new WrapPanel();
+
+            foreach (var contentItem in contentItems)
             {
-                yield return BuildContentItemBlock(contentItem);
+                var grid = BuildContentItemGrid(contentItem);
+
+                wrapPanel.Children.Add(grid);
             }
+
+            BlockUIContainer blockUiContainer = new BlockUIContainer(wrapPanel)
+            {
+                BreakPageBefore = true
+            };
+
+            return blockUiContainer;
+        }
+
+        private static UIElement BuildContentItemGrid(ContentItem contentItem)
+        {
+            Uri uri = new Uri("C:\\Users\\947665\\Pictures\\IMG_0876.JPG");
+
+            BitmapImage bitmapImage = new BitmapImage(uri);
+
+            Image image = new Image { Source = bitmapImage };
+
+            Viewbox viewbox = new Viewbox { Child = image };
+
+            TextBlock textBlock = new TextBlock
+            {
+                Text = contentItem.Name,
+                Margin = new Thickness(5),
+                TextWrapping = TextWrapping.Wrap
+            };
+
+            Border border = new Border
+            {
+                Child = textBlock,
+                Background = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Bottom,
+                HorizontalAlignment = HorizontalAlignment.Center
+            };
+
+            var height = (double)new LengthConverter().ConvertFrom("5in");
+
+            var width = (double)new LengthConverter().ConvertFrom("3.5in");
+
+            Grid grid = new Grid
+            {
+                Height = height,
+                Width = width,
+                Margin = new Thickness(2)
+            };
+
+            grid.Children.Add(viewbox);
+
+            grid.Children.Add(border);
+
+            border = new Border
+            {
+                BorderBrush = Brushes.Black,
+                BorderThickness = new Thickness(1),
+                Child = grid
+            };
+
+            return border;
         }
 
         private static Block BuildContentItemBlock(ContentItem contentItem)
         {
-            Paragraph paragraph = new Paragraph();
+            Uri uri = new Uri("C:\\Users\\947665\\Pictures\\IMG_0876.JPG");
 
-            Run run = new Run(contentItem.Name);
+            BitmapImage bitmapImage = new BitmapImage(uri);
 
-            paragraph.Inlines.Add(run);
+            Image image = new Image { Source = bitmapImage };
 
-            return paragraph;
+            Viewbox viewbox = new Viewbox { Child = image };
+
+            TextBlock textBlock = new TextBlock
+            {
+                Text = contentItem.Name,
+                Margin = new Thickness(5),
+                TextWrapping = TextWrapping.Wrap
+            };
+
+            Border border = new Border
+            {
+                Child = textBlock,
+                Background = Brushes.White,
+                VerticalAlignment = VerticalAlignment.Bottom,
+                HorizontalAlignment = HorizontalAlignment.Center
+            };
+
+            var height = (double)new LengthConverter().ConvertFrom("5in");
+
+            var width = (double)new LengthConverter().ConvertFrom("4in");
+
+            Grid grid = new Grid
+            {
+                Height = height,
+                Width = width,
+                Background = Brushes.Red
+            };
+
+            grid.Children.Add(viewbox);
+
+            grid.Children.Add(border);
+
+            BlockUIContainer blockUiContainer = new BlockUIContainer(grid);
+
+            return blockUiContainer;
         }
 
         private static Block BuildEncounterBlock(Encounter encounter)
