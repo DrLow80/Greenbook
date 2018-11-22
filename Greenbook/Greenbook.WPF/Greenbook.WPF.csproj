@@ -128,6 +128,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Greenbook.AhoCorasickTrie\Greenbook.AhoCorasickTrie.csproj">
+      <Project>{DB538444-BF19-4DA3-8142-CBCED2171E28}</Project>
+      <Name>Greenbook.AhoCorasickTrie</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Greenbook.Application\Greenbook.Application.csproj">
       <Project>{E496F70C-DB13-4304-987F-301313A3577F}</Project>
       <Name>Greenbook.Application</Name>

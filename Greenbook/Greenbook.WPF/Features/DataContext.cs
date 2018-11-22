@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Documents;
 using CSharpFunctionalExtensions;
+using Greenbook.AhoCorasickTrie;
 using Greenbook.ContentItems;
 using Greenbook.ContentItemTypes;
 using Greenbook.Data;
@@ -90,6 +92,26 @@ namespace Greenbook.WPF.Features
             _sessions.Remove(session);
 
             return Result.Ok();
+        }
+
+        public Result<FlowDocument> BuildPrintDocument(Session session)
+        {
+            var trie = new Trie(_contentItems.Select(x => x.Name).ToArray());
+
+            var sessionTrieIterator = new SessionTrieIterator(session, _contentItems);
+
+            trie.Iterate(sessionTrieIterator);
+
+            var result = PrintSessionRequest.Build(session, sessionTrieIterator);
+
+            if (result.IsFailure)
+            {
+                return Result.Fail<FlowDocument>(result.Error);
+            }
+
+            FlowDocument flowDocument = PrintSessionFactory.Print(result.Value);
+
+            return Result.Ok(flowDocument);
         }
 
         private static string ShowDialog(FileDialog fileDialog)

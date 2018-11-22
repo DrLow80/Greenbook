@@ -67,6 +67,8 @@
   <ItemGroup>
     <Compile Include="Converters\CollectionContainsToVisibilityConverter.cs" />
     <Compile Include="Converters\ViewTypeToBoolConverter.cs" />
+    <Compile Include="PrintSessionFactory.cs" />
+    <Compile Include="PrintSessionRequest.cs" />
     <Compile Include="PrintView.xaml.cs">
       <DependentUpon>PrintView.xaml</DependentUpon>
     </Compile>

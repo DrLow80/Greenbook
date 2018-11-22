@@ -1,10 +1,9 @@
-﻿using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows.Input;
-using Greenbook.AhoCorasickTrie;
+﻿using CSharpFunctionalExtensions;
 using Greenbook.Domain;
 using Greenbook.Entities;
-using Greenbook.Extensions;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
 
 namespace Greenbook.Sessions
 {
@@ -17,23 +16,20 @@ namespace Greenbook.Sessions
             _sessionRepository = sessionRepository;
         }
 
-        public ObservableCollection<ContentItem> ContentItems { get; } = new ObservableCollection<ContentItem>();
         public ICommand PrintCommand => new RelayCommand<Session>(OnPrint);
-        public Session Session { get; set; }
+
+        public FlowDocument FlowDocument { get; private set; } = new FlowDocument();
 
         private void OnPrint(Session obj)
         {
-            Session = obj;
+            if (FlowDocument.Parent is FlowDocumentReader flowDocumentReader)
+            {
+                flowDocumentReader.Document = null;
+            }
 
-            var contentItems = _sessionRepository.LoadContentItems().ToArray();
+            var result = _sessionRepository.BuildPrintDocument(obj);
 
-            var trie = new Trie(contentItems.Select(x => x.Name).ToArray());
-
-            var sessionTrieIterator = new SessionTrieIterator(Session, contentItems);
-
-            trie.Iterate(sessionTrieIterator);
-
-            ContentItems.ClearAndLoad(sessionTrieIterator);
+            FlowDocument = result.IsSuccess ? result.Value : new FlowDocument();
         }
     }
 }
