@@ -20,12 +20,6 @@
         <Binding Path="ApplicationViewModel"
                  Source="{StaticResource ViewModelLocator}" />
     </Window.DataContext>
-    <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Loaded">
-            <ei:CallMethodAction MethodName="Load"
-                                 TargetObject="{Binding Source={StaticResource ViewModelLocator}, Path=DataViewModel}" />
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Load">

@@ -18,7 +18,7 @@ namespace Greenbook.WPF.Features.RandomTools
         [Definition]
         public virtual IRandomToolsRepository RandomToolsRepository()
         {
-            return ApplicationContext.GetObject<DataContext>();
+            return ApplicationContext.GetObject<ProjectRepository>();
         }
 
         [Definition]

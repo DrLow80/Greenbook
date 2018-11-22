@@ -18,7 +18,7 @@ namespace Greenbook.WPF.Features.Data
         [Definition]
         public virtual IDataRepository DataRepository()
         {
-            return ApplicationContext.GetObject<DataContext>();
+            return ApplicationContext.GetObject<ProjectRepository>();
         }
     }
 }

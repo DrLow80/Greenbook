@@ -31,7 +31,7 @@ namespace Greenbook.WPF.Features.Sessions
         [Definition]
         public virtual ISessionRepository SessionRepository()
         {
-            return ApplicationContext.GetObject<DataContext>();
+            return ApplicationContext.GetObject<ProjectRepository>();
         }
 
         [Definition]

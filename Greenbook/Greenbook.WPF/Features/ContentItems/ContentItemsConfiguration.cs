@@ -25,7 +25,7 @@ namespace Greenbook.WPF.Features.ContentItems
         [Definition]
         public virtual IContentItemsRepository ContentItemsRepository()
         {
-            return ApplicationContext.GetObject<DataContext>();
+            return ApplicationContext.GetObject<ProjectRepository>();
         }
 
         [Definition]

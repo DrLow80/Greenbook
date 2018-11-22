@@ -14,12 +14,11 @@ using Microsoft.Win32;
 
 namespace Greenbook.WPF.Features
 {
-    public class DataContext : IContentItemsRepository, ISessionRepository, IRandomToolsRepository, IDataRepository,
+    public class ProjectRepository : IContentItemsRepository, ISessionRepository, IRandomToolsRepository, IDataRepository,
         IContentItemTypesRepository
 
     {
         private IList<ContentItem> _contentItems = new List<ContentItem>();
-
         private IList<ContentItemType> _contentItemTypes = new List<ContentItemType>();
         private IList<Session> _sessions = new List<Session>();
 
@@ -49,7 +48,11 @@ namespace Greenbook.WPF.Features
 
         public Result<string> SelectImage()
         {
-            return Result.Ok(ShowDialog(new OpenFileDialog()));
+            var openFileDialog = new OpenFileDialog();
+
+            var result = ShowDialog(openFileDialog);
+
+            return Result.Ok(result);
         }
 
         public Result Load()

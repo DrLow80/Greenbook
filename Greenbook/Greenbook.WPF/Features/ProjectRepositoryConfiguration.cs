@@ -3,12 +3,12 @@
 namespace Greenbook.WPF.Features
 {
     [Configuration]
-    public class DataDefinition
+    public class ProjectRepositoryConfiguration
     {
         [Definition]
-        public virtual DataContext DataContext()
+        public virtual ProjectRepository DataContext()
         {
-            return new DataContext();
+            return new ProjectRepository();
         }
     }
 }

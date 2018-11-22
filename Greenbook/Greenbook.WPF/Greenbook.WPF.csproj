@@ -80,8 +80,8 @@
     <Compile Include="Features\Application\ApplicationConfiguration.cs" />
     <Compile Include="Features\ContentItems\ContentItemsConfiguration.cs" />
     <Compile Include="Features\ContentItemTypeListViews\ContentItemTypeListViewConfiguration.cs" />
-    <Compile Include="Features\DataContext.cs" />
-    <Compile Include="Features\DataDefinition.cs" />
+    <Compile Include="Features\ProjectRepository.cs" />
+    <Compile Include="Features\ProjectRepositoryConfiguration.cs" />
     <Compile Include="Features\Data\DataConfiguration.cs" />
     <Compile Include="Features\RandomTools\RandomToolsConfiguration.cs" />
     <Compile Include="Features\Sessions\SessionConfiguration.cs" />

@@ -24,7 +24,7 @@ namespace Greenbook.WPF.Features.ContentItemTypeListViews
         [Definition]
         public virtual IContentItemTypesRepository ContentItemTypesRepository()
         {
-            return ApplicationContext.GetObject<DataContext>();
+            return ApplicationContext.GetObject<ProjectRepository>();
         }
     }
 }
