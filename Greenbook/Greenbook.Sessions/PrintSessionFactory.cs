@@ -78,15 +78,29 @@ namespace Greenbook.Sessions
             return blockUiContainer;
         }
 
-        private static UIElement BuildContentItemGrid(ContentItem contentItem)
+        private static UIElement BuildImage(string imageSource)
         {
-            var uri = new Uri(contentItem.ImageSource);
+            Viewbox viewbox = new Viewbox();
+
+            if (string.IsNullOrEmpty(imageSource))
+            {
+                return viewbox;
+            }
+
+            var uri = new Uri(imageSource);
 
             var bitmapImage = new BitmapImage(uri);
 
             var image = new Image { Source = bitmapImage };
 
-            var viewbox = new Viewbox { Child = image };
+            viewbox = new Viewbox { Child = image };
+
+            return viewbox;
+        }
+
+        private static UIElement BuildContentItemGrid(ContentItem contentItem)
+        {
+
 
             var textBlock = new TextBlock
             {
@@ -114,7 +128,7 @@ namespace Greenbook.Sessions
                 Margin = new Thickness(2)
             };
 
-            grid.Children.Add(viewbox);
+            grid.Children.Add(BuildImage(contentItem.ImageSource));
 
             grid.Children.Add(border);
 

@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Greenbook.AdventureBuilder.Views.RandomToolsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Greenbook.AdventureBuilder.Views"
+             mc:Ignorable="d"
+             Margin="5">
+    <Grid>
+        <ListBox Margin="5"></ListBox>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button>
+                    <TextBlock Text="ReGenerate"></TextBlock>
+                </Button>
+                <TextBlock Grid.Column="1"
+                           Text="Selected Tool"></TextBlock>
+                <Button Grid.Column="2">
+                    <TextBlock Text="Close"></TextBlock>
+                </Button>
+            </Grid>
+            <ListBox Grid.Row="1"></ListBox>
+        </Grid>
+    </Grid>
+</UserControl>
