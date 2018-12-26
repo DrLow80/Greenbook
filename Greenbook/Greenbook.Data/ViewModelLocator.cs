@@ -1,4 +1,5 @@
 ﻿using Greenbook.Domain;
+using Greenbook.Foundation.DependencyInjection;
 
 namespace Greenbook.Data
 {

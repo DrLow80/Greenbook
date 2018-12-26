@@ -1,4 +1,5 @@
 ﻿using Greenbook.Domain;
+using Greenbook.Foundation.DependencyInjection;
 using Greenbook.Sessions.Views;
 
 namespace Greenbook.Sessions

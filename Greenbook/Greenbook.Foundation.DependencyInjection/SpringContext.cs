@@ -1,7 +1,7 @@
 ﻿using Spring.Context;
 using Spring.Context.Support;
 
-namespace Greenbook.Domain
+namespace Greenbook.Foundation.DependencyInjection
 {
     public class SpringContext
     {

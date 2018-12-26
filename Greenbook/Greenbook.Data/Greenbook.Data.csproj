@@ -89,6 +89,10 @@
       <Project>{4ba04b68-38c6-49c9-8c3d-b2d2e0fd6a87}</Project>
       <Name>Greenbook.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Greenbook.Foundation.DependencyInjection\Greenbook.Foundation.DependencyInjection.csproj">
+      <Project>{b7f9f7c0-632f-44d6-9c8a-cd49d44002dc}</Project>
+      <Name>Greenbook.Foundation.DependencyInjection</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

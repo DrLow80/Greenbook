@@ -156,6 +156,10 @@
       <Project>{4BA04B68-38C6-49C9-8C3D-B2D2E0FD6A87}</Project>
       <Name>Greenbook.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Greenbook.Foundation.DependencyInjection\Greenbook.Foundation.DependencyInjection.csproj">
+      <Project>{b7f9f7c0-632f-44d6-9c8a-cd49d44002dc}</Project>
+      <Name>Greenbook.Foundation.DependencyInjection</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Greenbook.RandomTools\Greenbook.RandomTools.csproj">
       <Project>{6f379cd3-f4f1-451b-88e0-8c2eaea6bae5}</Project>
       <Name>Greenbook.RandomTools</Name>

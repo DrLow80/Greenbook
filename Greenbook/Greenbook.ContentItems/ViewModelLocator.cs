@@ -1,5 +1,6 @@
 ﻿using Greenbook.ContentItems.Views;
 using Greenbook.Domain;
+using Greenbook.Foundation.DependencyInjection;
 
 namespace Greenbook.ContentItems
 {

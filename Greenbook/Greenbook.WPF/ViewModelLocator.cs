@@ -1,5 +1,6 @@
 ﻿using Greenbook.Application;
 using Greenbook.Domain;
+using Greenbook.Foundation.DependencyInjection;
 using Greenbook.RandomTools;
 
 namespace Greenbook.WPF

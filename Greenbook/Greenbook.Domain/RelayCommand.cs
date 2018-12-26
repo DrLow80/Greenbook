@@ -13,10 +13,7 @@ namespace Greenbook.Domain
 
         public RelayCommand(Action<object> execute, Predicate<object> canExecute)
         {
-            if (execute == null)
-                throw new ArgumentNullException("execute");
-
-            this.execute = execute;
+            this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
             this.canExecute = canExecute;
         }
     }
@@ -33,10 +30,7 @@ namespace Greenbook.Domain
 
         public RelayCommand(Action<T> execute, Predicate<T> canExecute)
         {
-            if (execute == null)
-                throw new ArgumentNullException("execute");
-
-            this.execute = execute;
+            this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
             this.canExecute = canExecute;
         }
 
@@ -53,7 +47,7 @@ namespace Greenbook.Domain
         [DebuggerStepThrough]
         public bool CanExecute(object parameter)
         {
-            return canExecute == null ? true : canExecute((T) parameter);
+            return canExecute?.Invoke((T) parameter) ?? true;
         }
 
         public void Execute(object parameter)

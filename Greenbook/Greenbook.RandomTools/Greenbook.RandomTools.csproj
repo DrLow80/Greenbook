@@ -111,6 +111,10 @@
       <Project>{3d009133-5b25-4b32-89a9-99c9f708e0f5}</Project>
       <Name>Greenbook.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Greenbook.Foundation.DependencyInjection\Greenbook.Foundation.DependencyInjection.csproj">
+      <Project>{b7f9f7c0-632f-44d6-9c8a-cd49d44002dc}</Project>
+      <Name>Greenbook.Foundation.DependencyInjection</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FodyWeavers.xml" />

@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.ContentItemTypes"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.AdventureBuilder", "Greenbook.AdventureBuilder\Greenbook.AdventureBuilder.csproj", "{C93FBC5B-7F1E-41A7-B4E5-CB6A8CA92BB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenbook.Foundation.DependencyInjection", "Greenbook.Foundation.DependencyInjection\Greenbook.Foundation.DependencyInjection.csproj", "{B7F9F7C0-632F-44D6-9C8A-CD49D44002DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{C93FBC5B-7F1E-41A7-B4E5-CB6A8CA92BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C93FBC5B-7F1E-41A7-B4E5-CB6A8CA92BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C93FBC5B-7F1E-41A7-B4E5-CB6A8CA92BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7F9F7C0-632F-44D6-9C8A-CD49D44002DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7F9F7C0-632F-44D6-9C8A-CD49D44002DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F9F7C0-632F-44D6-9C8A-CD49D44002DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7F9F7C0-632F-44D6-9C8A-CD49D44002DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,9 +117,10 @@ Global
 		{B102AC2D-0678-4707-B4F9-A65571E965E4} = {0BBD69F6-22EC-44DC-BA6B-2C170B6D38EC}
 		{2ABA6E10-AC53-44F5-AA85-03CEC840EEDC} = {0BBD69F6-22EC-44DC-BA6B-2C170B6D38EC}
 		{C93FBC5B-7F1E-41A7-B4E5-CB6A8CA92BB5} = {0BBD69F6-22EC-44DC-BA6B-2C170B6D38EC}
+		{B7F9F7C0-632F-44D6-9C8A-CD49D44002DC} = {097C85E9-53EA-4698-82B0-EEB80DA93971}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45
 		SolutionGuid = {2989585A-AD9D-4732-82A6-4D76C4943DBE}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal
