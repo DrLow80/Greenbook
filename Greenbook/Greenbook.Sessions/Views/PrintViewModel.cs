@@ -1,11 +1,10 @@
-﻿using CSharpFunctionalExtensions;
-using Greenbook.Domain;
-using Greenbook.Entities;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using Greenbook.Domain;
+using Greenbook.Entities;
 
-namespace Greenbook.Sessions
+namespace Greenbook.Sessions.Views
 {
     public class PrintViewModel : BaseViewModel
     {

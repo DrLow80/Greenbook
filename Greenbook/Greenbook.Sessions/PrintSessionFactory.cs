@@ -12,6 +12,19 @@ namespace Greenbook.Sessions
 {
     public class PrintSessionFactory
     {
+        private static readonly double FiveInches = ConvertLength("5in");
+        private static readonly double FourInches = ConvertLength("4in");
+        private static readonly double ThreeAndHalfInches = ConvertLength("3.5in");
+
+        private static double ConvertLength(string value)
+        {
+            LengthConverter lengthConverter = new LengthConverter();
+
+            double result = (double)lengthConverter.ConvertFrom(value);
+
+            return result;
+        }
+
         public static FlowDocument Print(PrintSessionRequest printSessionRequest)
         {
             var flowDocument = new FlowDocument();
@@ -35,7 +48,7 @@ namespace Greenbook.Sessions
 
         private static Block BuildContentItemBlock(ContentItem contentItem)
         {
-            var uri = new Uri("C:\\Users\\947665\\Pictures\\IMG_0876.JPG");
+            var uri = new Uri(contentItem.ImageSource);
 
             var bitmapImage = new BitmapImage(uri);
 
@@ -58,14 +71,10 @@ namespace Greenbook.Sessions
                 HorizontalAlignment = HorizontalAlignment.Center
             };
 
-            var height = (double)new LengthConverter().ConvertFrom("5in");
-
-            var width = (double)new LengthConverter().ConvertFrom("4in");
-
             var grid = new Grid
             {
-                Height = height,
-                Width = width,
+                Height = FiveInches,
+                Width = FourInches,
                 Background = Brushes.Red
             };
 
@@ -117,14 +126,10 @@ namespace Greenbook.Sessions
                 HorizontalAlignment = HorizontalAlignment.Center
             };
 
-            var height = (double)new LengthConverter().ConvertFrom("5in");
-
-            var width = (double)new LengthConverter().ConvertFrom("3.5in");
-
             var grid = new Grid
             {
-                Height = height,
-                Width = width,
+                Height = FiveInches,
+                Width = ThreeAndHalfInches,
                 Margin = new Thickness(2)
             };
 

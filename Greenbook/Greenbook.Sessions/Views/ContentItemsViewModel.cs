@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
 using Greenbook.AhoCorasickTrie;
@@ -7,7 +6,7 @@ using Greenbook.Domain;
 using Greenbook.Entities;
 using Greenbook.Extensions;
 
-namespace Greenbook.Sessions
+namespace Greenbook.Sessions.Views
 {
     public class ContentItemsViewModel : BaseViewModel
     {

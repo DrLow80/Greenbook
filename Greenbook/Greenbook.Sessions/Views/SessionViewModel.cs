@@ -2,7 +2,7 @@
 using Greenbook.Domain;
 using Greenbook.Entities;
 
-namespace Greenbook.Sessions
+namespace Greenbook.Sessions.Views
 {
     public class SessionViewModel : BaseViewModel
     {

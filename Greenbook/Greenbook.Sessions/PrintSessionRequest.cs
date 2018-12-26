@@ -1,17 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using CSharpFunctionalExtensions;
+﻿using CSharpFunctionalExtensions;
 using Greenbook.Entities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Greenbook.Sessions
 {
     public class PrintSessionRequest
     {
-        public Session Session { get; }
-
-        public IEnumerable<ContentItem> ContentItems { get; }
-
-        public IEnumerable<Encounter> Encounters => Session.Encounters;
+        public const string ContentItemsIsNull = "FailContentItemsIsNull";
+        public const string SessionHasNoEncounters = "FailSessionHasNoEncounters";
+        public const string SessionIsNull = "FailSessionIsNull";
 
         private PrintSessionRequest(Session session, IEnumerable<ContentItem> contentItems)
         {
@@ -19,25 +17,25 @@ namespace Greenbook.Sessions
             ContentItems = contentItems;
         }
 
-        public const string FailSessionIsNull = "FailSessionIsNull";
-        public const string FailSessionHasNoEncounters = "FailSessionHasNoEncounters";
-        public const string FailContentItemsIsNull = "FailContentItemsIsNull";
+        public IEnumerable<ContentItem> ContentItems { get; }
+        public IEnumerable<Encounter> Encounters => Session.Encounters;
+        public Session Session { get; }
 
         public static Result<PrintSessionRequest> Build(Session session, IEnumerable<ContentItem> contentItems)
         {
             if (session == null)
             {
-                return Fail(FailSessionIsNull);
+                return Fail(SessionIsNull);
             }
 
             if (!session.Encounters.Any())
             {
-                return Fail(FailSessionHasNoEncounters);
+                return Fail(SessionHasNoEncounters);
             }
 
             if (contentItems == null)
             {
-                return Fail(FailContentItemsIsNull);
+                return Fail(ContentItemsIsNull);
             }
 
             PrintSessionRequest printSessionRequest = new PrintSessionRequest(session, contentItems);
