@@ -65,6 +65,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\ViewTypeToBoolConverter.cs" />
     <Compile Include="Views\ContentItemViewModelCreateCommand.cs" />
     <Compile Include="Views\EncountersViewModel.cs" />
     <Compile Include="IContentItemsRepository.cs" />
@@ -131,6 +132,10 @@
     <ProjectReference Include="..\Greenbook.Extensions\Greenbook.Extensions.csproj">
       <Project>{c999d850-6918-4cd3-9b4f-28fec835d2bd}</Project>
       <Name>Greenbook.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Greenbook.Feature.ContentMentionTextBox\Greenbook.Feature.ContentMentionTextBox.csproj">
+      <Project>{56b64819-8f38-4bc9-958c-97b7dc67ff1f}</Project>
+      <Name>Greenbook.Feature.ContentMentionTextBox</Name>
     </ProjectReference>
     <ProjectReference Include="..\Greenbook.Foundation.DependencyInjection\Greenbook.Foundation.DependencyInjection.csproj">
       <Project>{b7f9f7c0-632f-44d6-9c8a-cd49d44002dc}</Project>
