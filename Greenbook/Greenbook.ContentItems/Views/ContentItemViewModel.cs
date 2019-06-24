@@ -20,21 +20,14 @@ namespace Greenbook.ContentItems.Views
 
         public ICommand SelectImageCommand => new RelayCommand(OnSelectImage);
 
-        public ICommand CreateCommand => new RelayCommand(OnCreate);
+        public ICommand CreateCommand { get; set; }
 
-        public EncountersViewModel EncountersViewModel { get; private set; }
+        public EncountersViewModel EncountersViewModel { get; set; }
 
-        public ICommand RemoveCommand => new RelayCommand(OnRemove);
+        public ICommand RemoveCommand { get; set; }
 
         public ObservableCollection<ContentItemType> ContentItemTypes { get; } =
             new ObservableCollection<ContentItemType>();
-
-        private void OnCreate(object obj)
-        {
-            ContentItem = new ContentItem();
-
-            _contentItemsRepository.Insert(ContentItem);
-        }
 
         public void Load()
         {
@@ -49,18 +42,6 @@ namespace Greenbook.ContentItems.Views
             var path = _contentItemsRepository.SelectImage();
 
             if (path.IsSuccess) ContentItem.ImageSource = path.Value;
-        }
-
-        private void OnRemove(object obj)
-        {
-            if (ContentItem == null)
-            {
-                //what do?
-            }
-
-            _contentItemsRepository.Remove(ContentItem);
-
-            ContentItem = null;
         }
     }
 }

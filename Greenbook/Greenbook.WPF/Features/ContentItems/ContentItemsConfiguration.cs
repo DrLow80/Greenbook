@@ -31,7 +31,13 @@ namespace Greenbook.WPF.Features.ContentItems
         [Definition]
         public virtual ContentItemViewModel ContentItemViewModel()
         {
-            return new ContentItemViewModel(ContentItemsRepository());
+            var contentItemViewModel = new ContentItemViewModel(ContentItemsRepository());
+
+            contentItemViewModel.CreateCommand = new ContentItemViewModelCreateCommand(contentItemViewModel, ContentItemsRepository());
+
+            contentItemViewModel.RemoveCommand = new ContentItemViewModelRemoveCommand(contentItemViewModel, ContentItemsRepository());
+
+            return contentItemViewModel;
         }
     }
 }

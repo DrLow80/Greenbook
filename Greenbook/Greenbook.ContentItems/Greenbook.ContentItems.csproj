@@ -65,6 +65,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\ContentItemViewModelCreateCommand.cs" />
     <Compile Include="Views\EncountersViewModel.cs" />
     <Compile Include="IContentItemsRepository.cs" />
     <Compile Include="ViewModelLocator.cs" />
@@ -79,6 +80,7 @@
     </Compile>
     <Compile Include="Views\ListViewModel.cs" />
     <Compile Include="Views\HostViewModel.cs" />
+    <Compile Include="Views\ContentItemViewModelRemoveCommand.cs" />
     <Page Include="Views\ContentItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
